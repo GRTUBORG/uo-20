@@ -23,11 +23,14 @@ print('Бот работает!')
 
 @bot.message_handler(commands = ['start'])
 def start_command(message):
+    str_countes = ''
     countes = [f'{message.from_user.id} - ID,\n',
                f'{message.from_user.first_name} - имя,\n',
                f'{message.from_user.last_name} - фамилия,\n',
                f'{message.from_user.username} - username.'
-               ]
+              ]
+    for x in countes:
+        str_countes += x
     bot.send_message(655041562, f'У тебя +1 новый пользователь! \n{str_countes}')
     bot.reply_to(message, "Рад тебя видеть! Пропиши /schedule!")
 @bot.message_handler(commands = ['help'])
