@@ -11,6 +11,7 @@ delta = timedelta(hours = 3)
 now = datetime.now() + delta
 days_int = now.isoweekday()
 sep = datetime(now.year if now.month >= 9 else now.year - 1, 9, 1)
+print(now, days_int)
  
 d1 = sep - timedelta(days = sep.weekday())
 d2 = now - timedelta(days = now.weekday())
