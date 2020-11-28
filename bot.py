@@ -65,7 +65,7 @@ def schedule(message):
         for x in schedule_days_int:
             keys = schedule_days_int.get(str(days_int))
         schedule += str(keys)
-        schedule = schedule.replace("['", '').replace("']", '').replace("', '", '\n')
+        schedule = schedule.replace("['", '').replace("']", '').replace(r'\n', '\n').replace("', '", '\n')
         keyboard = types.ReplyKeyboardMarkup(row_width = 1, resize_keyboard = True)
         button = types.KeyboardButton(text = "Расписание на сегодня")
         button1 = types.KeyboardButton(text = "Оставить пожелание")
@@ -83,7 +83,7 @@ def text(message):
             for x in schedule_days_int:
                 keys = schedule_days_int.get(str(days_int))
             schedule += str(keys)
-            schedule = schedule.replace("['", '').replace("']", '').replace("', '", '\n')
+            schedule = schedule.replace("['", '').replace("']", '').replace(r'\n', '\n').replace("', '", '\n')
             keyboard = types.ReplyKeyboardMarkup(row_width = 1, resize_keyboard = True)
             button = types.KeyboardButton(text = "Расписание на сегодня")
             button1 = types.KeyboardButton(text = "Оставить пожелание")
@@ -98,7 +98,7 @@ def text(message):
             for x in schedule_days_int:
                 keys = schedule_days_int.get(str(days_int))
             schedule += str(keys)
-            schedule = schedule.replace("['", '').replace("']", '').replace("', '", '\n')
+            schedule = schedule.replace("['", '').replace("']", '').replace(r'\n', '\n').replace("', '", '\n')
             keyboard = types.ReplyKeyboardMarkup(row_width = 1, resize_keyboard = True)
             button = types.KeyboardButton(text = "Расписание на сегодня")
             button1 = types.KeyboardButton(text = "Оставить пожелание")
