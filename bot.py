@@ -6,11 +6,14 @@ import os
 from telebot import types
 from datetime import datetime, date, timedelta
 
-
-delta = timedelta(hours = 3)
-now = datetime.now() + delta
-days_int = now.isoweekday()
-sep = datetime(now.year if now.month >= 9 else now.year - 1, 9, 1)
+try:
+    delta = timedelta(hours = 3)
+    now = datetime.now() + delta
+    days_int = now.isoweekday()
+    sep = datetime(now.year if now.month >= 9 else now.year - 1, 9, 1)
+    print(now, days_int)
+except Exception as e:
+    print(e)
  
 d1 = sep - timedelta(days = sep.weekday())
 d2 = now - timedelta(days = now.weekday())
@@ -20,7 +23,6 @@ parity = ((d2 - d1).days // 7) % 2 #возвращает 0, если недел�
 token = os.environ.get('bot_token')
 bot = telebot.TeleBot(str(token))
 print('Бот работает!')
-print(now, days_int)
 
 @bot.message_handler(commands = ['start'])
 def start_command(message):
