@@ -45,7 +45,7 @@ def schedule(message):
         data_loads = json.load(open('./schedule.json'))
         data = json.dumps(data_loads)
         json_data = json.loads(data)
-        schedule_days_int = json_data["Для чётной недели"]
+        schedule_days_int = json_data["Для нечётной недели"]
         schedule = ''
         for x in schedule_days_int:
             keys = schedule_days_int.get(str(days_int))
@@ -60,7 +60,7 @@ def schedule(message):
         data_loads = json.load(open('./schedule.json'))
         data = json.dumps(data_loads)
         json_data = json.loads(data)
-        schedule_days_int = json_data["Для нечётной недели"]
+        schedule_days_int = json_data["Для чётной недели"]
         schedule = ''
         for x in schedule_days_int:
             keys = schedule_days_int.get(str(days_int))
@@ -78,7 +78,7 @@ def text(message):
             data_loads = json.load(open('./schedule.json'))
             data = json.dumps(data_loads)
             json_data = json.loads(data)
-            schedule_days_int = json_data["Для чётной недели"]
+            schedule_days_int = json_data["Для нечётной недели"]
             schedule = ''
             for x in schedule_days_int:
                 keys = schedule_days_int.get(str(days_int))
@@ -93,7 +93,7 @@ def text(message):
             data_loads = json.load(open('./schedule.json'))
             data = json.dumps(data_loads)
             json_data = json.loads(data)
-            schedule_days_int = json_data["Для нечётной недели"]
+            schedule_days_int = json_data["Для чётной недели"]
             schedule = ''
             for x in schedule_days_int:
                 keys = schedule_days_int.get(str(days_int))
