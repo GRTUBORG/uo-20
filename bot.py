@@ -50,7 +50,8 @@ def schedule(message):
         schedule = schedule.replace("['", '').replace("']", '').replace(r'\n', '\n').replace("', '", '\n')
         keyboard = types.ReplyKeyboardMarkup(row_width = 1, resize_keyboard = True)
         button = types.KeyboardButton(text = "Расписание на сегодня")
-        keyboard.add(button)
+        button1 = types.KeyboardButton(text = "Оставить пожелание")
+        keyboard.add(button, button1)
         bot.send_message(message.chat.id, schedule, parse_mode = 'Markdown', reply_markup = keyboard)
     else:
         data_loads = json.load(open('./schedule.json'))
@@ -64,7 +65,8 @@ def schedule(message):
         schedule = schedule.replace("['", '').replace("']", '').replace("', '", '\n')
         keyboard = types.ReplyKeyboardMarkup(row_width = 1, resize_keyboard = True)
         button = types.KeyboardButton(text = "Расписание на сегодня")
-        keyboard.add(button)
+        button1 = types.KeyboardButton(text = "Оставить пожелание")
+        keyboard.add(button, button1)
         bot.send_message(message.chat.id, schedule, parse_mode = 'Markdown', reply_markup = keyboard)
 @bot.message_handler(content_types = ['text'])
 def text(message):
@@ -97,6 +99,8 @@ def text(message):
             button = types.KeyboardButton(text = "Расписание на сегодня")
             keyboard.add(button)
             bot.send_message(message.chat.id, schedule, parse_mode = 'Markdown', reply_markup = keyboard)
+        elif message.text == 'Оставить пожелание':
+            bot.send_message(message.chat.id, "По всем вопросам и пожеланиям обращаться к @whomet")
 if __name__ == '__main__':
     while True:
         try:
