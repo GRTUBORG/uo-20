@@ -85,7 +85,7 @@ def text(message):
             button = types.KeyboardButton(text = "Расписание на сегодня")
             keyboard.add(button)
             bot.send_message(message.chat.id, schedule, parse_mode = 'Markdown', reply_markup = keyboard)
-        else:
+        elif parity == 1:
             data_loads = json.load(open('./schedule.json'))
             data = json.dumps(data_loads)
             json_data = json.loads(data)
