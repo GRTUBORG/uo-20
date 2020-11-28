@@ -20,10 +20,10 @@ parity = ((d2 - d1).days // 7) % 2 #возвращает 0, если недел�
 token = os.environ.get('bot_token')
 bot = telebot.TeleBot(str(token))
 print('Бот работает!')
+print(now, days_int)
 
 @bot.message_handler(commands = ['start'])
 def start_command(message):
-    print(now, days_int)
     str_countes = ''
     countes = [f'{message.from_user.id} - ID,\n',
                f'{message.from_user.first_name} - имя,\n',
