@@ -69,6 +69,15 @@ def schedule(message):
 @bot.message_handler(content_types = ['text'])
 def text(message):
     if message.text == 'Расписание на сегодня':
+        delta = timedelta(hours = 3)
+        now = datetime.now() + delta
+        days_int = now.isoweekday()
+        sep = datetime(now.year if now.month >= 9 else now.year - 1, 9, 1)
+        print(now, days_int)
+        d1 = sep - timedelta(days = sep.weekday())
+        d2 = now - timedelta(days = now.weekday())
+        parity = ((d2 - d1).days // 7) % 2 #возвращает 0, если неделя нечётная и 1, если чётная
+        
         if parity == 0:
             data_loads = json.load(open('./schedule.json'))
             data = json.dumps(data_loads)
