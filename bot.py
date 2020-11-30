@@ -111,7 +111,13 @@ def text(message):
         button = types.KeyboardButton(text = "Расписание на сегодня")
         button1 = types.KeyboardButton(text = "Оставить пожелание")
         keyboard.add(button, button1)
-        bot.send_message(message.chat.id, "По всем вопросам и пожеланиям обращаться к @whomet", reply_markup = keyboard)
+        bot.send_message(message.chat.id, "Напиши своё сообщение, а я отправлю его разработчику!", reply_markup = keyboard)
+        bot.register_next_step_handler(message, get_message)
+def get_message(message):
+    global callback
+    callback = message.text
+    bot.send_message(message.chat.id, "Готово! Спасибо за отзыв!")
+    bot.send_message(655041562, f'Кто-то оставил фидбэк: \n*{callback}*', parse_mode = 'Markdown')
 if __name__ == '__main__':
     while True:
         try:
