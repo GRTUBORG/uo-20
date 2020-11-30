@@ -6,20 +6,6 @@ import os
 from telebot import types
 from datetime import datetime, date, timedelta
 
-try:
-    delta = timedelta(hours = 3)
-    now = datetime.now() + delta
-    days_int = now.isoweekday()
-    sep = datetime(now.year if now.month >= 9 else now.year - 1, 9, 1)
-    print(now, days_int)
-except Exception as e:
-    print(e)
- 
-d1 = sep - timedelta(days = sep.weekday())
-d2 = now - timedelta(days = now.weekday())
- 
-parity = ((d2 - d1).days // 7) % 2 #возвращает 0, если неделя нечётная и 1, если чётная
-
 token = os.environ.get('bot_token')
 bot = telebot.TeleBot(str(token))
 print('Бот работает!')
@@ -41,6 +27,15 @@ def send_help(message):
     bot.reply_to(message, "Привет! Рад, что ты заглянул(а) сюда :) \n1) /schedule - узнать расписание")
 @bot.message_handler(commands = ['schedule'])
 def schedule(message):
+    delta = timedelta(hours = 3)
+    now = datetime.now() + delta
+    days_int = now.isoweekday()
+    sep = datetime(now.year if now.month >= 9 else now.year - 1, 9, 1)
+    print(now, days_int)
+    d1 = sep - timedelta(days = sep.weekday())
+    d2 = now - timedelta(days = now.weekday())
+    parity = ((d2 - d1).days // 7) % 2 #возвращает 0, если неделя нечётная и 1, если чётная
+    
     if parity == 0:
         data_loads = json.load(open('./schedule.json'))
         data = json.dumps(data_loads)
