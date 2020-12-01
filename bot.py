@@ -10,6 +10,10 @@ token = os.environ.get('bot_token')
 bot = telebot.TeleBot(str(token))
 print('Бот работает!')
 
+data_loads = json.load(open('./schedule.json'))
+data = json.dumps(data_loads)
+json_data = json.loads(data)
+
 @bot.message_handler(commands = ['start'])
 def start_command(message):
     str_countes = ''
@@ -36,9 +40,6 @@ def schedule(message):
     parity = ((d2 - d1).days // 7) % 2 #возвращает 0, если неделя нечётная и 1, если чётная
     
     if parity == 0:
-        data_loads = json.load(open('./schedule.json'))
-        data = json.dumps(data_loads)
-        json_data = json.loads(data)
         schedule_days_int = json_data["Для нечётной недели"]
         schedule = ''
         for x in schedule_days_int:
@@ -51,9 +52,6 @@ def schedule(message):
         keyboard.add(button, button1)
         bot.send_message(message.chat.id, schedule, parse_mode = 'Markdown', reply_markup = keyboard)
     else:
-        data_loads = json.load(open('./schedule.json'))
-        data = json.dumps(data_loads)
-        json_data = json.loads(data)
         schedule_days_int = json_data["Для чётной недели"]
         schedule = ''
         for x in schedule_days_int:
@@ -77,9 +75,6 @@ def text(message):
         parity = ((d2 - d1).days // 7) % 2 #возвращает 0, если неделя нечётная и 1, если чётная
         
         if parity == 0:
-            data_loads = json.load(open('./schedule.json'))
-            data = json.dumps(data_loads)
-            json_data = json.loads(data)
             schedule_days_int = json_data["Для нечётной недели"]
             schedule = ''
             for x in schedule_days_int:
@@ -92,9 +87,6 @@ def text(message):
             keyboard.add(button, button1)
             bot.send_message(message.chat.id, schedule, parse_mode = 'Markdown', reply_markup = keyboard)
         else:
-            data_loads = json.load(open('./schedule.json'))
-            data = json.dumps(data_loads)
-            json_data = json.loads(data)
             schedule_days_int = json_data["Для чётной недели"]
             schedule = ''
             for x in schedule_days_int:
