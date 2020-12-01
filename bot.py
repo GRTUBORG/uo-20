@@ -14,6 +14,17 @@ data_loads = json.load(open('./schedule.json'))
 data = json.dumps(data_loads)
 json_data = json.loads(data)
 
+data_loads1 = json.load(open('./users.json'))
+data1 = json.dumps(data_loads1)
+json_data1 = json.loads(data1)
+
+@bot.message_handler(commands = ['update'])
+def update_sender(message):
+    users_get = json_data1["users"]
+    values = 0
+    for x in users_get:
+        bot.send_message(users_get[values], "Я обновился!")
+        values += 1
 @bot.message_handler(commands = ['start'])
 def start_command(message):
     str_countes = ''
