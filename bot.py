@@ -104,16 +104,51 @@ def text(message):
             bot.send_message(message.chat.id, schedule, parse_mode = 'Markdown', reply_markup = keyboard)
     elif message.text == 'Оставить пожелание':
         keyboard = types.ReplyKeyboardMarkup(row_width = 1, resize_keyboard = True)
-        button = types.KeyboardButton(text = "Расписание на сегодня")
-        button1 = types.KeyboardButton(text = "Оставить пожелание")
-        keyboard.add(button, button1)
-        bot.send_message(message.chat.id, "Напиши своё сообщение, а я отправлю его разработчику!", reply_markup = keyboard)
+        button = types.KeyboardButton(text = "Отмена")
+        keyboard.add(button)
+        bot.send_message(message.chat.id, "Напиши своё сообщение, а я отправлю его разработчику, \nлибо отправь «Отмена» для отмены!", reply_markup = keyboard)
         bot.register_next_step_handler(message, get_message)
 def get_message(message):
     global callback
     callback = message.text
-    bot.send_message(message.chat.id, "Готово! Спасибо за отзыв!")
-    bot.send_message(655041562, f'Кто-то оставил фидбэк: \n*{callback}*', parse_mode = 'Markdown')
+    if message.text == "Отмена" or "отмена":
+        delta = timedelta(hours = 3)
+        now = datetime.now() + delta
+        days_int = now.isoweekday()
+        sep = datetime(now.year if now.month >= 9 else now.year - 1, 9, 1)
+        d1 = sep - timedelta(days = sep.weekday())
+        d2 = now - timedelta(days = now.weekday())
+        parity = ((d2 - d1).days // 7) % 2 #возвращает 0, если неделя нечётная и 1, если чётная
+        
+        if parity == 0:
+            schedule_days_int = json_data["Для нечётной недели"]
+            schedule = ''
+            for x in schedule_days_int:
+                keys = schedule_days_int.get(str(days_int))
+            nowtime = now.strftime("(%d.%m.%y)")
+            schedule += str(keys)
+            schedule = schedule.replace("['", '').replace("']", '').replace(r'\n', '\n').replace("', '", '').replace('()', nowtime)
+            keyboard = types.ReplyKeyboardMarkup(row_width = 1, resize_keyboard = True)
+            button = types.KeyboardButton(text = "Расписание на сегодня")
+            button1 = types.KeyboardButton(text = "Оставить пожелание")
+            keyboard.add(button, button1)
+            bot.send_message(message.chat.id, schedule, parse_mode = 'Markdown', reply_markup = keyboard)
+        else:
+            schedule_days_int = json_data["Для чётной недели"]
+            schedule = ''
+            for x in schedule_days_int:
+                keys = schedule_days_int.get(str(days_int))
+            nowtime = now.strftime("(%d.%m.%y)")
+            schedule += str(keys)
+            schedule = schedule.replace("['", '').replace("']", '').replace(r'\n', '\n').replace("', '", '').replace('()', nowtime)
+            keyboard = types.ReplyKeyboardMarkup(row_width = 1, resize_keyboard = True)
+            button = types.KeyboardButton(text = "Расписание на сегодня")
+            button1 = types.KeyboardButton(text = "Оставить пожелание")
+            keyboard.add(button, button1)
+            bot.send_message(message.chat.id, schedule, parse_mode = 'Markdown', reply_markup = keyboard)
+    else:
+        bot.send_message(message.chat.id, "Готово! Спасибо за отзыв!")
+        bot.send_message(655041562, f'Кто-то оставил фидбэк: \n*{callback}*', parse_mode = 'Markdown')
 if __name__ == '__main__':
     while True:
         try:
