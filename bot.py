@@ -109,9 +109,8 @@ def text(message):
         bot.send_message(message.chat.id, "Напиши своё сообщение, а я отправлю его разработчику, \nлибо отправь «Отмена» для отмены!", reply_markup = keyboard)
         bot.register_next_step_handler(message, get_message)
 def get_message(message):
-    global callback
     callback = message.text
-    if callback == "Отмена" or "отмена":
+    if callback == "Отмена" or callback == "отмена":
         bot.clear_step_handler_by_chat_id(chat_id = message.chat.id)
         keyboard = types.ReplyKeyboardMarkup(row_width = 1, resize_keyboard = True)
         button = types.KeyboardButton(text = "Расписание на сегодня")
@@ -119,8 +118,12 @@ def get_message(message):
         keyboard.add(button, button1)
         bot.send_message(message.chat.id, "Готово!", parse_mode = 'Markdown', reply_markup = keyboard)
     else:
-        bot.send_message(message.chat.id, "Готово! Спасибо за отзыв!")
-        bot.send_message(655041562, f'Кто-то оставил фидбэк: \n*{callback}*', parse_mode = 'Markdown')
+        keyboard = types.ReplyKeyboardMarkup(row_width = 1, resize_keyboard = True)
+        button = types.KeyboardButton(text = "Расписание на сегодня")
+        button1 = types.KeyboardButton(text = "Оставить пожелание")
+        keyboard.add(button, button1)
+        bot.send_message(message.chat.id, "Готово! Спасибо за отзыв!", reply_markup = keyboard)
+        bot.send_message(655041562, f'Кто-то оставил фидбэк: \n*{callback}*', parse_mode = 'Markdown', reply_markup = keyboard)
 if __name__ == '__main__':
     while True:
         try:
