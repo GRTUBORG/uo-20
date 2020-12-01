@@ -23,7 +23,11 @@ def update_sender(message):
     users_get = json_data1["users"]
     values = 0
     for x in users_get:
-        bot.send_message(users_get[values], "Я обновился!")
+        bot.send_message(users_get[values], "Бот обновился до v1.2\n"
+                                            "\n*Коротко* о новом обновлении:" 
+                                            "\n• Появилась функция отмены для команды «Оставить пожелание»;"
+                                            "\n• В расписании рядом с днём теперь стоит дата."
+                                            "\n\nИ также небольшой вопрос - интересно ли Вам получать краткую сводку об обновлениях (выходит раз в неделю)? Если да - пишите в «Оставить пожелание» слово «Да», если нет, то напишите «Нет»", parse_mode = 'Markdown')
         values += 1
 @bot.message_handler(commands = ['start'])
 def start_command(message):
