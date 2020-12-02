@@ -182,7 +182,7 @@ def text(message):
             button2 = types.KeyboardButton(text = "Оставить пожелание")
             keyboard.add(button, button1, button2)
             bot.send_message(message.chat.id, schedule, parse_mode = 'Markdown', reply_markup = keyboard)
-    elif message.text == 'Узнать расписание на следующий день':
+    elif message.text == 'Расписание на следующий день':
         delta = timedelta(hours = 3)
         delta1 = timedelta(days = 1)
         now = datetime.now() + delta
