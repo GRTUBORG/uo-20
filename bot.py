@@ -99,17 +99,7 @@ def schedule(message):
             keyboard.add(button, button1, button2)
             bot.send_message(message.chat.id, schedule, parse_mode = 'Markdown', reply_markup = keyboard)
     else:
-        for x in days_count:
-            if message.text[10:] == x:
-                errors = 1
-                break
-            elif message.text[10:] != x:
-                errors = 0
-                break
-        print(errors)
-        if errors == 0:
-            bot.send_message(message.chat.id, 'Так. Ты ввёл что-то не то. Введи числа (от 1 до 7)!')
-        else:
+        try:
             delta = timedelta(hours = 3)
             now = datetime.now() + delta
             days_int = now.isoweekday()
@@ -144,7 +134,11 @@ def schedule(message):
                 button1 = types.KeyboardButton(text = "Расписание на завтра")
                 button2 = types.KeyboardButton(text = "Оставить пожелание")
                 keyboard.add(button, button1, button2)
-                bot.send_message(message.chat.id, schedule, parse_mode = 'Markdown', reply_markup = keyboard)
+                if schedule == "None":
+                    schedule = "Упс, но ты ввёл что-то не так."
+                bot.send_message(message.chat.id, schedule, parse_mode = 'Markdown', reply_markup = keyboard)   
+        except:
+            bot.send_message(message.chat.id, 'Так. Тут что-то не так. Введи числа (от 1 до 7), либо обратись к @whomet!')
 
 
 @bot.message_handler(commands = ['schedule_next'])
