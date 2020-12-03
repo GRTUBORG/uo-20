@@ -98,8 +98,15 @@ def schedule(message):
             keyboard.add(button, button1, button2)
             bot.send_message(message.chat.id, schedule, parse_mode = 'Markdown', reply_markup = keyboard)
     else:
-        if int(message.text[10:]) > 7:
-            bot.send_message(message.chat.id, 'А у нас в неделе точно не больше 7 дней? Ладно, буду знать...')
+        for x in days_count:
+            if message.text[10:] == x:
+                errors = 1
+                break
+            elif message.text[10:] != x:
+                errors = 0
+                break
+        if errors == 0:
+            bot.send_message(message.chat.id, 'Так. Ты ввёл что-то не то. Введи числа (от 1 до 7)!')
         else:
             delta = timedelta(hours = 3)
             now = datetime.now() + delta
