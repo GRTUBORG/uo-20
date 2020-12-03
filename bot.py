@@ -97,41 +97,44 @@ def schedule(message):
             keyboard.add(button, button1, button2)
             bot.send_message(message.chat.id, schedule, parse_mode = 'Markdown', reply_markup = keyboard)
     else:
-        delta = timedelta(hours = 3)
-        now = datetime.now() + delta
-        days_int = now.isoweekday()
-
-        sep = datetime(now.year if now.month >= 9 else now.year - 1, 9, 1)
-        d1 = sep - timedelta(days = sep.weekday())
-        d2 = now - timedelta(days = now.weekday())
-        parity = ((d2 - d1).days // 7) % 2 #возвращает 0, если неделя нечётная и 1, если чётная
-        
-        if parity == 0:
-            schedule_days_int = json_data["Для нечётной недели"]
-            schedule = ''
-            for x in schedule_days_int:
-                keys = schedule_days_int.get(message.text[10:])
-            schedule += str(keys)
-            schedule = schedule.replace("['", '').replace("']", '').replace(r'\n', '\n').replace("', '", '').replace('()', 'для этой недели')
-            keyboard = types.ReplyKeyboardMarkup(row_width = 1, resize_keyboard = True)
-            button = types.KeyboardButton(text = "Расписание на сегодня")
-            button1 = types.KeyboardButton(text = "Узнать расписание на следующий день")
-            button2 = types.KeyboardButton(text = "Оставить пожелание")
-            keyboard.add(button, button1, button2)
-            bot.send_message(message.chat.id, schedule, parse_mode = 'Markdown', reply_markup = keyboard)
+        if int(message.text[10:]) > 7:
+            bot.send_message(message.chat.id, 'А у нас в неделе точно не больше 7 дней? Ладно, буду знать...')
         else:
-            schedule_days_int = json_data["Для чётной недели"]
-            schedule = ''
-            for x in schedule_days_int:
-                keys = schedule_days_int.get(message.text[10:])
-            schedule += str(keys)
-            schedule = schedule.replace("['", '').replace("']", '').replace(r'\n', '\n').replace("', '", '').replace('()', 'для этой недели')
-            keyboard = types.ReplyKeyboardMarkup(row_width = 1, resize_keyboard = True)
-            button = types.KeyboardButton(text = "Расписание на сегодня")
-            button1 = types.KeyboardButton(text = "Узнать расписание на следующий день")
-            button2 = types.KeyboardButton(text = "Оставить пожелание")
-            keyboard.add(button, button1, button2)
-            bot.send_message(message.chat.id, schedule, parse_mode = 'Markdown', reply_markup = keyboard)
+            delta = timedelta(hours = 3)
+            now = datetime.now() + delta
+            days_int = now.isoweekday()
+
+            sep = datetime(now.year if now.month >= 9 else now.year - 1, 9, 1)
+            d1 = sep - timedelta(days = sep.weekday())
+            d2 = now - timedelta(days = now.weekday())
+            parity = ((d2 - d1).days // 7) % 2 #возвращает 0, если неделя нечётная и 1, если чётная
+
+            if parity == 0:
+                schedule_days_int = json_data["Для нечётной недели"]
+                schedule = ''
+                for x in schedule_days_int:
+                    keys = schedule_days_int.get(message.text[10:])
+                schedule += str(keys)
+                schedule = schedule.replace("['", '').replace("']", '').replace(r'\n', '\n').replace("', '", '').replace('()', 'для этой недели')
+                keyboard = types.ReplyKeyboardMarkup(row_width = 1, resize_keyboard = True)
+                button = types.KeyboardButton(text = "Расписание на сегодня")
+                button1 = types.KeyboardButton(text = "Узнать расписание на следующий день")
+                button2 = types.KeyboardButton(text = "Оставить пожелание")
+                keyboard.add(button, button1, button2)
+                bot.send_message(message.chat.id, schedule, parse_mode = 'Markdown', reply_markup = keyboard)
+            else:
+                schedule_days_int = json_data["Для чётной недели"]
+                schedule = ''
+                for x in schedule_days_int:
+                    keys = schedule_days_int.get(message.text[10:])
+                schedule += str(keys)
+                schedule = schedule.replace("['", '').replace("']", '').replace(r'\n', '\n').replace("', '", '').replace('()', 'для этой недели')
+                keyboard = types.ReplyKeyboardMarkup(row_width = 1, resize_keyboard = True)
+                button = types.KeyboardButton(text = "Расписание на сегодня")
+                button1 = types.KeyboardButton(text = "Узнать расписание на следующий день")
+                button2 = types.KeyboardButton(text = "Оставить пожелание")
+                keyboard.add(button, button1, button2)
+                bot.send_message(message.chat.id, schedule, parse_mode = 'Markdown', reply_markup = keyboard)
 
 
 @bot.message_handler(commands = ['schedule_next'])
