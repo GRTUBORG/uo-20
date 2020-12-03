@@ -11,6 +11,7 @@ token = os.environ.get('bot_token')
 bot = telebot.TeleBot(str(token))
 print('Бот работает!')
 
+days_count = ['1', '2', '3', '4', '5', '6', '7']
 
 data_loads = json.load(open('./schedule.json'))
 data = json.dumps(data_loads)
