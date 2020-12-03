@@ -28,10 +28,10 @@ json_data3 = json.loads(data3)
 @bot.message_handler(commands = ['start'])
 def start_command(message):
     str_countes = ''
-    countes = [f'{message.from_user.id} - ID,\n',
-               f'{message.from_user.first_name} - имя,\n',
-               f'{message.from_user.last_name} - фамилия,\n',
-               f'{message.from_user.username} - username.'
+    countes = [f'{message.from_user.id} — ID,\n',
+               f'{message.from_user.first_name} — имя,\n',
+               f'{message.from_user.last_name} — фамилия,\n',
+               f'{message.from_user.username} — username.'
               ]
     for x in countes:
         str_countes += x
@@ -47,14 +47,15 @@ def update_sender(message):
         bot.send_message(users_get[values], "Бот обновился до v1.3\n"
                                             "\n*Коротко* о новом обновлении:" 
                                             "\n• Теперь есть фишка, которая помогает узнать расписание на следующий день, просто пропиши /help;"
-                                            "\n• В случае возникновения багов/ошибок/косяков - просьба незамедлительно писать в форму «Оставить пожелание»", parse_mode = 'Markdown')
+                                            "\n• В случае возникновения багов/ошибок/косяков — просьба незамедлительно писать в форму «Оставить пожелание»", parse_mode = 'Markdown')
         values += 1
 
 
 @bot.message_handler(commands = ['help'])
 def send_help(message):
-    bot.reply_to(message, "Привет! Рад, что ты заглянул(а) сюда :) \n • /schedule - узнать расписание;"
-                                                                  "\n • /schedule_next - расписание на следующий день.")
+    bot.reply_to(message, "Привет! Рад, что ты заглянул(а) сюда :) \n • /schedule — узнать расписание;"
+                                                                  "\n • /schedule_next — расписание на следующий день.")
+
 
 @bot.message_handler(commands = ['schedule'])
 def schedule(message):
