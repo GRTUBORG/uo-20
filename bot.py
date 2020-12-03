@@ -106,6 +106,7 @@ def schedule(message):
             elif message.text[10:] != x:
                 errors = 0
                 break
+        print(errors)
         if errors == 0:
             bot.send_message(message.chat.id, 'Так. Ты ввёл что-то не то. Введи числа (от 1 до 7)!')
         else:
