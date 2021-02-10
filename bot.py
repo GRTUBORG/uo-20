@@ -13,20 +13,17 @@ print('Бот работает!')
 
 days_count = ['1', '2', '3', '4', '5', '6', '7']
 
-with open('schedule.json', 'r', encoding='utf-8') as f:
-    data_loads = json.load(f)
-    data = json.dumps(data_loads)
-    json_data = json.loads(data)
+data_loads = json.load('schedule.json')
+data = json.dumps(data_loads)
+json_data = json.loads(data)
 
-with open('users.json', 'r', encoding='utf-8') as f1:
-    data_loads1 = json.load(f1)
-    data1 = json.dumps(data_loads1)
-    json_data1 = json.loads(data1)
+data_loads1 = json.load('users.json')
+data1 = json.dumps(data_loads1)
+json_data1 = json.loads(data1)
 
-with open('schedule_next_day.json', 'r', encoding='utf-8') as f2:
-    data_loads3 = json.load(f2)
-    data3 = json.dumps(data_loads3)
-    json_data3 = json.loads(data3)
+data_loads3 = json.load('schedule_next_day.json')
+data3 = json.dumps(data_loads3)
+json_data3 = json.loads(data3)
 
 
 @bot.message_handler(commands = ['start'])
