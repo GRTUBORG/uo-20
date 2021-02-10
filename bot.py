@@ -37,10 +37,10 @@ def start_command(message):
     for x in countes:
         str_countes += x
     bot.send_message(655041562, f'У тебя +1 новый пользователь! \n{str_countes}')
-    bot.reply_to(message, "Рад тебя видеть! Пропиши /schedule!")
+    bot.reply_to(message, "Рад тебя видеть! Пропиши /schedule! Если вдруг ты заблудился или забыл команды (со всеми бывает, не переживай) — /help в помощь.")
 
     
-@bot.message_handler(commands = ['update'])
+'''@bot.message_handler(commands = ['update'])
 def update_sender(message):
     users_get = json_data1["users"]
     values = 0
@@ -50,13 +50,14 @@ def update_sender(message):
                                             "\n• Обновил бота для нового расписания;"
                                             "\n• Теперь есть имя преподавателя, количество пар для текущего дня, а также её порядковый номер;"
                                             "\n• В случае возникновения/выявления багов/ошибок/косяков — просьба незамедлительно писать в форму «Оставить пожелание»", parse_mode = 'Markdown')
-        values += 1
+        values += 1'''
 
 
 @bot.message_handler(commands = ['help'])
 def send_help(message):
-    bot.reply_to(message, "Привет! Рад, что ты заглянул(а) сюда :) \n • /schedule — узнать расписание;"
-                                                                  "\n • /schedule_next — расписание на завтра.")
+    bot.reply_to(message, "Привет! Рад, что ты заглянул(а) сюда \n• /schedule — узнать расписание;"
+                                                               "\n• /schedule_next — расписание на завтра;"
+                                                               "\n• /schedule [цифра] — расписание для конкретного дня недели.")
 
 
 @bot.message_handler(commands = ['schedule'])
