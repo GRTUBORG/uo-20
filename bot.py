@@ -13,15 +13,15 @@ print('Бот работает!')
 
 days_count = ['1', '2', '3', '4', '5', '6', '7']
 
-data_loads = json.load(open('./schedule.json'))
+data_loads = json.loads(open('./schedule.json'))
 data = json.dumps(data_loads)
 json_data = json.loads(data)
 
-data_loads1 = json.load(open('./users.json'))
+data_loads1 = json.loads(open('./users.json'))
 data1 = json.dumps(data_loads1)
 json_data1 = json.loads(data1)
 
-data_loads3 = json.load(open('./schedule_next_day.json'))
+data_loads3 = json.loads(open('./schedule_next_day.json'))
 data3 = json.dumps(data_loads3)
 json_data3 = json.loads(data3)
 
