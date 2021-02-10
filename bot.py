@@ -24,7 +24,7 @@ with open('./users.json', 'r', encoding='utf-8') as f1:
     json_data1 = json.loads(data1)
 
 with open('./schedule_next_day.json', 'r', encoding='utf-8') as f2:
-    data_loads3 = json.load(f2))
+    data_loads3 = json.load(f2)
     data3 = json.dumps(data_loads3)
     json_data3 = json.loads(data3)
 
