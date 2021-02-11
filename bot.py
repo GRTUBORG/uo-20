@@ -240,7 +240,7 @@ def text(message):
         delta1 = timedelta(days = 1)
         now = datetime.now() + delta
         now_next = datetime.now() + delta + delta1
-        days_int = now.isoweekday()
+        days_int = 7 #now.isoweekday()
         
         sep = datetime(now.year if now.month >= 9 else now.year - 1, 9, 1)
         d1 = sep - timedelta(days = sep.weekday())
