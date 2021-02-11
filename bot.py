@@ -312,7 +312,14 @@ def get_message(message):
         button2 = types.KeyboardButton(text = "Оставить пожелание")
         keyboard.add(button, button1, button2)
         bot.send_message(message.chat.id, "Готово! Спасибо за отзыв!", reply_markup = keyboard)
-        bot.send_message(655041562, f'Кто-то оставил фидбэк: \n*{callback}*', parse_mode = 'Markdown', reply_markup = keyboard)
+        countes = [f'{message.from_user.id} — ID,\n',
+                   f'{message.from_user.first_name} — имя,\n',
+                   f'{message.from_user.last_name} — фамилия,\n',
+                   f'{message.from_user.username} — username.'
+                  ]
+        for x in countes:
+            str_countes += x
+        bot.send_message(655041562, f'Кто-то оставил фидбэк: \n*{callback}*. Прилетел от: \n{str_countes}', parse_mode = 'Markdown', reply_markup = keyboard)
 
         
 if __name__ == '__main__':
