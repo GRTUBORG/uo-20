@@ -65,7 +65,7 @@ def schedule(message):
     if message.text == '/schedule':
         delta = timedelta(hours = 3)
         now = datetime.now() + delta
-        days_int = 7 #now.isoweekday()
+        days_int = now.isoweekday()
         
         sep = datetime(now.year if now.month >= 9 else now.year - 1, 9, 1)
         d1 = sep - timedelta(days = sep.weekday())
@@ -104,7 +104,7 @@ def schedule(message):
         try:
             delta = timedelta(hours = 3)
             now = datetime.now() + delta
-            days_int = 7 #now.isoweekday()
+            days_int = now.isoweekday()
 
             sep = datetime(now.year if now.month >= 9 else now.year - 1, 9, 1)
             d1 = sep - timedelta(days = sep.weekday())
@@ -149,7 +149,7 @@ def schedule_next(message):
     delta1 = timedelta(days = 1)
     now = datetime.now() + delta
     now_next = datetime.now() + delta + delta1
-    days_int = 7 #now.isoweekday()
+    days_int = now.isoweekday()
     
     sep = datetime(now.year if now.month >= 9 else now.year - 1, 9, 1)
     d1 = sep - timedelta(days = sep.weekday())
@@ -201,7 +201,7 @@ def text(message):
     if message.text == 'Расписание на сегодня':
         delta = timedelta(hours = 3)
         now = datetime.now() + delta
-        days_int = 7 #now.isoweekday()
+        days_int = now.isoweekday()
         
         sep = datetime(now.year if now.month >= 9 else now.year - 1, 9, 1)
         d1 = sep - timedelta(days = sep.weekday())
@@ -241,7 +241,7 @@ def text(message):
         delta1 = timedelta(days = 1)
         now = datetime.now() + delta
         now_next = datetime.now() + delta + delta1
-        days_int = 7 #now.isoweekday()
+        days_int = now.isoweekday()
         
         sep = datetime(now.year if now.month >= 9 else now.year - 1, 9, 1)
         d1 = sep - timedelta(days = sep.weekday())
