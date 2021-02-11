@@ -293,6 +293,8 @@ def text(message):
         keyboard.add(button)
         bot.send_message(message.chat.id, "Напиши своё сообщение, а я отправлю его разработчику, \nлибо отправь «Отмена» для отмены!", reply_markup = keyboard)
         bot.register_next_step_handler(message, get_message)
+    else:
+        bot.send_message(message.chat.id, "Я не понимаю, что ты мне написал... Введи /help, если вдруг ты заблудился.")
 def get_message(message):
     callback = message.text
     if callback == "Отмена" or callback == "отмена":
