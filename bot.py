@@ -158,10 +158,10 @@ def schedule_next(message):
     
     if days_int == 7:
         days_print = 0
-        if partity == 0:
-            partity = 1
+        if parity == 0:
+            parity = 1
         else:
-            partity = 0
+            parity = 0
     else:
         days_print = days_int
     
@@ -250,10 +250,10 @@ def text(message):
         
         if days_int == 7:
             days_print = 0
-            if partity == 0:
-                partity = 1
+            if parity == 0:
+                parity = 1
             else:
-                partity = 0
+                parity = 0
         else:
             days_print = days_int
         
