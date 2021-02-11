@@ -11,6 +11,8 @@ token = os.environ.get('bot_token')
 bot = telebot.TeleBot(str(token))
 print('Бот работает!')
 
+photo = open('./Buildings/buildings.png', 'rb')
+
 days_count = ['1', '2', '3', '4', '5', '6', '7']
 
 data_loads = json.load(open('./schedule.json'))
@@ -146,7 +148,6 @@ def schedule(message):
 
 @bot.message_handler(commands = ['buildings'])
 def buildings(message):
-    photo = open('./Buildings/buildings.png', 'rb')
     bot.send_photo(message.chat.id, photo)
 
 @bot.message_handler(commands = ['schedule_next'])
