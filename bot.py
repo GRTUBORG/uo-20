@@ -241,14 +241,21 @@ def text(message):
         now = datetime.now() + delta
         now_next = datetime.now() + delta + delta1
         days_int = now.isoweekday()
-        if days_int == 7:
-            days_print = 0
-        else:
-            days_print = days_int
+        
         sep = datetime(now.year if now.month >= 9 else now.year - 1, 9, 1)
         d1 = sep - timedelta(days = sep.weekday())
         d2 = now - timedelta(days = now.weekday())
         parity = ((d2 - d1).days // 7) % 2 #возвращает 0, если неделя нечётная и 1, если чётная
+        
+        if days_int == 7:
+            days_print = 0
+            if partity == 0:
+                partity = 1
+            else:
+                partity = 0
+        else:
+            days_print = days_int
+        
         
         if parity == 0:
             schedule_days_int = json_data3["Для нечётной недели"]
