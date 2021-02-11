@@ -323,7 +323,7 @@ def get_message(message):
 
 @bot.message_handler(commands = ['buildings'])
 def buildings(message):
-    photo = open('./Buildings/buildings.png', 'rb')
+    '''photo = open('./Buildings/buildings.png', 'rb')'''
     bot.send_message(message.chat.id, 'True')
         
 if __name__ == '__main__':
