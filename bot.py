@@ -306,6 +306,7 @@ def get_message(message):
         keyboard.add(button, button1, button2)
         bot.send_message(message.chat.id, "Готово, отменил отправку! \nВоспользуйся клавиатурой ниже, чтобы узнать актуальное расписание.", parse_mode = 'Markdown', reply_markup = keyboard)
     else:
+        str_countes = ''
         keyboard = types.ReplyKeyboardMarkup(row_width = 1, resize_keyboard = True)
         button = types.KeyboardButton(text = "Расписание на сегодня")
         button1 = types.KeyboardButton(text = "Расписание на завтра")
