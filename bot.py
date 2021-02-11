@@ -58,7 +58,8 @@ def update_sender(message):
 def send_help(message):
     bot.reply_to(message, "Привет! Рад, что ты заглянул(а) сюда \n• /schedule — узнать расписание;"
                                                                "\n• /schedule_next — расписание на завтра;"
-                                                               "\n• /schedule [цифра] — расписание для конкретного дня недели.")
+                                                               "\n• /schedule [цифра] — расписание для конкретного дня недели;"
+                                                               "\n• /buildings — адреса всех корпусов.")
 
 
 @bot.message_handler(commands = ['schedule'])
