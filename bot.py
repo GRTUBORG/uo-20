@@ -143,6 +143,10 @@ def schedule(message):
         except:
             bot.send_message(message.chat.id, 'Так. Тут что-то не так. Введи числа (от 1 до 7), либо обратись к @whomet!')
 
+@bot.message_handler(commands = ['buildings'])
+def buildings(message):
+    photo = open('./Buildings/buildings.png', 'rb')
+    bot.send_photo(message.chat.id, photo)
 
 @bot.message_handler(commands = ['schedule_next'])
 def schedule_next(message):
@@ -321,10 +325,6 @@ def get_message(message):
             str_countes += x
         bot.send_message(655041562, f'• *Кто-то оставил фидбэк:* \n«{callback}» \n\n• *Прилетел от:* \n{str_countes}', parse_mode = 'Markdown', reply_markup = keyboard)
 
-@bot.message_handler(commands = ['buildings'])
-def buildings(message):
-    '''photo = open('./Buildings/buildings.png', 'rb')'''
-    bot.send_message(message.chat.id, 'True')
         
 if __name__ == '__main__':
     while True:
