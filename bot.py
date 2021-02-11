@@ -293,7 +293,7 @@ def get_message(message):
         button1 = types.KeyboardButton(text = "Расписание на завтра")
         button2 = types.KeyboardButton(text = "Оставить пожелание")
         keyboard.add(button, button1, button2)
-        bot.send_message(message.chat.id, "Готово!", parse_mode = 'Markdown', reply_markup = keyboard)
+        bot.send_message(message.chat.id, "Готово, отменил отправку!", parse_mode = 'Markdown', reply_markup = keyboard)
     else:
         keyboard = types.ReplyKeyboardMarkup(row_width = 1, resize_keyboard = True)
         button = types.KeyboardButton(text = "Расписание на сегодня")
