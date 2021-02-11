@@ -322,6 +322,9 @@ def get_message(message):
             str_countes += x
         bot.send_message(655041562, f'• *Кто-то оставил фидбэк:* \n«{callback}» \n\n• *Прилетел от:* \n{str_countes}', parse_mode = 'Markdown', reply_markup = keyboard)
 
+@bot.message_handler(commands = ['buildings'])
+def buildings(message):
+    bot.send_photo(message.chat.id, get("https://i.ibb.co/xMrBkV6/2021-02-11-180840.png").content)
         
 if __name__ == '__main__':
     while True:
