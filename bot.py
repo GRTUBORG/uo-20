@@ -43,7 +43,6 @@ def start_command(message):
 @bot.message_handler(commands = ['update'])
 def update_sender(message):
     users_get = json_data1["users"]
-    video = open('./1.7/1.7.mp4', 'rb')
     values = 0
     for x in users_get:
         bot.send_message(users_get[values], "Бот обновился до v1.7 (12.02.21)\n"
