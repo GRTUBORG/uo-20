@@ -146,8 +146,22 @@ def schedule(message):
 
 @bot.message_handler(commands = ['buildings'])
 def buildings(message):
+    keyboard = types.InlineKeyboardMarkup()
+    buildings_1 = types.InlineKeyboardButton(text = "Первый корпус", callback_data = 'adress_1')
+    buildings_2 = types.InlineKeyboardButton(text = "Второй корпус", callback_data = 'adress_2')
+    buildings_3 = types.InlineKeyboardButton(text = "Третий корпус", callback_data = 'adress_3')
+    buildings_4 = types.InlineKeyboardButton(text = "Четвёртый корпус", callback_data = 'adress_4')
+    keyboard.add(buildings_1, buildings_2, buildings_3, buildings_4)
     photo = open('./Buildings/buildings.png', 'rb')
-    bot.send_photo(message.chat.id, photo)
+    bot.send_photo(message.chat.id, photo, reply_markup = keyboard)
+
+@bot.callback_query_handler(func = lambda call: True)
+def callback_inline(call):
+    if call.message:
+        if call.data == 'adress_1':
+            bot.send_location(message.chat.id, 55.916027, 37.819657)
+        elif call.data == 'adress_2':
+            bot.send_location(message.chat.id, 55.918151, 37.811716)
 
 @bot.message_handler(commands = ['schedule_next'])
 def schedule_next(message):
