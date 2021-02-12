@@ -159,9 +159,17 @@ def buildings(message):
 def callback_inline(call):
     if call.message:
         if call.data == 'adress_1':
+            bot.send_message(call.message.chat.id, 'Первый корпус. \n*улица Гагарина, 42*', parse_mode = 'Markdown')
             bot.send_location(call.message.chat.id, 55.916027, 37.819657)
         elif call.data == 'adress_2':
+            bot.send_message(call.message.chat.id, 'Второй корпус. \n*Октябрьская улица, 10А*', parse_mode = 'Markdown')
             bot.send_location(call.message.chat.id, 55.918151, 37.811716)
+        elif call.data == 'adress_3':
+            bot.send_message(call.message.chat.id, 'Третий корпус. \n*Пионерская улица, 19А*', parse_mode = 'Markdown')
+            bot.send_location(call.message.chat.id, 55.914358, 37.809803)
+        elif call.data == 'adress_4':
+            bot.send_message(call.message.chat.id, 'Четвёртый корпус. \n*Октябрьский бульвар, 12*', parse_mode = 'Markdown')
+            bot.send_location(call.message.chat.id, 55.916840, 37.829620)
 
 @bot.message_handler(commands = ['schedule_next'])
 def schedule_next(message):
