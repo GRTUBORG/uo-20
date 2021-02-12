@@ -40,18 +40,18 @@ def start_command(message):
     bot.reply_to(message, "Рад тебя видеть! Пропиши /schedule! Если вдруг ты заблудился или забыл команды (со всеми бывает, не переживай) — /help в помощь.")
 
     
-'''@bot.message_handler(commands = ['update'])
+@bot.message_handler(commands = ['update'])
 def update_sender(message):
     users_get = json_data1["users"]
+    video = open('./1.7/1.7.mp4', 'rb')
     values = 0
     for x in users_get:
-        bot.send_message(users_get[values], "Бот обновился до v1.6 (11.02.21 (утреннее обновление))\n"
+        bot.send_message(users_get[values], "Бот обновился до v1.7 (12.02.21)\n"
                                             "\n*Коротко* о новом обновлении:" 
-                                            "\n• Фиксанул косяк с расписанием на завтрашний день. Теперь, при вызове команды в воскресенье, отправляется расписание на понедельник следующей недели, а не на понедельник этой, как это было до v1.6;"
-                                            "\n• Убрал косяки и оставшиеся костыли в коде;"
-                                            "\n• Обновлений в ближайшие недели две не планируется, поэтому смотри пункт ниже;"
+                                            "\n• Всё смотри в видео ниже!"
                                             "\n• В случае возникновения/выявления багов/ошибок/косяков — просьба незамедлительно писать в форму «Оставить пожелание»", parse_mode = 'Markdown')
-        values += 1'''
+        bot.send_video(users_get[values], video) 
+        values += 1
 
 
 @bot.message_handler(commands = ['help'])
