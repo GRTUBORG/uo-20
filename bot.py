@@ -159,9 +159,9 @@ def buildings(message):
 def callback_inline(call):
     if call.message:
         if call.data == 'adress_1':
-            bot.send_location(chat_id = call.message.chat.id, '55.916027', '37.819657')
+            bot.send_location(call.message.chat.id, 55.916027, 37.819657)
         elif call.data == 'adress_2':
-            bot.send_location(chat_id = call.message.chat.id, '55.918151', '37.811716')
+            bot.send_location(call.message.chat.id, 55.918151, 37.811716)
 
 @bot.message_handler(commands = ['schedule_next'])
 def schedule_next(message):
