@@ -40,7 +40,7 @@ def start_command(message):
     bot.reply_to(message, "Рад тебя видеть! Пропиши /schedule! Если вдруг ты заблудился или забыл команды (со всеми бывает, не переживай) — /help в помощь.")
 
     
-@bot.message_handler(commands = ['update'])
+'''@bot.message_handler(commands = ['update'])
 def update_sender(message):
     users_get = json_data1["users"]
     values = 0
@@ -49,7 +49,7 @@ def update_sender(message):
                                             "\n*Коротко* о новом обновлении:" 
                                             "\n• Добавил отправку адресов и местоположений в команде /buildings. Попробуй!"
                                             "\n• В случае возникновения/выявления багов/ошибок/косяков — просьба незамедлительно писать в форму «Оставить пожелание»", parse_mode = 'Markdown')
-        values += 1
+        values += 1'''
 
 
 @bot.message_handler(commands = ['help'])
