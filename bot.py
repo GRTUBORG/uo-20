@@ -48,9 +48,8 @@ def update_sender(message):
     for x in users_get:
         bot.send_message(users_get[values], "Бот обновился до v1.7 (12.02.21)\n"
                                             "\n*Коротко* о новом обновлении:" 
-                                            "\n• Всё смотри в видео ниже!"
+                                            "\n• Добавил отправку адресов и местоположений в команде /buildings. Попробуй!"
                                             "\n• В случае возникновения/выявления багов/ошибок/косяков — просьба незамедлительно писать в форму «Оставить пожелание»", parse_mode = 'Markdown')
-        bot.send_video(users_get[values], video) 
         values += 1
 
 
