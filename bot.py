@@ -189,7 +189,7 @@ def callback_inline(call):
             bot.send_photo(call.message.chat.id, photo)
 
 @bot.callback_query_handler(func = lambda call: True)
-def callback_inline(call):
+def delete_message(call):
     if call.message:
         if call.data == 'delete':
             bot.delete_message(call.message.chat.id, call.message.message_id)
