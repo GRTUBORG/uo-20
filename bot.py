@@ -344,7 +344,7 @@ def get_message(message):
                   ]
         for x in countes:
             str_countes += x
-        bot.send_message(767815871, f'• *Кто-то оставил фидбэк:* \n«{callback}» \n\n• *Прилетел от:* \n{str_countes}', parse_mode = 'Markdown', reply_markup = keyboard)
+        bot.send_message(767815871, f'• *Кто-то оставил фидбэк:* \n{callback} \n\n• *Прилетел от:* \n{str_countes}', parse_mode = 'Markdown', reply_markup = keyboard)
 
         
 if __name__ == '__main__':
