@@ -149,7 +149,8 @@ def buildings(message):
     buildings_2 = types.InlineKeyboardButton(text = "Второй корпус", callback_data = 'adress_2')
     buildings_3 = types.InlineKeyboardButton(text = "Третий корпус", callback_data = 'adress_3')
     buildings_4 = types.InlineKeyboardButton(text = "Четвёртый корпус", callback_data = 'adress_4')
-    keyboard.add(buildings_1, buildings_2, buildings_3, buildings_4)
+    buildings_5  = types.InlineKeyboardButton(text = "Спортзал", callback_data = 'adress_5')
+    keyboard.add(buildings_1, buildings_2, buildings_3, buildings_4, buildings_5)
     photo = open('./Buildings/buildings.png', 'rb')
     bot.send_photo(message.chat.id, photo, reply_markup = keyboard)
 
@@ -168,6 +169,9 @@ def callback_inline(call):
         elif call.data == 'adress_4':
             bot.send_message(call.message.chat.id, 'Четвёртый корпус. \n*Октябрьский бульвар, 12*', parse_mode = 'Markdown')
             bot.send_location(call.message.chat.id, 55.916840, 37.829620)
+        elif call.data == 'adress_5':
+            bot.send_message(call.message.chat.id, 'Спортзал. \n*улица Богомолова, 9*', parse_mode = 'Markdown')
+            bot.send_location(call.message.chat.id, 55.911603, 37.812318)
 
 @bot.message_handler(commands = ['schedule_next'])
 def schedule_next(message):
