@@ -157,8 +157,9 @@ def buildings(message):
     buildings_2 = types.InlineKeyboardButton(text = "Второй корпус", callback_data = 'adress_2')
     buildings_3 = types.InlineKeyboardButton(text = "Третий корпус", callback_data = 'adress_3')
     buildings_4 = types.InlineKeyboardButton(text = "Четвёртый корпус", callback_data = 'adress_4')
-    buildings_5  = types.InlineKeyboardButton(text = "Спортзал", callback_data = 'adress_5')
-    keyboard.add(buildings_1, buildings_2, buildings_3, buildings_4, buildings_5)
+    buildings_5  = types.InlineKeyboardButton(text = "ККМТ", callback_data = 'adress_5')
+    buildings_6  = types.InlineKeyboardButton(text = "Спортзал", callback_data = 'adress_6')
+    keyboard.add(buildings_1, buildings_2, buildings_3, buildings_4, buildings_5, buildings_6)
     
     photo = open('./Buildings/buildings.png', 'rb')
     bot.send_photo(message.chat.id, photo, reply_markup = keyboard)
@@ -203,6 +204,15 @@ def callback_inline(call):
             bot.send_photo(call.message.chat.id, photo, reply_markup = keyboard)
         
         elif call.data == 'adress_5':
+            keyboard = types.InlineKeyboardMarkup()
+            delete = types.InlineKeyboardButton(text = "Удалить ❌", callback_data = 'delete')
+            keyboard.add(delete)
+            photo = open('./Buildings/5.png', 'rb')
+            bot.send_message(call.message.chat.id, 'ККМТ. \n*Пионерская улица, 8*', parse_mode = 'Markdown')
+            bot.send_location(call.message.chat.id, 55.911603, 37.812318)
+            bot.send_photo(call.message.chat.id, photo, reply_markup = keyboard)
+        
+        elif call.data == 'adress_6':
             keyboard = types.InlineKeyboardMarkup()
             delete = types.InlineKeyboardButton(text = "Удалить ❌", callback_data = 'delete')
             keyboard.add(delete)
