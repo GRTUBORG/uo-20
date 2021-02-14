@@ -151,6 +151,7 @@ def buildings(message):
     buildings_4 = types.InlineKeyboardButton(text = "Четвёртый корпус", callback_data = 'adress_4')
     buildings_5  = types.InlineKeyboardButton(text = "Спортзал", callback_data = 'adress_5')
     keyboard.add(buildings_1, buildings_2, buildings_3, buildings_4, buildings_5)
+    
     photo = open('./Buildings/buildings.png', 'rb')
     bot.send_photo(message.chat.id, photo, reply_markup = keyboard)
 
