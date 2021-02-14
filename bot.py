@@ -347,12 +347,13 @@ def text(message):
             nowtime = now_next.strftime("(%d.%m.%y)")
             schedule += str(keys)
             schedule = schedule.replace("['", '').replace("']", '').replace(r'\n', '\n').replace("', '", '').replace('()', nowtime)
-            keyboard = types.ReplyKeyboardMarkup(row_width = 1, resize_keyboard = True)
+            keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
             button = types.KeyboardButton(text = "Расписание на сегодня")
             button1 = types.KeyboardButton(text = "Расписание на завтра")
             button2 = types.KeyboardButton(text = "Адреса корпусов")
             button3 = types.KeyboardButton(text = "Оставить пожелание")
-            keyboard.add(button, button1, button2, button3)
+            keyboard.row(button, button1)
+            keyboard.row(button2, button3)
             bot.send_message(message.chat.id, schedule, parse_mode = 'Markdown', reply_markup = keyboard)
         else:
             schedule_days_int = json_data3["Для чётной недели"]
