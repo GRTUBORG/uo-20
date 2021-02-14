@@ -36,7 +36,7 @@ def start_command(message):
               ]
     for x in countes:
         str_countes += x
-    bot.send_message(655041562, f'У тебя +1 новый пользователь! \n{str_countes}')
+    bot.send_message(767815871, f'У тебя +1 новый пользователь! \n{str_countes}')
     bot.reply_to(message, "Рад тебя видеть! Пропиши /schedule! Если вдруг ты заблудился или забыл команды (со всеми бывает, не переживай) — /help в помощь.")
 
     
@@ -344,7 +344,7 @@ def get_message(message):
                   ]
         for x in countes:
             str_countes += x
-        bot.send_message(655041562, f'• *Кто-то оставил фидбэк:* \n«{callback}» \n\n• *Прилетел от:* \n{str_countes}', parse_mode = 'Markdown', reply_markup = keyboard)
+        bot.send_message(767815871, f'• *Кто-то оставил фидбэк:* \n«{callback}» \n\n• *Прилетел от:* \n{str_countes}', parse_mode = 'Markdown', reply_markup = keyboard)
 
         
 if __name__ == '__main__':
