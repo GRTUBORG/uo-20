@@ -159,20 +159,30 @@ def buildings(message):
 def callback_inline(call):
     if call.message:
         if call.data == 'adress_1':
+            photo = open('./Buildings/1.png', 'rb')
             bot.send_message(call.message.chat.id, 'Первый корпус. \n*улица Гагарина, 42*', parse_mode = 'Markdown')
             bot.send_location(call.message.chat.id, 55.916027, 37.819657)
+            bot.send_photo(message.chat.id, photo)
         elif call.data == 'adress_2':
+            photo = open('./Buildings/2.png', 'rb')
             bot.send_message(call.message.chat.id, 'Второй корпус. \n*Октябрьская улица, 10А*', parse_mode = 'Markdown')
             bot.send_location(call.message.chat.id, 55.918151, 37.811716)
+            bot.send_photo(message.chat.id, photo)
         elif call.data == 'adress_3':
+            photo = open('./Buildings/3.png', 'rb')
             bot.send_message(call.message.chat.id, 'Третий корпус. \n*Пионерская улица, 19А*', parse_mode = 'Markdown')
             bot.send_location(call.message.chat.id, 55.914358, 37.809803)
+            bot.send_photo(message.chat.id, photo)
         elif call.data == 'adress_4':
+            photo = open('./Buildings/4.png', 'rb')
             bot.send_message(call.message.chat.id, 'Четвёртый корпус. \n*Октябрьский бульвар, 12*', parse_mode = 'Markdown')
             bot.send_location(call.message.chat.id, 55.916840, 37.829620)
+            bot.send_photo(message.chat.id, photo)
         elif call.data == 'adress_5':
+            photo = open('./Buildings/gym.png', 'rb')
             bot.send_message(call.message.chat.id, 'Спортзал. \n*улица Богомолова, 9*', parse_mode = 'Markdown')
             bot.send_location(call.message.chat.id, 55.911603, 37.812318)
+            bot.send_photo(message.chat.id, photo)
 
 @bot.message_handler(commands = ['schedule_next'])
 def schedule_next(message):
