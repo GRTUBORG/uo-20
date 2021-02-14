@@ -209,7 +209,7 @@ def callback_inline(call):
             keyboard.add(delete)
             photo = open('./Buildings/5.png', 'rb')
             bot.send_message(call.message.chat.id, 'ККМТ. \n*Пионерская улица, 8*', parse_mode = 'Markdown')
-            bot.send_location(call.message.chat.id, 55.911603, 37.812318)
+            bot.send_location(call.message.chat.id, 55.913485, 37.813369)
             bot.send_photo(call.message.chat.id, photo, reply_markup = keyboard)
         
         elif call.data == 'adress_6':
