@@ -83,8 +83,9 @@ def schedule(message):
             keyboard = types.ReplyKeyboardMarkup(row_width = 1, resize_keyboard = True)
             button = types.KeyboardButton(text = "Расписание на сегодня")
             button1 = types.KeyboardButton(text = "Расписание на завтра")
-            button2 = types.KeyboardButton(text = "Оставить пожелание")
-            keyboard.add(button, button1, button2)
+            button2 = types.KeyboardButton(text = "Адреса корпусов")
+            button3 = types.KeyboardButton(text = "Оставить пожелание")
+            keyboard.add(button, button1, button2, button3)
             bot.send_message(message.chat.id, schedule, parse_mode = 'Markdown', reply_markup = keyboard)
         else:
             schedule_days_int = json_data["Для чётной недели"]
@@ -97,8 +98,9 @@ def schedule(message):
             keyboard = types.ReplyKeyboardMarkup(row_width = 1, resize_keyboard = True)
             button = types.KeyboardButton(text = "Расписание на сегодня")
             button1 = types.KeyboardButton(text = "Расписание на завтра")
-            button2 = types.KeyboardButton(text = "Оставить пожелание")
-            keyboard.add(button, button1, button2)
+            button2 = types.KeyboardButton(text = "Адреса корпусов")
+            button3 = types.KeyboardButton(text = "Оставить пожелание")
+            keyboard.add(button, button1, button2, button3)
             bot.send_message(message.chat.id, schedule, parse_mode = 'Markdown', reply_markup = keyboard)
     else:
         try:
@@ -121,8 +123,9 @@ def schedule(message):
                 keyboard = types.ReplyKeyboardMarkup(row_width = 1, resize_keyboard = True)
                 button = types.KeyboardButton(text = "Расписание на сегодня")
                 button1 = types.KeyboardButton(text = "Расписание на завтра")
-                button2 = types.KeyboardButton(text = "Оставить пожелание")
-                keyboard.add(button, button1, button2)
+                button2 = types.KeyboardButton(text = "Адреса корпусов")
+                button3 = types.KeyboardButton(text = "Оставить пожелание")
+                keyboard.add(button, button1, button2, button3)
                 bot.send_message(message.chat.id, schedule, parse_mode = 'Markdown', reply_markup = keyboard)
             else:
                 schedule_days_int = json_data["Для чётной недели"]
@@ -134,8 +137,9 @@ def schedule(message):
                 keyboard = types.ReplyKeyboardMarkup(row_width = 1, resize_keyboard = True)
                 button = types.KeyboardButton(text = "Расписание на сегодня")
                 button1 = types.KeyboardButton(text = "Расписание на завтра")
-                button2 = types.KeyboardButton(text = "Оставить пожелание")
-                keyboard.add(button, button1, button2)
+                button2 = types.KeyboardButton(text = "Адреса корпусов")
+                button3 = types.KeyboardButton(text = "Оставить пожелание")
+                keyboard.add(button, button1, button2, button3)
                 if schedule == "None":
                     schedule = "Упс, но ты ввёл что-то не так."
                 bot.send_message(message.chat.id, schedule, parse_mode = 'Markdown', reply_markup = keyboard)   
@@ -242,8 +246,9 @@ def schedule_next(message):
         keyboard = types.ReplyKeyboardMarkup(row_width = 1, resize_keyboard = True)
         button = types.KeyboardButton(text = "Расписание на сегодня")
         button1 = types.KeyboardButton(text = "Расписание на завтра")
-        button2 = types.KeyboardButton(text = "Оставить пожелание")
-        keyboard.add(button, button1, button2)
+        button2 = types.KeyboardButton(text = "Адреса корпусов")
+        button3 = types.KeyboardButton(text = "Оставить пожелание")
+        keyboard.add(button, button1, button2, button3)
         bot.send_message(message.chat.id, schedule, parse_mode = 'Markdown', reply_markup = keyboard)
     else:
         schedule_days_int = json_data3["Для чётной недели"]
@@ -256,8 +261,9 @@ def schedule_next(message):
         keyboard = types.ReplyKeyboardMarkup(row_width = 1, resize_keyboard = True)
         button = types.KeyboardButton(text = "Расписание на сегодня")
         button1 = types.KeyboardButton(text = "Расписание на завтра")
-        button2 = types.KeyboardButton(text = "Оставить пожелание")
-        keyboard.add(button, button1, button2)
+        button2 = types.KeyboardButton(text = "Адреса корпусов")
+        button3 = types.KeyboardButton(text = "Оставить пожелание")
+        keyboard.add(button, button1, button2, button3)
         bot.send_message(message.chat.id, schedule, parse_mode = 'Markdown', reply_markup = keyboard)
 
 
@@ -284,8 +290,9 @@ def text(message):
             keyboard = types.ReplyKeyboardMarkup(row_width = 1, resize_keyboard = True)
             button = types.KeyboardButton(text = "Расписание на сегодня")
             button1 = types.KeyboardButton(text = "Расписание на завтра")
-            button2 = types.KeyboardButton(text = "Оставить пожелание")
-            keyboard.add(button, button1, button2)
+            button2 = types.KeyboardButton(text = "Адреса корпусов")
+            button3 = types.KeyboardButton(text = "Оставить пожелание")
+            keyboard.add(button, button1, button2, button3)
             bot.send_message(message.chat.id, schedule, parse_mode = 'Markdown', reply_markup = keyboard)
         else:
             schedule_days_int = json_data["Для чётной недели"]
@@ -298,8 +305,9 @@ def text(message):
             keyboard = types.ReplyKeyboardMarkup(row_width = 1, resize_keyboard = True)
             button = types.KeyboardButton(text = "Расписание на сегодня")
             button1 = types.KeyboardButton(text = "Расписание на завтра")
-            button2 = types.KeyboardButton(text = "Оставить пожелание")
-            keyboard.add(button, button1, button2)
+            button2 = types.KeyboardButton(text = "Адреса корпусов")
+            button3 = types.KeyboardButton(text = "Оставить пожелание")
+            keyboard.add(button, button1, button2, button3)
             bot.send_message(message.chat.id, schedule, parse_mode = 'Markdown', reply_markup = keyboard)
     elif message.text == 'Расписание на завтра':
         delta = timedelta(hours = 3)
@@ -334,8 +342,9 @@ def text(message):
             keyboard = types.ReplyKeyboardMarkup(row_width = 1, resize_keyboard = True)
             button = types.KeyboardButton(text = "Расписание на сегодня")
             button1 = types.KeyboardButton(text = "Расписание на завтра")
-            button2 = types.KeyboardButton(text = "Оставить пожелание")
-            keyboard.add(button, button1, button2)
+            button2 = types.KeyboardButton(text = "Адреса корпусов")
+            button3 = types.KeyboardButton(text = "Оставить пожелание")
+            keyboard.add(button, button1, button2, button3)
             bot.send_message(message.chat.id, schedule, parse_mode = 'Markdown', reply_markup = keyboard)
         else:
             schedule_days_int = json_data3["Для чётной недели"]
@@ -348,9 +357,20 @@ def text(message):
             keyboard = types.ReplyKeyboardMarkup(row_width = 1, resize_keyboard = True)
             button = types.KeyboardButton(text = "Расписание на сегодня")
             button1 = types.KeyboardButton(text = "Расписание на завтра")
-            button2 = types.KeyboardButton(text = "Оставить пожелание")
-            keyboard.add(button, button1, button2)
+            button2 = types.KeyboardButton(text = "Адреса корпусов")
+            button3 = types.KeyboardButton(text = "Оставить пожелание")
+            keyboard.add(button, button1, button2, button3)
             bot.send_message(message.chat.id, schedule, parse_mode = 'Markdown', reply_markup = keyboard)
+    elif message.text == 'Адреса корпусов':
+        keyboard = types.InlineKeyboardMarkup()
+        buildings_1 = types.InlineKeyboardButton(text = "Первый корпус", callback_data = 'adress_1')
+        buildings_2 = types.InlineKeyboardButton(text = "Второй корпус", callback_data = 'adress_2')
+        buildings_3 = types.InlineKeyboardButton(text = "Третий корпус", callback_data = 'adress_3')
+        buildings_4 = types.InlineKeyboardButton(text = "Четвёртый корпус", callback_data = 'adress_4')
+        buildings_5  = types.InlineKeyboardButton(text = "Спортзал", callback_data = 'adress_5')
+        keyboard.add(buildings_1, buildings_2, buildings_3, buildings_4, buildings_5)
+        photo = open('./Buildings/buildings.png', 'rb')
+        bot.send_photo(message.chat.id, photo, reply_markup = keyboard)
     elif message.text == 'Оставить пожелание':
         keyboard = types.ReplyKeyboardMarkup(row_width = 1, resize_keyboard = True)
         button = types.KeyboardButton(text = "Отмена")
@@ -365,16 +385,18 @@ def get_message(message):
         keyboard = types.ReplyKeyboardMarkup(row_width = 1, resize_keyboard = True)
         button = types.KeyboardButton(text = "Расписание на сегодня")
         button1 = types.KeyboardButton(text = "Расписание на завтра")
-        button2 = types.KeyboardButton(text = "Оставить пожелание")
-        keyboard.add(button, button1, button2)
+        button2 = types.KeyboardButton(text = "Адреса корпусов")
+        button3 = types.KeyboardButton(text = "Оставить пожелание")
+        keyboard.add(button, button1, button2, button3)
         bot.send_message(message.chat.id, "Готово, отменил отправку! \nВоспользуйся клавиатурой ниже, чтобы узнать актуальное расписание.", parse_mode = 'Markdown', reply_markup = keyboard)
     else:
         str_countes = ''
         keyboard = types.ReplyKeyboardMarkup(row_width = 1, resize_keyboard = True)
         button = types.KeyboardButton(text = "Расписание на сегодня")
         button1 = types.KeyboardButton(text = "Расписание на завтра")
-        button2 = types.KeyboardButton(text = "Оставить пожелание")
-        keyboard.add(button, button1, button2)
+        button2 = types.KeyboardButton(text = "Адреса корпусов")
+        button3 = types.KeyboardButton(text = "Оставить пожелание")
+        keyboard.add(button, button1, button2, button3)
         bot.send_message(message.chat.id, "Готово! Спасибо за отзыв!", reply_markup = keyboard)
         countes = [f'{message.from_user.id} — ID,\n',
                    f'{message.from_user.first_name} — имя,\n',
