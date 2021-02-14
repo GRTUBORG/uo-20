@@ -161,6 +161,7 @@ def callback_inline(call):
         if call.data == 'adress_1':
             keyboard = types.InlineKeyboardMarkup()
             delete = types.InlineKeyboardButton(text = "Удалить", callback_data = 'delete')
+            keyboard.add(delete)
             
             photo = open('./Buildings/1.png', 'rb')
             bot.send_message(call.message.chat.id, 'Первый корпус. \n*улица Гагарина, 42*', parse_mode = 'Markdown')
