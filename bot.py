@@ -159,10 +159,13 @@ def buildings(message):
 def callback_inline(call):
     if call.message:
         if call.data == 'adress_1':
+            keyboard = types.InlineKeyboardMarkup()
+            delete = types.InlineKeyboardButton(text = "Удалить", callback_data = 'delete')
+            
             photo = open('./Buildings/1.png', 'rb')
             bot.send_message(call.message.chat.id, 'Первый корпус. \n*улица Гагарина, 42*', parse_mode = 'Markdown')
             bot.send_location(call.message.chat.id, 55.916027, 37.819657)
-            bot.send_photo(call.message.chat.id, photo)
+            bot.send_photo(call.message.chat.id, photo, reply_markup = keyboard)
         elif call.data == 'adress_2':
             photo = open('./Buildings/2.png', 'rb')
             bot.send_message(call.message.chat.id, 'Второй корпус. \n*Октябрьская улица, 10А*', parse_mode = 'Markdown')
@@ -184,6 +187,12 @@ def callback_inline(call):
             bot.send_location(call.message.chat.id, 55.911603, 37.812318)
             bot.send_photo(call.message.chat.id, photo)
 
+@bot.callback_query_handler(func = lambda call: True)
+def callback_inline(call):
+    if call.message:
+        if call.data == 'delete':
+            bot.delete_message(call.message.chat.id, call.message.message_id)
+            
 @bot.message_handler(commands = ['schedule_next'])
 def schedule_next(message):
     delta = timedelta(hours = 3)
