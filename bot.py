@@ -187,11 +187,7 @@ def callback_inline(call):
             bot.send_message(call.message.chat.id, 'Спортзал. \n*улица Богомолова, 9*', parse_mode = 'Markdown')
             bot.send_location(call.message.chat.id, 55.911603, 37.812318)
             bot.send_photo(call.message.chat.id, photo)
-
-@bot.callback_query_handler(func = lambda call: True)
-def delete_message(call):
-    if call.message:
-        if call.data == 'delete':
+        elif call.data == 'delete':
             bot.delete_message(call.message.chat.id, call.message.message_id)
             
 @bot.message_handler(commands = ['schedule_next'])
