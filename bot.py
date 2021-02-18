@@ -447,7 +447,7 @@ def text(message):
         keyboard.row(button, button1)
         keyboard.row(button2)
         bot.send_message(message.chat.id, message_english, reply_markup = keyboard)
-    elif message.text == 'Английский язык':
+    elif message.text == 'Мат. анализ':
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
         button = types.KeyboardButton(text = "Физика")
         button1 = types.KeyboardButton(text = "Английский язык")
