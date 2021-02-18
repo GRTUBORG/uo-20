@@ -454,6 +454,7 @@ def text(message):
         button3 = types.KeyboardButton(text = "Мат. анализ")
         button2 = types.KeyboardButton(text = "В меню расписаний")
         keyboard.row(button, button1)
+        keyboard.row(button3)
         keyboard.row(button2)
         bot.send_message(message.chat.id, message_math, reply_markup = keyboard)
     elif message.text == 'В меню расписаний' or message.text == 'Вернуться назад':
