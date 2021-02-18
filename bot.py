@@ -475,7 +475,7 @@ def text(message):
         keyboard.row(button, button1)
         keyboard.row(button3, button4)
         keyboard.row(button2)
-        bot.send_message(message.chat.id, message_password, reply_markup = keyboard)
+        bot.send_message(message.chat.id, message_password, parse_mode = 'Markdown', reply_markup = keyboard)
     elif message.text == 'В меню расписаний' or message.text == 'Вернуться назад':
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
         button = types.KeyboardButton(text = "Расписание на сегодня")
