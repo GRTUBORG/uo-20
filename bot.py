@@ -418,7 +418,7 @@ def text(message):
         button2 = types.KeyboardButton(text = "Оставить пожелание")
         keyboard.row(button, button2)
         keyboard.row(button1)
-        bot.send_message(message.chat.id, 'Меню', reply_markup = keyboard)
+        bot.send_message(message.chat.id, 'Главное меню', reply_markup = keyboard)
     elif message.text == 'Полезные материалы':
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
         button = types.KeyboardButton(text = "Физика")
