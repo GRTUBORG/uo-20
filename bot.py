@@ -25,6 +25,8 @@ data_loads3 = json.load(open('./schedule_next_day.json'))
 data3 = json.dumps(data_loads3)
 json_data3 = json.loads(data3)
 
+message_password = os.environ.get('pwd')
+
 message_physics = """ 
 • Курсы:
 https://bit.ly/2ZvQKsJ;
@@ -463,6 +465,17 @@ def text(message):
         keyboard.row(button3, button4)
         keyboard.row(button2)
         bot.send_message(message.chat.id, message_math, reply_markup = keyboard)
+    elif message.text == 'Пароли':
+        keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
+        button = types.KeyboardButton(text = "Физика")
+        button1 = types.KeyboardButton(text = "Английский язык")
+        button3 = types.KeyboardButton(text = "Мат. анализ")
+        button4 = types.KeyboardButton(text = "Пароли")
+        button2 = types.KeyboardButton(text = "В меню расписаний")
+        keyboard.row(button, button1)
+        keyboard.row(button3, button4)
+        keyboard.row(button2)
+        bot.send_message(message.chat.id, message_password, reply_markup = keyboard)
     elif message.text == 'В меню расписаний' or message.text == 'Вернуться назад':
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
         button = types.KeyboardButton(text = "Расписание на сегодня")
