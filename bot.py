@@ -420,7 +420,7 @@ def text(message):
         button2 = types.KeyboardButton(text = "Оставить пожелание")
         keyboard.row(button, button2)
         keyboard.row(button1)
-        bot.send_message(message.chat.id, 'Вы перешли в *главное меню*', parse_mode = 'Markdown', reply_markup = keyboard)
+        bot.send_message(message.chat.id, 'Вы перешли в *главное меню*.', parse_mode = 'Markdown', reply_markup = keyboard)
     elif message.text == 'Полезные материалы':
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
         button = types.KeyboardButton(text = "Физика")
@@ -431,7 +431,7 @@ def text(message):
         keyboard.row(button, button1)
         keyboard.row(button3, button4)
         keyboard.row(button2)
-        bot.send_message(message.chat.id, 'Вы перешли в *полезные материалы*', parse_mode = 'Markdown', reply_markup = keyboard)
+        bot.send_message(message.chat.id, 'Вы перешли в *полезные материалы*.', parse_mode = 'Markdown', reply_markup = keyboard)
     elif message.text == 'Физика':
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
         button = types.KeyboardButton(text = "Физика")
@@ -484,7 +484,7 @@ def text(message):
         button3 = types.KeyboardButton(text = "Меню")
         keyboard.row(button, button1)
         keyboard.row(button2, button3)
-        bot.send_message(message.chat.id, "Вы *вернулись назад* в *меню расписаний*!", parse_mode = 'Markdown', reply_markup = keyboard)
+        bot.send_message(message.chat.id, "Вы *вернулись назад* в *меню расписаний*.", parse_mode = 'Markdown', reply_markup = keyboard)
     elif message.text == 'Оставить пожелание':
         keyboard = types.ReplyKeyboardMarkup(row_width = 1, resize_keyboard = True)
         button = types.KeyboardButton(text = "Отмена")
