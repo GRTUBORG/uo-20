@@ -414,7 +414,7 @@ def text(message):
     elif message.text == 'Меню':
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
         button = types.KeyboardButton(text = "Полезные материалы")
-        button1 = types.KeyboardButton(text = "Вернуться назад")
+        button1 = types.KeyboardButton(text = "В меню расписаний")
         button2 = types.KeyboardButton(text = "Оставить пожелание")
         keyboard.row(button, button2)
         keyboard.row(button1)
@@ -462,7 +462,7 @@ def text(message):
         button = types.KeyboardButton(text = "Расписание на сегодня")
         button1 = types.KeyboardButton(text = "Расписание на завтра")
         button2 = types.KeyboardButton(text = "Адреса корпусов")
-        button3 = types.KeyboardButton(text = "Меню")
+        button3 = types.KeyboardButton(text = "В меню расписаний")
         keyboard.row(button, button1)
         keyboard.row(button2, button3)
         bot.send_message(message.chat.id, "Вы вернулись назад в меню расписаний!", reply_markup = keyboard)
