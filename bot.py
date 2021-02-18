@@ -25,8 +25,7 @@ data_loads3 = json.load(open('./schedule_next_day.json'))
 data3 = json.dumps(data_loads3)
 json_data3 = json.loads(data3)
 
-message_physics = 
-""" 
+message_physics = """ 
 • Курсы:
 https://bit.ly/2ZvQKsJ;
 https://bit.ly/3jYshWt
@@ -35,14 +34,12 @@ https://bit.ly/3jYshWt
 https://drive.google.com/drive/folders/13A_yINfDRD6y5sJfweml3G00GnCqBoh4
 """
 
-message_math = 
-"""
+message_math = """
 • Курсы:
 https://bit.ly/2OLpbtb
 """
 
-message_english =
-"""
+message_english = """
 • Учебники:
 https://bit.ly/3pxRvfs — первая группа;
 https://bit.ly/3ayKEhD — вторая группа
