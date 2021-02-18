@@ -404,11 +404,11 @@ def text(message):
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
         button = types.KeyboardButton(text = "Физика")
         button1 = types.KeyboardButton(text = "Английский язык")
-        button2 = types.KeyboardButton(text = "Вернуться назад")
+        button2 = types.KeyboardButton(text = "В меню расписаний")
         keyboard.row(button, button1)
         keyboard.row(button2)
         bot.send_message(message.chat.id, 'Полезные материалы', reply_markup = keyboard)
-    elif message.text == 'Вернуться назад':
+    elif message.text == 'В меню расписаний' or message.text == 'Вернуться назад'::
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
         button = types.KeyboardButton(text = "Расписание на сегодня")
         button1 = types.KeyboardButton(text = "Расписание на завтра")
