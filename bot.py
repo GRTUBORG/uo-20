@@ -462,7 +462,7 @@ def text(message):
         button = types.KeyboardButton(text = "Расписание на сегодня")
         button1 = types.KeyboardButton(text = "Расписание на завтра")
         button2 = types.KeyboardButton(text = "Адреса корпусов")
-        button3 = types.KeyboardButton(text = "В меню расписаний")
+        button3 = types.KeyboardButton(text = "Меню")
         keyboard.row(button, button1)
         keyboard.row(button2, button3)
         bot.send_message(message.chat.id, "Вы вернулись назад в меню расписаний!", reply_markup = keyboard)
