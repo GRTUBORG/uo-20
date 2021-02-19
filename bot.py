@@ -435,8 +435,8 @@ def text(message):
         bot.send_message(message.chat.id, 'Вы перешли в *полезные материалы*.', parse_mode = 'Markdown', reply_markup = keyboard)
     elif message.text == 'Рейтинг по курсу':
         data_loads = json.load(open('./rating.json'))
-        data = json.dumps(data_loads2)
-        json_data = json.loads(data2)
+        data = json.dumps(data_loads)
+        json_data = json.loads(data)
         rating = json_data["Список"]
         layout2 = ''
         key = 0
