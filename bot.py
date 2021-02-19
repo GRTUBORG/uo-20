@@ -439,7 +439,7 @@ def text(message):
         bot.send_message(message.chat.id, 'Вы перешли в *полезные материалы*.', parse_mode = 'Markdown', reply_markup = keyboard)
     elif message.text == 'Рейтинг по курсу':
         rating = json_data4["Список"]
-        layout2 = ''
+        layout = ''
         key = 0
         for x in rating:
             rating_cources = rating.get(str(key))
