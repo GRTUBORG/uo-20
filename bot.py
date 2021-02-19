@@ -30,7 +30,6 @@ data4 = json.dumps(data_loads4)
 json_data4 = json.loads(data4)
 
 rating = json_data4["Список"]
-print(sorted(rating))
 layout = ''
 key = 0
 for x in rating:
@@ -258,6 +257,7 @@ def callback_inline(call):
             keyboard = types.InlineKeyboardMarkup()
             button = types.InlineKeyboardButton(text = "Сортировка по фамилиям", callback_data = 'family')
             keyboard.add(button) 
+            print(sorted(rating.items()))
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = sorted(rating.values()), parse_mode = 'Markdown', reply_markup = keyboard)
         elif call.data == 'family':
             keyboard = types.InlineKeyboardMarkup()
