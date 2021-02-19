@@ -30,6 +30,7 @@ data4 = json.dumps(data_loads4)
 json_data4 = json.loads(data4)
 
 rating = json_data4["Список"]
+print(rating)
 layout = ''
 key = 0
 for x in rating:
