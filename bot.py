@@ -29,6 +29,14 @@ data_loads4 = json.load(open('./rating.json'))
 data4 = json.dumps(data_loads4)
 json_data4 = json.loads(data4)
 
+rating = json_data4["Список"]
+layout = ''
+key = 0
+for x in rating:
+    rating_cources = rating.get(str(key))
+    key += 1
+    layout += f'{rating_cources}\n'
+            
 message_password = os.environ.get('pwd')
 
 message_physics = """ 
@@ -245,7 +253,8 @@ def callback_inline(call):
             bot.send_message(call.message.chat.id, 'Спортзал. \n*улица Богомолова, 9*', parse_mode = 'Markdown')
             bot.send_location(call.message.chat.id, 55.911603, 37.812318)
             bot.send_photo(call.message.chat.id, photo, reply_markup = keyboard)
-        
+        elif call.data == 'percent':
+            bot.send_message(call.message.chat.id, 'Test data', parse_mode = 'Markdown')
         elif call.data == 'delete':
             bot.delete_message(call.message.chat.id, call.message.message_id)
             bot.delete_message(call.message.chat.id, call.message.message_id - 1)
@@ -438,13 +447,6 @@ def text(message):
         keyboard.row(button2)
         bot.send_message(message.chat.id, 'Вы перешли в *полезные материалы*.', parse_mode = 'Markdown', reply_markup = keyboard)
     elif message.text == 'Рейтинг по курсу':
-        rating = json_data4["Список"]
-        layout = ''
-        key = 0
-        for x in rating:
-            rating_cources = rating.get(str(key))
-            key += 1
-            layout += f'{rating_cources}\n'
         keyboard = types.InlineKeyboardMarkup()
         button = types.InlineKeyboardButton(text = "Сортировка по процентам", callback_data = 'percent')
         button1 = types.InlineKeyboardButton(text = "Сортировка по фамилиям", callback_data = 'family')
