@@ -437,7 +437,7 @@ def text(message):
         data_loads = json.load(open('./rating.json'))
         data = json.dumps(data_loads2)
         json_data = json.loads(data2)
-        rating = json_data["Маршрут №2"]
+        rating = json_data["Список"]
         layout2 = ''
         key = 0
         for x in rating:
