@@ -447,8 +447,8 @@ def text(message):
             layout += f'{rating_cources}\n'
         keyboard = types.InlineKeyboardMarkup()
         button = types.InlineKeyboardButton(text = "Сортировка по процентам", callback_data = 'percent')
-        button = types.InlineKeyboardButton(text = "Сортировка по фамилиям", callback_data = 'family')
-        keyboard.add(callback_button)
+        button1 = types.InlineKeyboardButton(text = "Сортировка по фамилиям", callback_data = 'family')
+        keyboard.add(button, button1)
         bot.send_message(message.chat.id, layout, parse_mode = 'Markdown', reply_markup = keyboard)
     elif message.text == 'Физика':
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
