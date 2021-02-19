@@ -25,6 +25,10 @@ data_loads3 = json.load(open('./schedule_next_day.json'))
 data3 = json.dumps(data_loads3)
 json_data3 = json.loads(data3)
 
+data_loads4 = json.load(open('./rating.json'))
+data4 = json.dumps(data_loads4)
+json_data4 = json.loads(data4)
+
 message_password = os.environ.get('pwd')
 
 message_physics = """ 
@@ -434,10 +438,7 @@ def text(message):
         keyboard.row(button2)
         bot.send_message(message.chat.id, 'Вы перешли в *полезные материалы*.', parse_mode = 'Markdown', reply_markup = keyboard)
     elif message.text == 'Рейтинг по курсу':
-        data_loads = json.load(open('./rating.json'))
-        data = json.dumps(data_loads)
-        json_data = json.loads(data)
-        rating = json_data["Список"]
+        rating = json_data4["Список"]
         layout2 = ''
         key = 0
         for x in rating:
