@@ -254,7 +254,16 @@ def callback_inline(call):
             bot.send_location(call.message.chat.id, 55.911603, 37.812318)
             bot.send_photo(call.message.chat.id, photo, reply_markup = keyboard)
         elif call.data == 'percent':
-            bot.send_message(call.message.chat.id, 'Test data', parse_mode = 'Markdown')
+            keyboard = types.InlineKeyboardMarkup()
+            button = types.InlineKeyboardButton(text = "Сортировка по фамилиям", callback_data = 'family')
+            keyboard.add(button)
+            sorted_message = sorted(json_data4["Список"])
+            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = sorted_message, parse_mode = 'Markdown', reply_markup = keyboard)
+        elif call.data == 'percent':
+            keyboard = types.InlineKeyboardMarkup()
+            button = types.InlineKeyboardButton(text = "Сортировка по процентам", callback_data = 'percent')
+            keyboard.add(button)
+            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = layout, parse_mode = 'Markdown', reply_markup = keyboard)
         elif call.data == 'delete':
             bot.delete_message(call.message.chat.id, call.message.message_id)
             bot.delete_message(call.message.chat.id, call.message.message_id - 1)
@@ -449,8 +458,7 @@ def text(message):
     elif message.text == 'Рейтинг по курсу':
         keyboard = types.InlineKeyboardMarkup()
         button = types.InlineKeyboardButton(text = "Сортировка по процентам", callback_data = 'percent')
-        button1 = types.InlineKeyboardButton(text = "Сортировка по фамилиям", callback_data = 'family')
-        keyboard.add(button, button1)
+        keyboard.add(button)
         bot.send_message(message.chat.id, layout, parse_mode = 'Markdown', reply_markup = keyboard)
     elif message.text == 'Физика':
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
