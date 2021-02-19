@@ -417,9 +417,10 @@ def text(message):
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
         button = types.KeyboardButton(text = "Полезные материалы")
         button1 = types.KeyboardButton(text = "В меню расписаний")
-        button2 = types.KeyboardButton(text = "Оставить пожелание")
-        keyboard.row(button, button2)
-        keyboard.row(button1)
+        button2 = types.KeyboardButton(text = "Рейтинг по курсу")
+        button3 = types.KeyboardButton(text = "Оставить пожелание")
+        keyboard.row(button, button1)
+        keyboard.row(button2, button3)
         bot.send_message(message.chat.id, 'Вы перешли в *главное меню*.', parse_mode = 'Markdown', reply_markup = keyboard)
     elif message.text == 'Полезные материалы':
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
@@ -432,6 +433,22 @@ def text(message):
         keyboard.row(button3, button4)
         keyboard.row(button2)
         bot.send_message(message.chat.id, 'Вы перешли в *полезные материалы*.', parse_mode = 'Markdown', reply_markup = keyboard)
+    elif message.text == 'Рейтинг по курсу':
+        data_loads = json.load(open('./rating.json'))
+        data = json.dumps(data_loads2)
+        json_data = json.loads(data2)
+        rating = json_data["Маршрут №2"]
+        layout2 = ''
+        key = 0
+        for x in rating:
+            rating_cources = rating.get(str(key))
+            key += 1
+            layout += f'{rating_cources}\n'
+        keyboard = types.InlineKeyboardMarkup()
+        button = types.InlineKeyboardButton(text = "Сортировка по процентам", callback_data = 'percent')
+        button = types.InlineKeyboardButton(text = "Сортировка по фамилиям", callback_data = 'family')
+        keyboard.add(callback_button)
+        bot.send_message(message.chat.id, layout, parse_mode = 'Markdown', reply_markup = keyboard)
     elif message.text == 'Физика':
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
         button = types.KeyboardButton(text = "Физика")
