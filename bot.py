@@ -441,8 +441,8 @@ def text(message):
         button1 = types.KeyboardButton(text = "В меню расписаний")
         button2 = types.KeyboardButton(text = "Рейтинг по курсу")
         button3 = types.KeyboardButton(text = "Оставить пожелание")
-        keyboard.row(button, button1)
-        keyboard.row(button2, button3)
+        keyboard.row(button, button3)
+        keyboard.row(button2, button1)
         bot.send_message(message.chat.id, 'Вы перешли в *главное меню*.', parse_mode = 'Markdown', reply_markup = keyboard)
     elif message.text == 'Полезные материалы':
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
