@@ -257,8 +257,8 @@ def callback_inline(call):
             keyboard = types.InlineKeyboardMarkup()
             button = types.InlineKeyboardButton(text = "Сортировка по фамилиям", callback_data = 'family')
             keyboard.add(button)
-            sorted_message = sorted(json_data4["Список"])
-            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = sorted_message, parse_mode = 'Markdown', reply_markup = keyboard)
+            json_data4["Список"].sort()
+            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = json_data4["Список"], parse_mode = 'Markdown', reply_markup = keyboard)
         elif call.data == 'family':
             keyboard = types.InlineKeyboardMarkup()
             button = types.InlineKeyboardButton(text = "Сортировка по процентам", callback_data = 'percent')
