@@ -31,9 +31,12 @@ json_data4 = json.loads(data4)
 
 rating = json_data4["Список"]
 percents = json_data4["Проценты"]
-percent_cources_sorted = percents.values()
-print(sorted(percent_cources_sorted))
-
+sorted_dict = {}
+'''percent_cources_sorted = percents.values()'''
+sorted(percents, key = percents.get)
+for w in sorted_keys:
+    sorted_dict[w] = dict1[w]
+print(sorted_dict)
 layout = ''
 key = 0
 for x, y in zip(rating, percents):
