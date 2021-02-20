@@ -31,6 +31,7 @@ json_data4 = json.loads(data4)
 
 rating = json_data4["Список"]
 percents = json_data4["Проценты"]
+print(sorted(percents))
 layout = ''
 key = 0
 for x, y in zip(rating, percents):
