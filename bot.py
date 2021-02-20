@@ -30,12 +30,14 @@ data4 = json.dumps(data_loads4)
 json_data4 = json.loads(data4)
 
 rating = json_data4["Список"]
+percents = json_data4["Проценты"]
 layout = ''
 key = 0
-for x in rating:
+for x, y in zip(rating, percents):
     rating_cources = rating.get(str(key))
+    percent_cources = percents.get(str(key))
     key += 1
-    layout += f'{rating_cources}\n'
+    layout += f'{rating_cources} {percent_cources}\n'
             
 message_password = os.environ.get('pwd')
 
