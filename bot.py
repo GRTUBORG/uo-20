@@ -37,7 +37,7 @@ for x, y in zip(rating, percents):
     rating_cources = rating.get(str(key))
     percent_cources = percents.get(str(key))
     percent_cources_sorted = percents.values()
-    print(percent_cources_sorted.sort())
+    print(sorted(percent_cources_sorted))
     key += 1
     layout += f'{rating_cources} {percent_cources}%\n'
             
