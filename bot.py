@@ -527,9 +527,10 @@ def get_message(message):
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
         button = types.KeyboardButton(text = "Полезные материалы")
         button1 = types.KeyboardButton(text = "В меню расписаний")
-        button2 = types.KeyboardButton(text = "Оставить пожелание")
-        keyboard.row(button, button2)
-        keyboard.row(button1)
+        button2 = types.KeyboardButton(text = "Рейтинг по курсу")
+        button3 = types.KeyboardButton(text = "Оставить пожелание")
+        keyboard.row(button, button3)
+        keyboard.row(button2, button1)
         bot.send_message(message.chat.id, "Готово, отменил отправку и вернул тебя в главное меню.", parse_mode = 'Markdown', reply_markup = keyboard)
     else:
         str_countes = ''
