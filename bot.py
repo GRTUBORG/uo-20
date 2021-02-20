@@ -259,8 +259,7 @@ def callback_inline(call):
             keyboard = types.InlineKeyboardMarkup()
             button = types.InlineKeyboardButton(text = "Сортировка по фамилиям", callback_data = 'family')
             keyboard.add(button) 
-            print(sorted(rating.items()))
-            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = sorted(rating.values()), parse_mode = 'Markdown', reply_markup = keyboard)
+            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = '`Пока что тут ничего нет, но скоро всё появится!`', parse_mode = 'Markdown', reply_markup = keyboard)
         elif call.data == 'family':
             keyboard = types.InlineKeyboardMarkup()
             button = types.InlineKeyboardButton(text = "Сортировка по процентам", callback_data = 'percent')
