@@ -35,7 +35,7 @@ sorted_dict = {}
 '''percent_cources_sorted = percents.values()'''
 sorted_keys = sorted(percents, key = percents.get)
 for w in sorted_keys:
-    sorted_dict[w] = dict1[w]
+    sorted_dict[w] = percents[w]
 print(sorted_dict)
 layout = ''
 key = 0
