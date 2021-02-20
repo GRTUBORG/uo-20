@@ -37,14 +37,15 @@ for w in sorted_keys:
     sorted_dict[w] = percents[w]
 layout = ''
 keys_percents = int(percents.keys())
+print(keys_percents)
 key = 0
 for x, y in zip(rating, percents):
     rating_cources = rating.get(str(key))
     percent_cources = percents.get(str(key))
     key += 1
     layout += f'{rating_cources} {percent_cources}%\n'
-"""for x in sorted_dict:
-    """
+"""for x, y in zip(sorted_dict, rating):"""
+    
 message_password = os.environ.get('pwd')
 
 message_physics = """ 
