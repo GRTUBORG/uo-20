@@ -34,8 +34,8 @@ percents = json_data4["Проценты"]
 layout = ''
 key = 0
 for x, y in zip(rating, percents):
-    rating_cources = rating.get(str(key))
-    percent_cources = percents.get(str(key))
+    rating_cources = rating.get(key)
+    percent_cources = percents.get(key)
     key += 1
     layout += f'{rating_cources} {percent_cources}\n'
             
