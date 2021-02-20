@@ -31,13 +31,13 @@ json_data4 = json.loads(data4)
 
 rating = json_data4["Список"]
 percents = json_data4["Проценты"]
-
 layout = ''
 key = 0
 for x, y in zip(rating, percents):
     rating_cources = rating.get(str(key))
     percent_cources = percents.get(str(key))
-    print(percent_cources.sort())
+    percent_cources_sorted = percents.values()
+    print(percent_cources_sorted.sort())
     key += 1
     layout += f'{rating_cources} {percent_cources}%\n'
             
