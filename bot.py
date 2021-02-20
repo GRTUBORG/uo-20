@@ -36,7 +36,7 @@ sorted_keys = sorted(percents, key = percents.get)
 for w in sorted_keys:
     sorted_dict[w] = percents[w]
 layout = ''
-keys_percents = int(percents.keys())
+keys_percents = percents.keys()
 print(keys_percents)
 key = 0
 for x, y in zip(rating, percents):
