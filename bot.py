@@ -32,18 +32,17 @@ json_data4 = json.loads(data4)
 rating = json_data4["Список"]
 percents = json_data4["Проценты"]
 sorted_dict = {}
-'''percent_cources_sorted = percents.values()'''
 sorted_keys = sorted(percents, key = percents.get)
 for w in sorted_keys:
     sorted_dict[w] = percents[w]
-print(sorted_dict)
 layout = ''
 key = 0
 for x, y in zip(rating, percents):
     rating_cources = rating.get(str(key))
     percent_cources = percents.get(str(key))
+    sorted_percent = sorted_dict.get(str(key))
     key += 1
-    layout += f'{rating_cources} {percent_cources}%\n'
+    layout += f'{rating_cources} {percent_cources} / {sorted_percent}%\n'
             
 message_password = os.environ.get('pwd')
 
