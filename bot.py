@@ -33,7 +33,7 @@ rating = json_data4["Список"]
 percents = json_data4["Проценты"]
 sorted_dict = {}
 '''percent_cources_sorted = percents.values()'''
-sorted(percents, key = percents.get)
+sorted_keys = sorted(percents, key = percents.get)
 for w in sorted_keys:
     sorted_dict[w] = dict1[w]
 print(sorted_dict)
