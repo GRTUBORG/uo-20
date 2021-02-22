@@ -2,6 +2,7 @@ import telebot
 import time
 import json
 import os
+import re
 
 from telebot import types
 from datetime import datetime, date, timedelta
@@ -527,7 +528,9 @@ def text(message):
         keyboard.add(button)
         bot.send_message(message.chat.id, "Напиши своё сообщение, а я отправлю его разработчику, \nлибо отправь «Отмена» для отмены!", reply_markup = keyboard)
         bot.register_next_step_handler(message, get_message)
-
+    elif re.search(r'\bпривет!', message.text):
+        bot.send_message(message.chat.id, "Рад тебя видеть!")
+    
 def get_message(message):
     callback = message.text
     if callback == "Отмена" or callback == "отмена":
