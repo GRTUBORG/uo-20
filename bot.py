@@ -526,7 +526,7 @@ def text(message):
         keyboard.add(button)
         bot.send_message(message.chat.id, "Напиши своё сообщение, а я отправлю его разработчику, \nлибо отправь «Отмена» для отмены!", reply_markup = keyboard)
         bot.register_next_step_handler(message, get_message)
-    elif re.search(r'\bпривет!', message.text):
+    elif re.search(r'\bпривет!', message.text.lower()):
         bot.send_message(message.chat.id, "Рад тебя видеть!")
     
 def get_message(message):
