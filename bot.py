@@ -528,7 +528,7 @@ def text(message):
         bot.send_message(message.chat.id, "Напиши своё сообщение, а я отправлю его разработчику, \nлибо отправь «Отмена» для отмены!", reply_markup = keyboard)
         bot.register_next_step_handler(message, get_message)
     #подобие ИИ
-    elif re.search(r'\bпривет!', message.text.lower()):
+    elif re.search(r'\bпривет', message.text.lower()):
         with open ('./AI/hello.txt', 'r') as file:
             lines = file.readlines()
         bot.send_message(message.chat.id, random.choice(lines))
