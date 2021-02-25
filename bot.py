@@ -49,8 +49,7 @@ for key, value in sorted_dict.items():
     surname = f'{value}%'
     # и по ключу из первого словаря берем значения из второго
     percent_cources = rating.get(str(key))
-    layout_percents += f'{percent_cources} {surname}\n'
-layout_percents = layout_percents.reverse()   
+    layout_percents += f'{percent_cources} {surname}\n'  
 
 message_password = os.environ.get('pwd')
 
