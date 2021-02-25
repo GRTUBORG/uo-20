@@ -46,10 +46,10 @@ for x, y in zip(rating, percents):
     key += 1
     layout += f'{rating_cources} {percent_cources}%\n'
 for key, value in sorted_dict.items():
-    rating_cources = value
+    rating_cources = f'{value}%'
     # и по ключу из первого словаря берем значения из второго
-    percent_cources = percents.get(str(key))
-    layout_percents += f'{rating_cources} {percent_cources}%\n'
+    percent_cources = rating.get(str(key))
+    layout_percents += f'{percent_cources} {rating_cources}\n'
     
 message_password = os.environ.get('pwd')
 
