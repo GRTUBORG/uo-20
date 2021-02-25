@@ -44,7 +44,11 @@ for x, y in zip(rating, percents):
     percent_cources = percents.get(str(key))
     key += 1
     layout += f'{rating_cources} {percent_cources}%\n'
-"""for x, y in zip(sorted_dict, rating):"""
+for key, value in sorted_dict.items():
+    rating_cources = value
+    # и по ключу из первого словаря берем значения из второго
+    percent_cources = percents.get(str(key))
+    layout_percents += f'{rating_cources} {percent_cources}%\n'
     
 message_password = os.environ.get('pwd')
 
@@ -266,7 +270,7 @@ def callback_inline(call):
             keyboard = types.InlineKeyboardMarkup()
             button = types.InlineKeyboardButton(text = "Сортировка по фамилиям", callback_data = 'family')
             keyboard.add(button) 
-            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = '`Пока что тут ничего нет, но скоро всё появится!`', parse_mode = 'Markdown', reply_markup = keyboard)
+            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = layout_percents, parse_mode = 'Markdown', reply_markup = keyboard)
         elif call.data == 'family':
             keyboard = types.InlineKeyboardMarkup()
             button = types.InlineKeyboardButton(text = "Сортировка по процентам", callback_data = 'percent')
