@@ -47,7 +47,6 @@ for x, y in zip(rating, percents):
     layout += f'{surname} {percent_cources}%\n'
 for key, value in sorted_dict.items():
     surname = f'{value}%'
-    # и по ключу из первого словаря берем значения из второго
     percent_cources = rating.get(str(key))
     layout_percents += f'{percent_cources} {surname}\n'  
 
