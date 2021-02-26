@@ -512,7 +512,7 @@ def text(message):
         bot.send_message(message.chat.id, message_password, parse_mode = 'Markdown')
         time.sleep(3)
         bot.delete_message(message.chat.id, message.message_id)
-        bot.delete_message(message.chat.id, message.message_id - 1)
+        bot.delete_message(message.chat.id, message.message_id + 1)
     elif message.text == 'В меню расписаний' or message.text == 'Вернуться назад':
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
         button = types.KeyboardButton(text = "Расписание на сегодня")
