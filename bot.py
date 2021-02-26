@@ -506,15 +506,9 @@ def text(message):
         keyboard.row(button2)
         bot.send_message(message.chat.id, message_math, reply_markup = keyboard)
     elif message.text == 'Пароли':
-        keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
-        button = types.KeyboardButton(text = "Физика")
-        button1 = types.KeyboardButton(text = "Английский язык")
-        button3 = types.KeyboardButton(text = "Мат. анализ")
-        button4 = types.KeyboardButton(text = "Пароли")
-        button2 = types.KeyboardButton(text = "В меню расписаний")
-        keyboard.row(button, button1)
-        keyboard.row(button3, button4)
-        keyboard.row(button2)
+        keyboard = types.InlineKeyboardMarkup()
+        delete = types.InlineKeyboardButton(text = "Удалить ❌", callback_data = 'delete')
+        keyboard.add(delete)
         bot.send_message(message.chat.id, message_password, parse_mode = 'Markdown', reply_markup = keyboard)
     elif message.text == 'В меню расписаний' or message.text == 'Вернуться назад':
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
