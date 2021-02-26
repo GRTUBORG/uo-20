@@ -37,7 +37,7 @@ sorted_dict = {}
 sorted_keys = sorted(percents, key = percents.get)
 for w in sorted_keys:
     sorted_dict[w] = percents[w]
-sorted_dict.reverse()
+sorted_dict = reversed(sorted_dict)
 layout = ''
 layout_percents = ''
 key = 0
