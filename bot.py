@@ -266,16 +266,19 @@ def callback_inline(call):
             bot.send_message(call.message.chat.id, 'Спортзал. \n*улица Богомолова, 9*', parse_mode = 'Markdown')
             bot.send_location(call.message.chat.id, 55.911603, 37.812318)
             bot.send_photo(call.message.chat.id, photo, reply_markup = keyboard)
+        
         elif call.data == 'percent':
             keyboard = types.InlineKeyboardMarkup()
             button = types.InlineKeyboardButton(text = "Сортировка по фамилиям", callback_data = 'family')
             keyboard.add(button) 
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = layout_percents, parse_mode = 'Markdown', reply_markup = keyboard)
+        
         elif call.data == 'family':
             keyboard = types.InlineKeyboardMarkup()
             button = types.InlineKeyboardButton(text = "Сортировка по процентам", callback_data = 'percent')
             keyboard.add(button)
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = layout, parse_mode = 'Markdown', reply_markup = keyboard)
+        
         elif call.data == 'delete':
             bot.delete_message(call.message.chat.id, call.message.message_id)
             bot.delete_message(call.message.chat.id, call.message.message_id - 1)
@@ -508,8 +511,8 @@ def text(message):
     elif message.text == 'Пароли':
         bot.send_message(message.chat.id, message_password, parse_mode = 'Markdown')
         time.sleep(3)
-        bot.delete_message(call.message.chat.id, call.message.message_id)
-        bot.delete_message(call.message.chat.id, call.message.message_id - 1)
+        bot.delete_message(message.chat.id, message.message_id)
+        bot.delete_message(message.chat.id, message.message_id - 1)
     elif message.text == 'В меню расписаний' or message.text == 'Вернуться назад':
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
         button = types.KeyboardButton(text = "Расписание на сегодня")
