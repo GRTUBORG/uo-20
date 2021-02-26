@@ -283,6 +283,11 @@ def callback_inline(call):
             bot.delete_message(call.message.chat.id, call.message.message_id)
             bot.delete_message(call.message.chat.id, call.message.message_id - 1)
             bot.delete_message(call.message.chat.id, call.message.message_id - 2)
+        
+        elif call.data == 'late': 
+            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = message_password, parse_mode = 'Markdown')
+            time.sleep(2)
+            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = '_Сообщение с паролем было удалено в целях сохранения конфиденциальности._', parse_mode = 'Markdown')
             
 @bot.message_handler(commands = ['schedule_next'])
 def schedule_next(message):
@@ -509,9 +514,12 @@ def text(message):
         keyboard.row(button2)
         bot.send_message(message.chat.id, message_math, reply_markup = keyboard)
     elif message.text == 'Пароли':
+        keyboard = types.InlineKeyboardMarkup()
+        late = types.InlineKeyboardButton(text = "Не успел войти", callback_data = 'late')
+        keyboard.add(late)
         bot.send_message(message.chat.id, message_password, parse_mode = 'Markdown')
-        time.sleep(60)
-        bot.edit_message_text(chat_id = message.chat.id, message_id = message.message_id + 1, text = f'_Сообщение с паролем было удалено в целях сохранения конфиденциальности._', parse_mode = 'Markdown')
+        time.sleep(6)
+        bot.edit_message_text(chat_id = message.chat.id, message_id = message.message_id + 1, text = '_Сообщение с паролем было удалено в целях сохранения конфиденциальности._\nЕсли Вы вдруг не успели войти в систему, нажмите на кнопку ниже.', parse_mode = 'Markdown', reply_markup = keyboard)
     elif message.text == 'В меню расписаний' or message.text == 'Вернуться назад':
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
         button = types.KeyboardButton(text = "Расписание на сегодня")
