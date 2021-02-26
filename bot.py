@@ -286,7 +286,7 @@ def callback_inline(call):
         
         elif call.data == 'late': 
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = message_password, parse_mode = 'Markdown')
-            time.sleep(2)
+            time.sleep(15)
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = '_Сообщение с паролем было удалено в целях сохранения конфиденциальности._', parse_mode = 'Markdown')
             
 @bot.message_handler(commands = ['schedule_next'])
@@ -518,7 +518,7 @@ def text(message):
         late = types.InlineKeyboardButton(text = "Не успел войти", callback_data = 'late')
         keyboard.add(late)
         bot.send_message(message.chat.id, message_password, parse_mode = 'Markdown')
-        time.sleep(6)
+        time.sleep(45)
         bot.edit_message_text(chat_id = message.chat.id, message_id = message.message_id + 1, text = '_Сообщение с паролем было удалено в целях сохранения конфиденциальности._\nЕсли Вы вдруг не успели войти в систему, нажмите на кнопку ниже.', parse_mode = 'Markdown', reply_markup = keyboard)
     elif message.text == 'В меню расписаний' or message.text == 'Вернуться назад':
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
