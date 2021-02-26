@@ -513,7 +513,7 @@ def text(message):
         time.sleep(3)
         bot.delete_message(message.chat.id, message.message_id + 1)
         bot.delete_message(message.chat.id, message.message_id)
-        bot.send_message(message.chat.id, '__Сообщение с паролем было удалено в целях сохранения конфиденциальности.__', parse_mode = telegram.ParseMode.HTML)
+        bot.send_message(message.chat.id, '_Сообщение с паролем было удалено в целях сохранения конфиденциальности._', parse_mode = 'Markdown')
     elif message.text == 'В меню расписаний' or message.text == 'Вернуться назад':
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
         button = types.KeyboardButton(text = "Расписание на сегодня")
