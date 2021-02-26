@@ -54,16 +54,16 @@ message_password = os.environ.get('pwd')
 
 message_physics = """ 
 • Курсы:
-├ https://bit.ly/2ZvQKsJ;
-└ https://bit.ly/3jYshWt
+├ https://bit.ly/2ZvQKsJ (teach-in);
+└ https://bit.ly/3jYshWt (youtube)
 
 • Иные полезные материалы:
-└ https://clck.ru/TTQ2L
+└ https://clck.ru/TTQ2L (google drive)
 """
 
 message_math = """
 • Курсы:
-└ https://bit.ly/2OLpbtb
+└ https://bit.ly/2OLpbtb (youtube)
 """
 
 message_english = """
