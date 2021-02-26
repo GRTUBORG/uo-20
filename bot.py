@@ -37,7 +37,6 @@ sorted_dict = {}
 sorted_keys = sorted(percents, key = percents.get, reverse = True)
 for w in sorted_keys:
     sorted_dict[w] = percents[w]
-print(sorted_dict)
 layout = ''
 layout_percents = ''
 key = 0
