@@ -280,6 +280,8 @@ def callback_inline(call):
             bot.delete_message(call.message.chat.id, call.message.message_id)
             bot.delete_message(call.message.chat.id, call.message.message_id - 1)
             bot.delete_message(call.message.chat.id, call.message.message_id - 2)
+        elif call.data == 'delete_pwd':
+            bot.delete_message(call.message.chat.id, call.message.message_id)
             
 @bot.message_handler(commands = ['schedule_next'])
 def schedule_next(message):
@@ -507,7 +509,7 @@ def text(message):
         bot.send_message(message.chat.id, message_math, reply_markup = keyboard)
     elif message.text == 'Пароли':
         keyboard = types.InlineKeyboardMarkup()
-        delete = types.InlineKeyboardButton(text = "Удалить ❌", callback_data = 'delete')
+        delete = types.InlineKeyboardButton(text = "Удалить ❌", callback_data = 'delete_pwd')
         keyboard.add(delete)
         bot.send_message(message.chat.id, message_password, parse_mode = 'Markdown', reply_markup = keyboard)
     elif message.text == 'В меню расписаний' or message.text == 'Вернуться назад':
