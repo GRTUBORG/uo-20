@@ -38,8 +38,6 @@ sorted_keys = sorted(percents, key = percents.get, reverse = True)
 for w in sorted_keys:
     sorted_dict[w] = percents[w]
 print(sorted_dict)
-x = {v: k for k, v in sorted_dict.items()}
-print(f'Перевёрнутый словарь: {x}')
 layout = ''
 layout_percents = ''
 key = 0
