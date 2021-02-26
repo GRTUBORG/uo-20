@@ -54,22 +54,22 @@ message_password = os.environ.get('pwd')
 
 message_physics = """ 
 • Курсы:
-https://bit.ly/2ZvQKsJ;
-https://bit.ly/3jYshWt
+├ https://bit.ly/2ZvQKsJ;
+└ https://bit.ly/3jYshWt
 
 • Иные полезные материалы:
-https://drive.google.com/drive/folders/13A_yINfDRD6y5sJfweml3G00GnCqBoh4
+└ https://drive.google.com/drive/folders/13A_yINfDRD6y5sJfweml3G00GnCqBoh4
 """
 
 message_math = """
 • Курсы:
-https://bit.ly/2OLpbtb
+└ https://bit.ly/2OLpbtb
 """
 
 message_english = """
 • Учебники:
-https://bit.ly/3pxRvfs — первая группа;
-https://bit.ly/3ayKEhD — вторая группа
+├ https://bit.ly/3pxRvfs — первая группа;
+└ https://bit.ly/3ayKEhD — вторая группа
 """
 
 @bot.message_handler(commands = ['start'])
