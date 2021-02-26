@@ -510,7 +510,7 @@ def text(message):
         bot.send_message(message.chat.id, message_math, reply_markup = keyboard)
     elif message.text == 'Пароли':
         bot.send_message(message.chat.id, message_password, parse_mode = 'Markdown')
-        time.sleep(3)
+        time.sleep(60)
         bot.delete_message(message.chat.id, message.message_id + 1)
         bot.delete_message(message.chat.id, message.message_id)
         bot.send_message(message.chat.id, '_Сообщение с паролем было удалено в целях сохранения конфиденциальности._', parse_mode = 'Markdown')
