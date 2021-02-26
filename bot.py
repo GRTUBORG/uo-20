@@ -58,7 +58,7 @@ message_physics = """
 └ https://bit.ly/3jYshWt
 
 • Иные полезные материалы:
-└ https://drive.google.com/drive/folders/13A_yINfDRD6y5sJfweml3G00GnCqBoh4
+└ https://clck.ru/TTQ2L
 """
 
 message_math = """
