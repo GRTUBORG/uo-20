@@ -51,6 +51,7 @@ for key, value in sorted_dict.items():
     layout_percents += f'{percent_cources} {surname}\n'  
 
 message_password = os.environ.get('pwd')
+message_password_email = os.environ.get('pwd_mail')
 
 message_physics = """ 
 • Курсы:
@@ -539,6 +540,11 @@ def text(message):
         delete = types.InlineKeyboardButton(text = "Удалить ❌", callback_data = 'delete_pwd')
         keyboard.add(delete)
         bot.send_message(message.chat.id, message_password, parse_mode = 'Markdown', reply_markup = keyboard)
+    elif message.text == 'Для почты':
+        keyboard = types.InlineKeyboardMarkup()
+        delete = types.InlineKeyboardButton(text = "Удалить ❌", callback_data = 'delete_pwd')
+        keyboard.add(delete)
+        bot.send_message(message.chat.id, message_password_email, parse_mode = 'Markdown', reply_markup = keyboard)
     elif message.text == 'Оставить пожелание':
         keyboard = types.ReplyKeyboardMarkup(row_width = 1, resize_keyboard = True)
         button = types.KeyboardButton(text = "Отмена")
