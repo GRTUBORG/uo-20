@@ -38,7 +38,7 @@ json_data5 = json.loads(data5)
 id = '1'
 flag = True
 
-for search_emploers in employer:
+for search_emploers in json_data5:
     if employer[search_emploers]['name'] == id:
         print(employer[search_emploers]['login'], employer[search_emploers]['pass'])
         flag = False
