@@ -560,7 +560,7 @@ def text(message):
         button = types.KeyboardButton(text = "Отмена")
         button1 = types.KeyboardButton(text = "Рейтинг по курсу")
         keyboard.row(button1, button)
-        bot.send_message(message.chat.id, '*Напиши свой ID*. Если же ты его _не знаешь_, или _забыл_, обратись к пункту меню «Рейтинг по курсу»,\nлибо отправь «Отмена» для отмены!', parse_mode = 'Markdown', reply_markup = keyboard)
+        bot.send_message(message.chat.id, '*Напиши свой ID*. Если же ты его _не знаешь_, или _забыл_, обратись к пункту меню «Рейтинг по курсу», нажав на соответствующую кнопку,\nлибо отправь «Отмена» для отмены!', parse_mode = 'Markdown', reply_markup = keyboard)
         bot.register_next_step_handler(message, get_pwd_test)
     #подобие ИИ
     elif re.search(r'\bпривет', message.text.lower()):
