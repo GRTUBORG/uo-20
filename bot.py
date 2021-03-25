@@ -39,8 +39,8 @@ id = '1'
 flag = True
 
 for search_emploers in json_data5:
-    if employer[search_emploers]['name'] == id:
-        print(employer[search_emploers]['login'], employer[search_emploers]['pass'])
+    if json_data5[search_emploers]['name'] == id:
+        print(json_data5[search_emploers]['login'], json_data5[search_emploers]['pass'])
         flag = False
 
 rating = json_data4["Список"]
