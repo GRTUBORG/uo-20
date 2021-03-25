@@ -610,7 +610,7 @@ def get_pwd_test(message):
         keyboard.row(button3, button4)
         bot.send_message(message.chat.id, "Готово, *отменил* и *вернул* тебя в меню паролей.", parse_mode = 'Markdown', reply_markup = keyboard)
     else:
-        print(json_data5['id'][id]['login']['pass'])
+        print(json_data5['id'][id]['login'], json_data5['id'][id]['pass'])
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
         button = types.KeyboardButton(text = "Для локальной сети")
         button1 = types.KeyboardButton(text = "Для тестирования")
