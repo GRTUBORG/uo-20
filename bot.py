@@ -514,12 +514,13 @@ def text(message):
         keyboard.row(button2)
         bot.send_message(message.chat.id, message_math, reply_markup = keyboard)
     elif message.text == 'Пароли':
-        keyboard = types.InlineKeyboardMarkup()
-        late = types.InlineKeyboardButton(text = "Не успел войти", callback_data = 'late')
-        keyboard.add(late)
-        bot.send_message(message.chat.id, message_password, parse_mode = 'Markdown')
-        time.sleep(45)
-        bot.edit_message_text(chat_id = message.chat.id, message_id = message.message_id + 1, text = '_Сообщение с паролем было удалено в целях сохранения конфиденциальности._\nЕсли Вы вдруг не успели войти в систему, нажмите на кнопку ниже.', parse_mode = 'Markdown', reply_markup = keyboard)
+        keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
+        button = types.KeyboardButton(text = "Для локальной сети")
+        button1 = types.KeyboardButton(text = "Для тестирования")
+        button3 = types.KeyboardButton(text = "Для почты")
+        keyboard.row(button, button1)
+        keyboard.row(button3)
+        bot.send_message(message.chat.id, 'Вы *перешли* в *меню паролей*', parse_mode = 'Markdown', reply_markup = keyboard)
     elif message.text == 'В меню расписаний' or message.text == 'Вернуться назад':
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
         button = types.KeyboardButton(text = "Расписание на сегодня")
@@ -529,6 +530,11 @@ def text(message):
         keyboard.row(button, button1)
         keyboard.row(button2, button3)
         bot.send_message(message.chat.id, "Вы *вернулись назад* в *меню расписаний*.", parse_mode = 'Markdown', reply_markup = keyboard)
+    elif message.text == 'Для локальной сети':
+        keyboard = types.InlineKeyboardMarkup()
+        delete = types.InlineKeyboardButton(text = "Удалить ❌", callback_data = 'delete')
+        keyboard.add(delete)
+        bot.send_message(message.chat.id, message_password, parse_mode = 'Markdown', reply_markup = keyboard)
     elif message.text == 'Оставить пожелание':
         keyboard = types.ReplyKeyboardMarkup(row_width = 1, resize_keyboard = True)
         button = types.KeyboardButton(text = "Отмена")
