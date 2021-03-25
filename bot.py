@@ -285,6 +285,7 @@ def callback_inline(call):
             bot.delete_message(call.message.chat.id, call.message.message_id - 2)
         elif call.data == 'delete_pwd':
             bot.delete_message(call.message.chat.id, call.message.message_id)
+            bot.delete_message(call.message.chat.id, call.message.message_id - 1)
             
         elif call.data == 'late': 
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = message_password, parse_mode = 'Markdown')
@@ -520,8 +521,9 @@ def text(message):
         button = types.KeyboardButton(text = "Для локальной сети")
         button1 = types.KeyboardButton(text = "Для тестирования")
         button3 = types.KeyboardButton(text = "Для почты")
+        button4 = types.KeyboardButton(text = "В меню расписаний")
         keyboard.row(button, button1)
-        keyboard.row(button3)
+        keyboard.row(button3, button4)
         bot.send_message(message.chat.id, 'Вы *перешли* в *меню паролей*', parse_mode = 'Markdown', reply_markup = keyboard)
     elif message.text == 'В меню расписаний' or message.text == 'Вернуться назад':
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
