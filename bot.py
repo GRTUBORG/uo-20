@@ -558,8 +558,9 @@ def text(message):
     elif message.text == 'Для тестирования':
         keyboard = types.ReplyKeyboardMarkup(row_width = 1, resize_keyboard = True)
         button = types.KeyboardButton(text = "Отмена")
-        keyboard.add(button)
-        bot.send_message(message.chat.id, 'Напиши свой ID (порядковый номер по журналу). Если же ты его не знаешь, или забыл, обратись к пункту меню "рейтинг по курсу",\nлибо отправь «Отмена» для отмены!', reply_markup = keyboard)
+        button1 = types.KeyboardButton(text = "Рейтинг по курсу")
+        keyboard.row(button, button1)
+        bot.send_message(message.chat.id, '*Напиши свой ID*. Если же ты его не знаешь, или забыл, обратись к пункту меню «Рейтинг по курсу»,\nлибо отправь «Отмена» для отмены!', reply_markup = keyboard)
         bot.register_next_step_handler(message, get_pwd_test)
     #подобие ИИ
     elif re.search(r'\bпривет', message.text.lower()):
@@ -599,7 +600,7 @@ def get_message(message):
         bot.send_message(767815871, f'• *Кто-то оставил фидбэк:* \n{callback} \n\n• *Прилетел от:* \n{str_countes}', parse_mode = 'Markdown', reply_markup = keyboard)
 def get_pwd_test(message):
     id = message.text
-    if id == "Отмена" or id == "отмена":
+    if id.lower() == "отмена" or id.lower() == "рейтинг по курсу":
         bot.clear_step_handler_by_chat_id(chat_id = message.chat.id)
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
         button = types.KeyboardButton(text = "Для локальной сети")
