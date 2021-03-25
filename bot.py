@@ -637,7 +637,7 @@ def get_pwd_test(message):
         button4 = types.KeyboardButton(text = "В меню расписаний")
         keyboard.row(button, button1)
         keyboard.row(button3, button4)
-        bot.send_message(message.chat.id, f"Держи свои логин и пароль: \n\n*Логин:* `{json_data5['id'][id]['login']}` \n*Пароль:* `{json_data5['id'][id]['pass']}`", parse_mode = 'Markdown', reply_markup = keyboard)
+        bot.send_message(message.chat.id, f"{name}, лови свои логин и пароль! \n\n*Логин:* `{json_data5['id'][id]['login']}` \n*Пароль:* `{json_data5['id'][id]['pass']}`", parse_mode = 'Markdown', reply_markup = keyboard)
         
 if __name__ == '__main__':
     while True:
