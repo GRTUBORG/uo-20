@@ -36,14 +36,7 @@ data5 = json.dumps(data_loads5)
 json_data5 = json.loads(data5)
 
 id = '1'
-print(json_data5['id'])
-
-'''flag = True
-
-for search_emploers in json_data5:
-    if json_data5[search_emploers]['id'] == id:
-        print(json_data5[search_emploers]['login'], json_data5[search_emploers]['pass'])
-        flag = False'''
+print(json_data5['id'][id])
 
 rating = json_data4["Список"]
 percents = json_data4["Проценты"]
