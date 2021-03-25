@@ -589,7 +589,7 @@ def get_message(message):
         bot.send_message(767815871, f'• *Кто-то оставил фидбэк:* \n{callback} \n\n• *Прилетел от:* \n{str_countes}', parse_mode = 'Markdown', reply_markup = keyboard)
 def get_pwd_test(message):
     id = message.text
-    if callback == "Отмена" or callback == "отмена":
+    if id == "Отмена" or id == "отмена":
         bot.clear_step_handler_by_chat_id(chat_id = message.chat.id)
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
         button = types.KeyboardButton(text = "Для локальной сети")
