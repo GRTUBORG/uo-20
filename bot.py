@@ -600,7 +600,7 @@ def get_message(message):
         bot.send_message(767815871, f'• *Кто-то оставил фидбэк:* \n{callback} \n\n• *Прилетел от:* \n{str_countes}', parse_mode = 'Markdown', reply_markup = keyboard)
 def get_pwd_test(message):
     id = message.text
-    if id.lower() == "отмена" or id.lower() == "рейтинг по курсу":
+    if id.lower() == "отмена":
         bot.clear_step_handler_by_chat_id(chat_id = message.chat.id)
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
         button = types.KeyboardButton(text = "Для локальной сети")
@@ -610,6 +610,8 @@ def get_pwd_test(message):
         keyboard.row(button, button1)
         keyboard.row(button3, button4)
         bot.send_message(message.chat.id, "Готово, *отменил* и *вернул* тебя в меню паролей.", parse_mode = 'Markdown', reply_markup = keyboard)
+    elif id.lower() == "рейтинг по курсу":
+        bot.send_message(message.chat.id, layout, parse_mode = 'Markdown')
     else:
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
         button = types.KeyboardButton(text = "Для локальной сети")
