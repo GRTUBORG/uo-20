@@ -572,12 +572,12 @@ def get_message(message):
     else:
         str_countes = ''
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
-        button = types.KeyboardButton(text = "Расписание на сегодня")
-        button1 = types.KeyboardButton(text = "Расписание на завтра")
-        button2 = types.KeyboardButton(text = "Адреса корпусов")
-        button3 = types.KeyboardButton(text = "Меню")
-        keyboard.row(button, button1)
-        keyboard.row(button2, button3)
+        button = types.KeyboardButton(text = "Полезные материалы")
+        button1 = types.KeyboardButton(text = "В меню расписаний")
+        button2 = types.KeyboardButton(text = "Рейтинг по курсу")
+        button3 = types.KeyboardButton(text = "Оставить пожелание")
+        keyboard.row(button, button3)
+        keyboard.row(button2, button1)
         bot.send_message(message.chat.id, "Готово! Спасибо за отзыв!", reply_markup = keyboard)
         countes = [f'{message.from_user.id} — ID,\n',
                    f'{message.from_user.first_name} — имя,\n',
@@ -600,7 +600,14 @@ def get_pwd_test(message):
         keyboard.row(button3, button4)
         bot.send_message(message.chat.id, "Готово, *отменил* и *вернул* тебя в меню паролей.", parse_mode = 'Markdown', reply_markup = keyboard)
     else:
-        bot.send_message(message.chat.id, "Готово")
+        keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
+        button = types.KeyboardButton(text = "Для локальной сети")
+        button1 = types.KeyboardButton(text = "Для тестирования")
+        button3 = types.KeyboardButton(text = "Для почты")
+        button4 = types.KeyboardButton(text = "В меню расписаний")
+        keyboard.row(button, button1)
+        keyboard.row(button3, button4)
+        bot.send_message(message.chat.id, "Готово, держи логин и пароль: \n`{login}`\n`{password}`", parse_mode = 'Markdown', reply_markup = keyboard)
         
 if __name__ == '__main__':
     while True:
