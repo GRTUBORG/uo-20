@@ -1,79 +1,79 @@
 {
     "id": {
         "1": {
-            "login": "UO_20-01", "pass": "UbqwPQ2"
+            "login": "UO_20-01", "pass": "UbqwPQ2", "name": "Тимур"
         },
         "2": {
-            "login": "UO_20-02", "pass": "e83CJDX"    
+            "login": "UO_20-02", "pass": "e83CJDX", "name": "Денис"    
         },
         "3": {
-            "login": "UO_20-03", "pass": "CVbzgfP"
+            "login": "UO_20-03", "pass": "CVbzgfP", "name": "Мария"
         },
         "4": {
-            "login": "UO_20-04", "pass": "3owsKDT"
+            "login": "UO_20-04", "pass": "3owsKDT", "name": "Александр"
         },
         "5": {
-            "login": "UO_20-05", "pass": "FwUx6NP"
+            "login": "UO_20-05", "pass": "FwUx6NP", "name": "Даниил"
         },
         "6": {
-            "login": "UO_20-06", "pass": "GmqAeio"
+            "login": "UO_20-06", "pass": "GmqAeio", "name": "Денис"
         },
         "8": {
-            "login": "UO_20-08", "pass": "BmPhvMj"
+            "login": "UO_20-08", "pass": "BmPhvMj", "name": "Арсентий"
         },
         "10": {
-            "login": "UO_20-10", "pass": "F9ku9Bq"
+            "login": "UO_20-10", "pass": "F9ku9Bq", "name": "Данил"
         },
         "11": {
-            "login": "UO_20-11", "pass": "xhSnzDb"
+            "login": "UO_20-11", "pass": "xhSnzDb", "name": "Алина"
         },
         "13": {
-            "login": "UO_20-13", "pass": "GCXgSAF"
+            "login": "UO_20-13", "pass": "GCXgSAF", "name": "Геннадий"
         },
         "14": {
-            "login": "UO_20-14", "pass": "64FZe4k"
+            "login": "UO_20-14", "pass": "64FZe4k", "name": "Алина"
         },
         "15": {
-            "login": "UO_20-15", "pass": "tXiAHet"
+            "login": "UO_20-15", "pass": "tXiAHet", "name": "Даниил"
         },
         "16": {
-            "login": "UO_20-16", "pass": "D9aZ8Vr"
+            "login": "UO_20-16", "pass": "D9aZ8Vr", "name": "Максим"
         },
         "17": {
-            "login": "UO_20-17", "pass": "JjwWGG"
+            "login": "UO_20-17", "pass": "JjwWGG", "name": "Вячеслав"
         },
         "18": {
-            "login": "UO_20-18", "pass": "RYBASaJ"
+            "login": "UO_20-18", "pass": "RYBASaJ", "name": "Вадим"
         },
         "19": {
-            "login": "UO_20-19", "pass": "yN2hemg"
+            "login": "UO_20-19", "pass": "yN2hemg", "name": "Максим"
         },
         "20": {
-            "login": "UO_20-20", "pass": "stTvLAb"
+            "login": "UO_20-20", "pass": "stTvLAb", "name": "Андрей"
         },
         "21": {
-            "login": "UO_20-21", "pass": "KfwM7n"
+            "login": "UO_20-21", "pass": "KfwM7n", "name": "Илья"
         },
         "22": {
-            "login": "UO_20-22", "pass": "KEMu6zr"
+            "login": "UO_20-22", "pass": "KEMu6zr", "name": "Виктор"
         },
         "23": {
-            "login": "UO_20-23", "pass": "9NAdXTx"
+            "login": "UO_20-23", "pass": "9NAdXTx", "name": "Валерий"
         },
         "25": {
-            "login": "UO_20-25", "pass": "2jaYAHA"
+            "login": "UO_20-25", "pass": "2jaYAHA", "name": "Павел"
         },
         "26": {
-            "login": "UO_20-26", "pass": "xFPgLJQ"
+            "login": "UO_20-26", "pass": "xFPgLJQ", "name": "Артём"
         },
         "28": {
-            "login": "UO_20-28", "pass": "oYdgimS"
+            "login": "UO_20-28", "pass": "oYdgimS", "name": "Андрей"
         },
         "29": {
-            "login": "UO_20-29", "pass": "9BBNyCs"
+            "login": "UO_20-29", "pass": "9BBNyCs", "name": "Анна"
         },
         "30": {
-            "login": "UO_20-30", "pass": "ZJqaBPV"
+            "login": "UO_20-30", "pass": "ZJqaBPV", "name": "Олег"
         }
     }
 }
