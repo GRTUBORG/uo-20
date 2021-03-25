@@ -283,7 +283,9 @@ def callback_inline(call):
             bot.delete_message(call.message.chat.id, call.message.message_id)
             bot.delete_message(call.message.chat.id, call.message.message_id - 1)
             bot.delete_message(call.message.chat.id, call.message.message_id - 2)
-        
+        elif call.data == 'delete_pwd':
+            bot.delete_message(call.message.chat.id, call.message.message_id)
+            
         elif call.data == 'late': 
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = message_password, parse_mode = 'Markdown')
             time.sleep(15)
@@ -532,7 +534,7 @@ def text(message):
         bot.send_message(message.chat.id, "Вы *вернулись назад* в *меню расписаний*.", parse_mode = 'Markdown', reply_markup = keyboard)
     elif message.text == 'Для локальной сети':
         keyboard = types.InlineKeyboardMarkup()
-        delete = types.InlineKeyboardButton(text = "Удалить ❌", callback_data = 'delete')
+        delete = types.InlineKeyboardButton(text = "Удалить ❌", callback_data = 'delete_pwd')
         keyboard.add(delete)
         bot.send_message(message.chat.id, message_password, parse_mode = 'Markdown', reply_markup = keyboard)
     elif message.text == 'Оставить пожелание':
