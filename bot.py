@@ -611,7 +611,14 @@ def get_pwd_test(message):
         keyboard.row(button3, button4)
         bot.send_message(message.chat.id, "Готово, *отменил* и *вернул* тебя в меню паролей.", parse_mode = 'Markdown', reply_markup = keyboard)
     elif id.lower() == "рейтинг по курсу":
-        bot.send_message(message.chat.id, layout, parse_mode = 'Markdown')
+        keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
+        button = types.KeyboardButton(text = "Для локальной сети")
+        button1 = types.KeyboardButton(text = "Для тестирования")
+        button3 = types.KeyboardButton(text = "Для почты")
+        button4 = types.KeyboardButton(text = "В меню расписаний")
+        keyboard.row(button, button1)
+        keyboard.row(button3, button4)
+        bot.send_message(message.chat.id, layout, parse_mode = 'Markdown', reply_markup = keyboard)
     else:
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
         button = types.KeyboardButton(text = "Для локальной сети")
