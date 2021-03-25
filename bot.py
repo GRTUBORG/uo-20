@@ -570,7 +570,7 @@ def text(message):
     
 def get_message(message):
     callback = message.text
-    if callback == "Отмена" or callback == "отмена":
+    if callback.lower() == "отмена":
         bot.clear_step_handler_by_chat_id(chat_id = message.chat.id)
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
         button = types.KeyboardButton(text = "Полезные материалы")
@@ -618,7 +618,7 @@ def get_pwd_test(message):
         button4 = types.KeyboardButton(text = "В меню расписаний")
         keyboard.row(button, button1)
         keyboard.row(button3, button4)
-        bot.send_message(message.chat.id, layout, parse_mode = 'Markdown', reply_markup = keyboard)
+        bot.send_message(message.chat.id, f'{layout}\n\n*Отлично!* \nА теперь вновь перейди во вкладку «Для тестирования»', parse_mode = 'Markdown', reply_markup = keyboard)
     else:
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
         button = types.KeyboardButton(text = "Для локальной сети")
