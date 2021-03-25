@@ -31,6 +31,18 @@ data_loads4 = json.load(open('./rating.json'))
 data4 = json.dumps(data_loads4)
 json_data4 = json.loads(data4)
 
+data_loads5 = json.load(open('./pwd_tests.json'))
+data5 = json.dumps(data_loads5)
+json_data5 = json.loads(data5)
+
+id = '1'
+flag = True
+
+for search_emploers in employer:
+    if employer[search_emploers]['name'] == id:
+        print(employer[search_emploers]['login'], employer[search_emploers]['pass'])
+        flag = False
+
 rating = json_data4["Список"]
 percents = json_data4["Проценты"]
 sorted_dict = {}
