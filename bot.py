@@ -545,6 +545,12 @@ def text(message):
         keyboard.add(button)
         bot.send_message(message.chat.id, "Напиши своё сообщение, а я отправлю его разработчику, \nлибо отправь «Отмена» для отмены!", reply_markup = keyboard)
         bot.register_next_step_handler(message, get_message)
+    elif message.text == 'Для тестирования':
+        keyboard = types.ReplyKeyboardMarkup(row_width = 1, resize_keyboard = True)
+        button = types.KeyboardButton(text = "Отмена")
+        keyboard.add(button)
+        bot.send_message(message.chat.id, 'Напиши свой ID (порядковый номер по журналу). Если же ты его не знаешь, или забыл, обратись к пункту меню "рейтинг по курсу",\nлибо отправь «Отмена» для отмены!', reply_markup = keyboard)
+        bot.register_next_step_handler(message, get_pwd_test)
     #подобие ИИ
     elif re.search(r'\bпривет', message.text.lower()):
         with open ('./AI/hello.txt', 'r') as file:
@@ -581,7 +587,20 @@ def get_message(message):
         for x in countes:
             str_countes += x
         bot.send_message(767815871, f'• *Кто-то оставил фидбэк:* \n{callback} \n\n• *Прилетел от:* \n{str_countes}', parse_mode = 'Markdown', reply_markup = keyboard)
-
+def get_pwd_test(message):
+    id = message.text
+    if callback == "Отмена" or callback == "отмена":
+        bot.clear_step_handler_by_chat_id(chat_id = message.chat.id)
+        keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
+        button = types.KeyboardButton(text = "Для локальной сети")
+        button1 = types.KeyboardButton(text = "Для тестирования")
+        button3 = types.KeyboardButton(text = "Для почты")
+        button4 = types.KeyboardButton(text = "В меню расписаний")
+        keyboard.row(button, button1)
+        keyboard.row(button3, button4)
+        bot.send_message(message.chat.id, "Готово, *отменил* и *вернул* тебя в меню паролей.", parse_mode = 'Markdown', reply_markup = keyboard)
+    else:
+        bot.send_message(message.chat.id, "Готово")
         
 if __name__ == '__main__':
     while True:
