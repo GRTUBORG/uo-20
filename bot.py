@@ -50,11 +50,11 @@ for x, y in zip(rating, percents):
     percent_cources = percents.get(str(key))
     key += 1
     layout += f'{surname} — {percent_cources}%\n'
-    layout_id += f'{surname}\n'
+    layout_id += f'{surname},\n'
 for key, value in sorted_dict.items():
     surname = f'{value}%'
     percent_cources = rating.get(str(key))
-    layout_percents += f'{percent_cources} {surname}\n'  
+    layout_percents += f'{percent_cources} — {surname}\n'  
 
 message_password = os.environ.get('pwd')
 message_password_email = os.environ.get('pwd_mail')
