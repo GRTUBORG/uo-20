@@ -618,7 +618,7 @@ def get_pwd_test(message):
         button4 = types.KeyboardButton(text = "В меню расписаний")
         keyboard.row(button, button1)
         keyboard.row(button3, button4)
-        bot.send_message(message.chat.id, f'{layout_id}\n\n*Отлично!* \nА теперь вновь перейди во вкладку «Для тестирования»', parse_mode = 'Markdown', reply_markup = keyboard)
+        bot.send_message(message.chat.id, f'{layout_id}\n*Отлично!* \nА теперь вновь перейди во вкладку «Для тестирования»', parse_mode = 'Markdown', reply_markup = keyboard)
     elif id.isdigit() == False or int(id) > 30:
         bot.clear_step_handler_by_chat_id(chat_id = message.chat.id)
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
