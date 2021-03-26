@@ -42,13 +42,15 @@ sorted_keys = sorted(percents, key = percents.get, reverse = True)
 for w in sorted_keys:
     sorted_dict[w] = percents[w]
 layout = ''
+layout_id = ''
 layout_percents = ''
 key = 0
 for x, y in zip(rating, percents):
     surname = rating.get(str(key))
     percent_cources = percents.get(str(key))
     key += 1
-    layout += f'{surname} {percent_cources}%\n'
+    layout += f'{surname} — {percent_cources}%\n'
+    layout_id += f'{surname}'
 for key, value in sorted_dict.items():
     surname = f'{value}%'
     percent_cources = rating.get(str(key))
@@ -616,7 +618,7 @@ def get_pwd_test(message):
         button4 = types.KeyboardButton(text = "В меню расписаний")
         keyboard.row(button, button1)
         keyboard.row(button3, button4)
-        bot.send_message(message.chat.id, f'{layout}\n\n*Отлично!* \nА теперь вновь перейди во вкладку «Для тестирования»', parse_mode = 'Markdown', reply_markup = keyboard)
+        bot.send_message(message.chat.id, f'{layout_id}\n\n*Отлично!* \nА теперь вновь перейди во вкладку «Для тестирования»', parse_mode = 'Markdown', reply_markup = keyboard)
     elif id.isdigit() == False or int(id) > 30:
         bot.clear_step_handler_by_chat_id(chat_id = message.chat.id)
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
