@@ -554,7 +554,7 @@ def text(message):
     elif message.text == 'Для тестирования':
         keyboard = types.ReplyKeyboardMarkup(row_width = 1, resize_keyboard = True)
         button = types.KeyboardButton(text = "Отмена")
-        button1 = types.KeyboardButton(text = "Рейтинг по курсу")
+        button1 = types.KeyboardButton(text = "Узнать ID")
         keyboard.row(button1, button)
         bot.send_message(message.chat.id, '*Напиши свой ID*. \n\nЕсли же ты его _не знаешь_, или _забыл_, обратись к пункту меню «Узнать ID», нажав на соответствующую кнопку,\nлибо отправь «Отмена» для отмены!', parse_mode = 'Markdown', reply_markup = keyboard)
         bot.register_next_step_handler(message, get_pwd_test)
