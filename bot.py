@@ -50,7 +50,7 @@ for x, y in zip(rating, percents):
     percent_cources = percents.get(str(key))
     key += 1
     layout += f'{surname} — {percent_cources}%\n'
-    layout_id += f'{surname}'
+    layout_id += f'{surname}\n'
 for key, value in sorted_dict.items():
     surname = f'{value}%'
     percent_cources = rating.get(str(key))
