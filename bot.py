@@ -60,7 +60,7 @@ for x, y in zip(rating, percents):
     layout += f'{surname} — {percent_cources}%\n'
     
 for key, value in id_groups.items():
-    surname = value #rating.get(str(key))
+    surname = rating.get(str(key))
     id_ = id_groups.get(str(key))
     layout_id += f'{surname} — id: `{id_}`\n'
     
