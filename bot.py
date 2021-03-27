@@ -61,9 +61,9 @@ for x, y in zip(rating, percents):
     
 for z, r in zip(rating, ID):
     surname = rating.get(str(key))
-    id = ID.get(str(key))
+    id_ = ID.get(str(key))
     key += 1
-    layout_id += f'{surname} — id: `{id}`\n'
+    layout_id += f'{surname} — id: `{id_}`\n'
     
 for key, value in sorted_dict.items():
     surname = f'{value}%'
