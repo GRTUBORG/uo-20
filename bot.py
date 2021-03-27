@@ -35,8 +35,15 @@ data_loads5 = json.load(open('./pwd_tests.json'))
 data5 = json.dumps(data_loads5)
 json_data5 = json.loads(data5)
 
+data_loads6 = json.load(open('./rating.json'))
+data6 = json.dumps(data_loads6)
+json_data6 = json.loads(data6)
+
+
 rating = json_data4["Список"]
 percents = json_data4["Проценты"]
+ID = json_data6["ID"]
+
 sorted_dict = {}
 sorted_keys = sorted(percents, key = percents.get, reverse = True)
 for w in sorted_keys:
@@ -45,12 +52,19 @@ layout = ''
 layout_id = ''
 layout_percents = ''
 key = 0
+
 for x, y in zip(rating, percents):
     surname = rating.get(str(key))
     percent_cources = percents.get(str(key))
     key += 1
     layout += f'{surname} — {percent_cources}%\n'
-    layout_id += f'{surname},\n'
+    
+for z, r in zip(rating, ID):
+    surname = rating.get(str(key))
+    id = ID.get(str(key))
+    key += 1
+    layout_id += f'{surname} — id: `{id}`\n'
+    
 for key, value in sorted_dict.items():
     surname = f'{value}%'
     percent_cources = rating.get(str(key))
