@@ -61,7 +61,7 @@ for x, y in zip(rating, percents):
     
 for key, value in id_groups.items():
     surname = rating.get(str(key))
-    id_ = id_groups.get(str(key), "ID не найден!")
+    id_ = id_groups.get(str(key))
     layout_id += f'{surname} — id: `{id_}`\n'
     
 for key, value in sorted_dict.items():
