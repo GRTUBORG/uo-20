@@ -42,7 +42,7 @@ json_data6 = json.loads(data6)
 
 rating = json_data4["Список"]
 percents = json_data4["Проценты"]
-ID = json_data6["ID"]
+id_groups = json_data6["id_groups"]
 
 sorted_dict = {}
 sorted_keys = sorted(percents, key = percents.get, reverse = True)
@@ -59,10 +59,9 @@ for x, y in zip(rating, percents):
     key += 1
     layout += f'{surname} — {percent_cources}%\n'
     
-for z, r in zip(rating, ID):
-    surname = rating.get(str(key))
-    id_ = ID.get(str(key))
-    key += 1
+for key, value in id_groups.items():
+    surname = value #rating.get(str(key))
+    id_ = id_groups.get(str(key))
     layout_id += f'{surname} — id: `{id_}`\n'
     
 for key, value in sorted_dict.items():
