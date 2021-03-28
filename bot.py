@@ -605,28 +605,10 @@ def get_message(message):
         for x in countes:
             str_countes += x
         bot.send_message(767815871, f'• *Кто-то оставил фидбэк:* \n{callback} \n\n• *Прилетел от:* \n{str_countes}', parse_mode = 'Markdown')
+
 def get_pwd_test(message):
     id = message.text
-    if id.lower() == "отмена":
-        bot.clear_step_handler_by_chat_id(chat_id = message.chat.id)
-        keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
-        button = types.KeyboardButton(text = "Для локальной сети")
-        button1 = types.KeyboardButton(text = "Для тестирования")
-        button3 = types.KeyboardButton(text = "Для почты")
-        button4 = types.KeyboardButton(text = "В меню расписаний")
-        keyboard.row(button, button1)
-        keyboard.row(button3, button4)
-        bot.send_message(message.chat.id, "Готово, *отменил* и *вернул* тебя в меню паролей.", parse_mode = 'Markdown', reply_markup = keyboard)
-    elif id.lower() == "узнать id":
-        keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
-        button = types.KeyboardButton(text = "Для локальной сети")
-        button1 = types.KeyboardButton(text = "Для тестирования")
-        button3 = types.KeyboardButton(text = "Для почты")
-        button4 = types.KeyboardButton(text = "В меню расписаний")
-        keyboard.row(button, button1)
-        keyboard.row(button3, button4)
-        bot.send_message(message.chat.id, f'{layout_id}\n*Отлично!* \nА теперь вновь перейди во вкладку «Для тестирования»', parse_mode = 'Markdown', reply_markup = keyboard)
-    elif id.isdigit() == False or int(id) > 30:
+    if id.isdigit() == False or int(id) > 30:
         bot.clear_step_handler_by_chat_id(chat_id = message.chat.id)
         keyboard = types.InlineKeyboardMarkup()
         button = types.InlineKeyboardButton(text = "Для локальной сети", callback_data = 'local')
@@ -637,13 +619,8 @@ def get_pwd_test(message):
         keyboard.row(button3, button4)
         bot.send_message(message.chat.id, "Введён неправильный/несуществующий ID, *вернул* тебя в меню паролей.", parse_mode = 'Markdown', reply_markup = keyboard)
     else:
-        keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
-        button = types.KeyboardButton(text = "Для локальной сети")
-        button1 = types.KeyboardButton(text = "Для тестирования")
-        button3 = types.KeyboardButton(text = "Для почты")
-        button4 = types.KeyboardButton(text = "В меню расписаний")
-        keyboard.row(button, button1)
-        keyboard.row(button3, button4)
+        button = types.InlineKeyboardButton(text = "Назад в меню", callback_data = 'back_to_the_menu')
+        keyboard.add(button)
         bot.send_message(message.chat.id, f"{json_data5['id'][id]['name']}, лови свои логин и пароль! \n\n*Логин:* `{json_data5['id'][id]['login']}` \n*Пароль:* `{json_data5['id'][id]['pass']}` \nСсылка для быстрого перехода на сайт: https://do.unitech-mo.ru", parse_mode = 'Markdown', reply_markup = keyboard)
         
 if __name__ == '__main__':
