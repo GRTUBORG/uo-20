@@ -579,32 +579,19 @@ def text(message):
     
 def get_message(message):
     callback = message.text
-    if callback.lower() == "отмена":
-        bot.clear_step_handler_by_chat_id(chat_id = message.chat.id)
-        keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
-        button = types.KeyboardButton(text = "Полезные материалы")
-        button1 = types.KeyboardButton(text = "В меню расписаний")
-        button2 = types.KeyboardButton(text = "Рейтинг по курсу")
-        button3 = types.KeyboardButton(text = "Оставить пожелание")
-        button4 = types.KeyboardButton(text = "Пароли")
-        keyboard.row(button, button3)
-        keyboard.row(button2, button4)
-        keyboard.row(button1)
-        bot.send_message(message.chat.id, "Готово, отменил отправку и вернул тебя в главное меню.", parse_mode = 'Markdown', reply_markup = keyboard)
-    else:
-        str_countes = ''
-        keyboard = types.InlineKeyboardMarkup()
-        button = types.InlineKeyboardButton(text = "Вернуться в меню", callback_data = 'back_to_the_menu')
-        keyboard.add(button)
-        bot.send_message(message.chat.id, "Готово! Спасибо за отзыв!", reply_markup = keyboard)
-        countes = [f'{message.from_user.id} — ID,\n',
-                   f'{message.from_user.first_name} — имя,\n',
-                   f'{message.from_user.last_name} — фамилия,\n',
-                   f'{message.from_user.username} — username.'
-                  ]
-        for x in countes:
-            str_countes += x
-        bot.send_message(767815871, f'• *Кто-то оставил фидбэк:* \n{callback} \n\n• *Прилетел от:* \n{str_countes}', parse_mode = 'Markdown')
+    str_countes = ''
+    keyboard = types.InlineKeyboardMarkup()
+    button = types.InlineKeyboardButton(text = "Вернуться в меню", callback_data = 'back_to_the_menu')
+    keyboard.add(button)
+    bot.send_message(message.chat.id, "Готово! Спасибо за отзыв!", reply_markup = keyboard)
+    countes = [f'{message.from_user.id} — ID,\n',
+               f'{message.from_user.first_name} — имя,\n',
+               f'{message.from_user.last_name} — фамилия,\n',
+               f'{message.from_user.username} — username.'
+              ]
+    for x in countes:
+        str_countes += x
+    bot.send_message(767815871, f'• *Кто-то оставил фидбэк:* \n{callback} \n\n• *Прилетел от:* \n{str_countes}', parse_mode = 'Markdown')
 
 def get_pwd_test(message):
     id = message.text
@@ -622,7 +609,7 @@ def get_pwd_test(message):
         keyboard = types.InlineKeyboardMarkup()
         button = types.InlineKeyboardButton(text = "Назад в меню", callback_data = 'back_to_the_menu')
         keyboard.add(button)
-        bot.send_message(message.chat.id, f"{json_data5['id'][id]['name']}, лови свои логин и пароль! \n\n*Логин:* `{json_data5['id'][id]['login']}` \n*Пароль:* `{json_data5['id'][id]['pass']}` \nСсылка для быстрого перехода на сайт: https://do.unitech-mo.ru", parse_mode = 'Markdown', reply_markup = keyboard)
+        bot.send_message(message.chat.id, f"""{json_data5['id'][id]['name']}, лови свои логин и пароль! \n\n*Логин:* `{json_data5['id'][id]['login']}` \n*Пароль:* `{json_data5['id'][id]['pass']}` \nСсылка для быстрого перехода на сайт: https://do.unitech-mo.ru""", parse_mode = 'Markdown', reply_markup = keyboard)
         
 if __name__ == '__main__':
     while True:
