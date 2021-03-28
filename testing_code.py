@@ -460,6 +460,7 @@ def callback_inline(call):
             delta1 = timedelta(days = 1)
             now = datetime.now() + delta
             now_next = datetime.now() + delta
+            nowtime = datetime.now() + delta + delta1
             days_int = now_next.isoweekday()
             sep = datetime(now.year if now.month >= 9 else now.year - 1, 9, 1)
             d1 = sep - timedelta(days = sep.weekday())
