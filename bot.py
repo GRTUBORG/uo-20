@@ -481,23 +481,12 @@ def text(message):
     elif message.text == 'Меню':
         keyboard = types.InlineKeyboardMarkup()
         button = types.InlineKeyboardButton(text = "Полезные материалы", callback_data = 'useful_materials') #types.InlineKeyboardButton(text = "Полезные материалы", callback_data = 'useful_materials')
-        button1 = types.InlineKeyboardButton(text = "В меню расписаний", callback_data = 'back_to_the_menu')
         button2 = types.InlineKeyboardButton(text = "Рейтинг по курсу", callback_data = 'rating_by_course')
         button3 = types.InlineKeyboardButton(text = "Оставить пожелание", callback_data = 'leave_a_wish')
         button4 = types.InlineKeyboardButton(text = "Пароли", callback_data = 'passwords')
         keyboard.row(button, button3)
         keyboard.row(button2, button4)
-        keyboard.row(button1)
         bot.send_message(message.chat.id, 'Вы перешли в *главное меню*.', parse_mode = 'Markdown', reply_markup = keyboard)
-    elif message.text == 'Полезные материалы':
-        keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
-        button = types.KeyboardButton(text = "Физика")
-        button1 = types.KeyboardButton(text = "Английский язык")
-        button3 = types.KeyboardButton(text = "Мат. анализ")
-        button2 = types.KeyboardButton(text = "В меню расписаний")
-        keyboard.row(button, button1)
-        keyboard.row(button3, button2)
-        bot.send_message(message.chat.id, 'Вы перешли в *полезные материалы*.', parse_mode = 'Markdown', reply_markup = keyboard)
     elif message.text == 'Рейтинг по курсу':
         keyboard = types.InlineKeyboardMarkup()
         button = types.InlineKeyboardButton(text = "Сортировка по процентам", callback_data = 'percent')
