@@ -419,8 +419,10 @@ def callback_inline(call):
         elif call.data == 'now_next1':
             delta = timedelta(hours = 3)
             delta1 = timedelta(days = 1)
+            delta2 = timedelta(days = 2)
             now = datetime.now() + delta
             now_next = datetime.now() + delta + delta1
+            nowtime = datetime.now() + delta + delta2
             days_int = now_next.isoweekday()
             sep = datetime(now.year if now.month >= 9 else now.year - 1, 9, 1)
             d1 = sep - timedelta(days = sep.weekday())
@@ -439,7 +441,7 @@ def callback_inline(call):
                 schedule = ''
                 for x in schedule_days_int:
                     keys = schedule_days_int.get(str(days_print))
-                nowtime = now_next.strftime("(%d.%m.%y)")
+                nowtime = nowtime.strftime("(%d.%m.%y)")
                 schedule += str(keys)
                 schedule = schedule.replace("['", '').replace("']", '').replace(r'\n', '\n').replace("', '", '').replace('()', nowtime)
                 bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = schedule, parse_mode = 'Markdown')
@@ -448,13 +450,14 @@ def callback_inline(call):
                 schedule = ''
                 for x in schedule_days_int:
                     keys = schedule_days_int.get(str(days_print))
-                nowtime = now_next.strftime("(%d.%m.%y)")
+                nowtime = nowtime.strftime("(%d.%m.%y)")
                 schedule += str(keys)
                 schedule = schedule.replace("['", '').replace("']", '').replace(r'\n', '\n').replace("', '", '').replace('()', nowtime)
                 bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = schedule, parse_mode = 'Markdown')
         
         elif call.data == 'now_next':
             delta = timedelta(hours = 3)
+            delta1 = timedelta(days = 1)
             now = datetime.now() + delta
             now_next = datetime.now() + delta
             days_int = now_next.isoweekday()
@@ -475,7 +478,7 @@ def callback_inline(call):
                 schedule = ''
                 for x in schedule_days_int:
                     keys = schedule_days_int.get(str(days_print))
-                nowtime = now_next.strftime("(%d.%m.%y)")
+                nowtime = nowtime.strftime("(%d.%m.%y)")
                 schedule += str(keys)
                 schedule = schedule.replace("['", '').replace("']", '').replace(r'\n', '\n').replace("', '", '').replace('()', nowtime)
                 bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = schedule, parse_mode = 'Markdown')
@@ -484,7 +487,7 @@ def callback_inline(call):
                 schedule = ''
                 for x in schedule_days_int:
                     keys = schedule_days_int.get(str(days_print))
-                nowtime = now_next.strftime("(%d.%m.%y)")
+                nowtime = nowtime.strftime("(%d.%m.%y)")
                 schedule += str(keys)
                 schedule = schedule.replace("['", '').replace("']", '').replace(r'\n', '\n').replace("', '", '').replace('()', nowtime)
                 bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = schedule, parse_mode = 'Markdown')
