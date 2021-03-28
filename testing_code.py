@@ -416,6 +416,96 @@ def callback_inline(call):
             keyboard.row(button2, button3)
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = f'*Меню расписания по дням.*', parse_mode = 'Markdown', reply_markup = keyboard)
         
+        elif call.data == 'now_next3':
+            delta = timedelta(hours = 3)
+            delta1 = timedelta(days = 3)
+            delta2 = timedelta(days = 4)
+            now = datetime.now() + delta
+            now_next = datetime.now() + delta + delta1
+            nowtime = datetime.now() + delta + delta2
+            days_int = now_next.isoweekday()
+            sep = datetime(now.year if now.month >= 9 else now.year - 1, 9, 1)
+            d1 = sep - timedelta(days = sep.weekday())
+            d2 = now - timedelta(days = now.weekday())
+            parity = ((d2 - d1).days // 7) % 2 #возвращает 0, если неделя нечётная и 1, если чётная
+            if days_int == 7:
+                days_print = 0
+                if parity == 0:
+                    parity = 1
+                else:
+                    parity = 0
+            else:
+                days_print = days_int
+            if parity == 0:
+                schedule_days_int = json_data3["Для нечётной недели"]
+                schedule = ''
+                for x in schedule_days_int:
+                    keys = schedule_days_int.get(str(days_print))
+                nowtime = nowtime.strftime("(%d.%m.%y)")
+                schedule += str(keys)
+                schedule = schedule.replace("['", '').replace("']", '').replace(r'\n', '\n').replace("', '", '').replace('()', nowtime)
+                keyboard = types.InlineKeyboardMarkup()
+                button1 = types.InlineKeyboardButton(text = "⬅️ Назад в меню расписаний", callback_data = 'schedule_by_date')
+                keyboard.row(button1)
+                bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = schedule, parse_mode = 'Markdown', reply_markup = keyboard)
+            else:
+                schedule_days_int = json_data3["Для чётной недели"]
+                schedule = ''
+                for x in schedule_days_int:
+                    keys = schedule_days_int.get(str(days_print))
+                nowtime = nowtime.strftime("(%d.%m.%y)")
+                schedule += str(keys)
+                schedule = schedule.replace("['", '').replace("']", '').replace(r'\n', '\n').replace("', '", '').replace('()', nowtime)
+                keyboard = types.InlineKeyboardMarkup()
+                button1 = types.InlineKeyboardButton(text = "⬅️ Назад в меню расписаний", callback_data = 'schedule_by_date')
+                keyboard.row(button1)
+                bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = schedule, parse_mode = 'Markdown', reply_markup = keyboard)
+        
+        elif call.data == 'now_next2':
+            delta = timedelta(hours = 3)
+            delta1 = timedelta(days = 2)
+            delta2 = timedelta(days = 3)
+            now = datetime.now() + delta
+            now_next = datetime.now() + delta + delta1
+            nowtime = datetime.now() + delta + delta2
+            days_int = now_next.isoweekday()
+            sep = datetime(now.year if now.month >= 9 else now.year - 1, 9, 1)
+            d1 = sep - timedelta(days = sep.weekday())
+            d2 = now - timedelta(days = now.weekday())
+            parity = ((d2 - d1).days // 7) % 2 #возвращает 0, если неделя нечётная и 1, если чётная
+            if days_int == 7:
+                days_print = 0
+                if parity == 0:
+                    parity = 1
+                else:
+                    parity = 0
+            else:
+                days_print = days_int
+            if parity == 0:
+                schedule_days_int = json_data3["Для нечётной недели"]
+                schedule = ''
+                for x in schedule_days_int:
+                    keys = schedule_days_int.get(str(days_print))
+                nowtime = nowtime.strftime("(%d.%m.%y)")
+                schedule += str(keys)
+                schedule = schedule.replace("['", '').replace("']", '').replace(r'\n', '\n').replace("', '", '').replace('()', nowtime)
+                keyboard = types.InlineKeyboardMarkup()
+                button1 = types.InlineKeyboardButton(text = "⬅️ Назад в меню расписаний", callback_data = 'schedule_by_date')
+                keyboard.row(button1)
+                bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = schedule, parse_mode = 'Markdown', reply_markup = keyboard)
+            else:
+                schedule_days_int = json_data3["Для чётной недели"]
+                schedule = ''
+                for x in schedule_days_int:
+                    keys = schedule_days_int.get(str(days_print))
+                nowtime = nowtime.strftime("(%d.%m.%y)")
+                schedule += str(keys)
+                schedule = schedule.replace("['", '').replace("']", '').replace(r'\n', '\n').replace("', '", '').replace('()', nowtime)
+                keyboard = types.InlineKeyboardMarkup()
+                button1 = types.InlineKeyboardButton(text = "⬅️ Назад в меню расписаний", callback_data = 'schedule_by_date')
+                keyboard.row(button1)
+                bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = schedule, parse_mode = 'Markdown', reply_markup = keyboard)
+        
         elif call.data == 'now_next1':
             delta = timedelta(hours = 3)
             delta1 = timedelta(days = 1)
