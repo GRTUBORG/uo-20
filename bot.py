@@ -602,7 +602,7 @@ def get_message(message):
         keyboard.row(button, button3)
         keyboard.row(button2, button4)
         keyboard.row(button1)
-        bot.edit_message_text(chat_id = message.chat.id, message_id = message.message_id, "Готово! Спасибо за отзыв!", reply_markup = keyboard)
+        bot.edit_message_text(chat_id = message.chat.id, message_id = message.message_id, text = "Готово! Спасибо за отзыв!", reply_markup = keyboard)
         countes = [f'{message.from_user.id} — ID,\n',
                    f'{message.from_user.first_name} — имя,\n',
                    f'{message.from_user.last_name} — фамилия,\n',
