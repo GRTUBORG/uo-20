@@ -334,13 +334,13 @@ def callback_inline(call):
         
         elif call.data == 'local':
             keyboard = types.InlineKeyboardMarkup()
-            delete = types.InlineKeyboardButton(text = "Удалить ❌", callback_data = 'delete_pwd')
+            delete = types.InlineKeyboardButton(text = "Назад в меню", callback_data = 'back_to_the_menu')
             keyboard.add(delete)
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = message_password, parse_mode = 'Markdown', reply_markup = keyboard)
         
         elif call.data == 'mail':
             keyboard = types.InlineKeyboardMarkup()
-            delete = types.InlineKeyboardButton(text = "Удалить ❌", callback_data = 'delete_pwd')
+            delete = types.InlineKeyboardButton(text = "Назад в меню", callback_data = 'back_to_the_menu')
             keyboard.add(delete)
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = message_password_email, parse_mode = 'Markdown', reply_markup = keyboard)
         
