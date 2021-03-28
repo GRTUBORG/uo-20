@@ -600,8 +600,8 @@ def get_message(message):
         keyboard = types.InlineKeyboardMarkup()
         button = types.InlineKeyboardButton(text = "⬅️ Назад в меню паролей", callback_data = 'passwords')
         url_button = types.InlineKeyboardButton(text = "Перейти на сайт тестирования ↗️", url = 'https://do.unitech-mo.ru')
-        keyboard.row(button)
         keyboard.row(url_button)
+        keyboard.row(button)
         bot.send_message(message.chat.id, f"{json_data5['id'][id]['name']}, лови свои логин и пароль! \n\n*Логин:* `{json_data5['id'][id]['login']}` \n*Пароль:* `{json_data5['id'][id]['pass']}`", parse_mode = 'Markdown', reply_markup = keyboard)
         
 if __name__ == '__main__':
