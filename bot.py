@@ -313,7 +313,7 @@ def callback_inline(call):
             button2 = types.InlineKeyboardButton(text = "⬅️ Назад в меню", callback_data = 'back_to_the_menu')
             keyboard.row(button, button1)
             keyboard.row(button3, button2) 
-            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = 'Вы перешли в *полезные материалы*.', parse_mode = 'Markdown', reply_markup = keyboard)
+            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = '🧠 *Полезные материалы*.', parse_mode = 'Markdown', reply_markup = keyboard)
         
         elif call.data == 'physics':
             bot.send_message(call.message.chat.id, message_physics, parse_mode = 'Markdown')
