@@ -291,7 +291,7 @@ def callback_inline(call):
         
         elif call.data == 'family':
             keyboard = types.InlineKeyboardMarkup()
-            button = types.InlineKeyboardButton(text = "1️⃣ Сортировка по процентам", callback_data = 'percent')
+            button = types.InlineKeyboardButton(text = "💯 Сортировка по процентам", callback_data = 'percent')
             button1 = types.InlineKeyboardButton(text = "⬅️ Назад в меню", callback_data = 'back_to_the_menu')
             keyboard.row(button)
             keyboard.row(button1)
@@ -347,15 +347,15 @@ def callback_inline(call):
         elif call.data == 'testing':
             keyboard = types.InlineKeyboardMarkup()
             button = types.InlineKeyboardButton(text = "⬅️ Назад в меню паролей", callback_data = 'cancel')
-            button1 = types.InlineKeyboardButton(text = "Узнать ID", callback_data = 'find_out_the_ID')
+            button1 = types.InlineKeyboardButton(text = "❔ Узнать ID", callback_data = 'find_out_the_ID')
             keyboard.row(button1, button)
-            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = '*Напиши свой ID*. \n\nЕсли же ты его _не знаешь_, или _забыл_, обратись к пункту меню «Узнать ID», нажав на соответствующую кнопку,\nлибо отправь «Отмена» для отмены!', parse_mode = 'Markdown', reply_markup = keyboard)
+            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = '💬 *Напиши свой ID*. \n\nЕсли же ты его _не знаешь_, или _забыл_, обратись к пункту меню «Узнать ID», нажав на соответствующую кнопку,\nлибо отправь «Отмена» для отмены!', parse_mode = 'Markdown', reply_markup = keyboard)
             bot.register_next_step_handler(call.message, get_message)
         
         elif call.data == 'find_out_the_ID':
             keyboard = types.InlineKeyboardMarkup()
             button = types.InlineKeyboardButton(text = "⬅️ Назад в меню паролей", callback_data = 'cancel')
-            button1 = types.InlineKeyboardButton(text = "Узнать ID", callback_data = 'find_out_the_ID')
+            button1 = types.InlineKeyboardButton(text = "❔ Узнать ID", callback_data = 'find_out_the_ID')
             keyboard.row(button1, button)
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = f'{layout_id}\n*Отлично!* \nА теперь введи ID, или же нажми на «Отмена» для отмены.', parse_mode = 'Markdown', reply_markup = keyboard)
         
@@ -381,7 +381,7 @@ def callback_inline(call):
         
         elif call.data == 'rating_by_course':
             keyboard = types.InlineKeyboardMarkup()
-            button = types.InlineKeyboardButton(text = "1️⃣ Сортировка по процентам", callback_data = 'percent')
+            button = types.InlineKeyboardButton(text = "💯 Сортировка по процентам", callback_data = 'percent')
             button1 = types.InlineKeyboardButton(text = "⬅️ Назад в меню", callback_data = 'back_to_the_menu')
             keyboard.row(button)
             keyboard.row(button1)
@@ -579,7 +579,7 @@ def get_message(message):
         button4 = types.InlineKeyboardButton(text = "Назад в меню", callback_data = 'back_to_the_menu')
         keyboard.row(button, button1)
         keyboard.row(button3, button4)
-        bot.send_message(message.chat.id, "Введён неправильный/несуществующий ID, *вернул* тебя в меню паролей.", parse_mode = 'Markdown', reply_markup = keyboard)
+        bot.send_message(message.chat.id, "Введён неправильный/несуществующий ID, Вы были возвращены в меню паролей.", parse_mode = 'Markdown', reply_markup = keyboard)
     else:
         keyboard = types.InlineKeyboardMarkup()
         button = types.InlineKeyboardButton(text = "Назад в меню", callback_data = 'back_to_the_menu')
