@@ -350,7 +350,7 @@ def callback_inline(call):
             button1 = types.InlineKeyboardButton(text = "Узнать ID", callback_data = 'find_out_the_ID')
             keyboard.row(button1, button)
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = '*Напиши свой ID*. \n\nЕсли же ты его _не знаешь_, или _забыл_, обратись к пункту меню «Узнать ID», нажав на соответствующую кнопку,\nлибо отправь «Отмена» для отмены!', parse_mode = 'Markdown', reply_markup = keyboard)
-            bot.register_next_step_handler(message, get_pwd_test)
+            bot.register_next_step_handler(call.message, get_pwd_test)
         
         elif call.data == 'back_to_the_menu':
             keyboard = types.InlineKeyboardMarkup()
