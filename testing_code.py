@@ -403,7 +403,7 @@ def callback_inline(call):
             now_next1 = datetime.now() + delta + delta2
             now_next2 = datetime.now() + delta + delta3
             now_next3 = datetime.now() + delta + delta4
-            days_int4 = now.isoweekday()
+            days_int = now.isoweekday()
             sep = datetime(now.year if now.month >= 9 else now.year - 1, 9, 1)
             d1 = sep - timedelta(days = sep.weekday())
             d2 = now - timedelta(days = now.weekday())
