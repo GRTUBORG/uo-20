@@ -111,18 +111,6 @@ def start_command(message):
     bot.send_message(767815871, f'У тебя +1 новый пользователь! \n{str_countes}')
     bot.reply_to(message, "Рад тебя видеть! Пропиши /schedule! Если вдруг ты заблудился или забыл команды (со всеми бывает, не переживай) — /help в помощь.")
 
-    
-'''@bot.message_handler(commands = ['update'])
-def update_sender(message):
-    users_get = json_data1["users"]
-    values = 0
-    for x in users_get:
-        bot.send_message(users_get[values], "Бот обновился до v1.7 (12.02.21)\n"
-                                            "\n*Коротко* о новом обновлении:" 
-                                            "\n• Добавил отправку адресов и местоположений в команде /buildings. Попробуй!"
-                                            "\n• В случае возникновения/выявления багов/ошибок/косяков — просьба незамедлительно писать в форму «Оставить пожелание»", parse_mode = 'Markdown')
-        values += 1'''
-
 
 @bot.message_handler(commands = ['help'])
 def send_help(message):
@@ -343,6 +331,26 @@ def callback_inline(call):
             keyboard.row(button, button1)
             keyboard.row(button3, button4)
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = 'Вы перешли в *меню паролей*', parse_mode = 'Markdown', reply_markup = keyboard)
+        
+        elif call.data == 'local':
+            keyboard = types.InlineKeyboardMarkup()
+            delete = types.InlineKeyboardButton(text = "Удалить ❌", callback_data = 'delete_pwd')
+            keyboard.add(delete)
+            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = message_password, parse_mode = 'Markdown', reply_markup = keyboard)
+        
+        elif call.data == 'mail':
+            keyboard = types.InlineKeyboardMarkup()
+            delete = types.InlineKeyboardButton(text = "Удалить ❌", callback_data = 'delete_pwd')
+            keyboard.add(delete)
+            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = message_password_email, parse_mode = 'Markdown', reply_markup = keyboard)
+        
+        elif call.data == 'testing':
+            keyboard = types.InlineKeyboardMarkup()
+            button = types.InlineKeyboardButton(text = "Отмена", callback_data = 'cancel')
+            button1 = types.InlineKeyboardButton(text = "Узнать ID", callback_data = 'find_out_the_ID')
+            keyboard.row(button1, button)
+            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = '*Напиши свой ID*. \n\nЕсли же ты его _не знаешь_, или _забыл_, обратись к пункту меню «Узнать ID», нажав на соответствующую кнопку,\nлибо отправь «Отмена» для отмены!', parse_mode = 'Markdown', reply_markup = keyboard)
+            bot.register_next_step_handler(message, get_pwd_test)
         
         elif call.data == 'back_to_the_menu':
             keyboard = types.InlineKeyboardMarkup()
