@@ -316,6 +316,22 @@ def callback_inline(call):
             keyboard.row(button, button1)
             keyboard.row(button3, button2) 
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = 'Вы перешли в *полезные материалы*.', parse_mode = 'Markdown', reply_markup = keyboard)
+        
+        elif call.data == 'physics':
+            bot.send_message(call.message.chat.id, message_physics, parse_mode = 'Markdown')
+        elif call.data == 'english':
+            bot.send_message(call.message.chat.id, message_english, parse_mode = 'Markdown')
+        elif call.data == 'mat_analysis':
+            bot.send_message(call.message.chat.id, message_math, parse_mode = 'Markdown')
+        elif call.data == 'back_to_the_menu':
+            keyboard = types.InlineKeyboardMarkup()
+            button = types.InlineKeyboardButton(text = "Полезные материалы", callback_data = 'useful_materials')
+            button2 = types.InlineKeyboardButton(text = "Рейтинг по курсу", callback_data = 'rating_by_course')
+            button3 = types.InlineKeyboardButton(text = "Оставить пожелание", callback_data = 'leave_a_wish')
+            button4 = types.InlineKeyboardButton(text = "Пароли", callback_data = 'passwords')
+            keyboard.row(button, button3)
+            keyboard.row(button2, button4)
+            bot.send_message(call.message.chat.id, 'Вы перешли в *главное меню*.', parse_mode = 'Markdown', reply_markup = keyboard)
             
         elif call.data == 'late': 
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = message_password, parse_mode = 'Markdown')
@@ -504,33 +520,6 @@ def text(message):
         button = types.InlineKeyboardButton(text = "Сортировка по процентам", callback_data = 'percent')
         keyboard.add(button)
         bot.send_message(message.chat.id, layout, parse_mode = 'Markdown', reply_markup = keyboard)
-    elif message.text == 'Физика':
-        keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
-        button = types.KeyboardButton(text = "Физика")
-        button1 = types.KeyboardButton(text = "Английский язык")
-        button3 = types.KeyboardButton(text = "Мат. анализ")
-        button2 = types.KeyboardButton(text = "В меню расписаний")
-        keyboard.row(button, button1)
-        keyboard.row(button3, button2)
-        bot.send_message(message.chat.id, message_physics, reply_markup = keyboard)
-    elif message.text == 'Английский язык':
-        keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
-        button = types.KeyboardButton(text = "Физика")
-        button1 = types.KeyboardButton(text = "Английский язык")
-        button3 = types.KeyboardButton(text = "Мат. анализ")
-        button2 = types.KeyboardButton(text = "В меню расписаний")
-        keyboard.row(button, button1)
-        keyboard.row(button3, button2)
-        bot.send_message(message.chat.id, message_english, reply_markup = keyboard)
-    elif message.text == 'Мат. анализ':
-        keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
-        button = types.KeyboardButton(text = "Физика")
-        button1 = types.KeyboardButton(text = "Английский язык")
-        button3 = types.KeyboardButton(text = "Мат. анализ")
-        button2 = types.KeyboardButton(text = "В меню расписаний")
-        keyboard.row(button, button1)
-        keyboard.row(button3, button2)
-        bot.send_message(message.chat.id, message_math, reply_markup = keyboard)
     elif message.text == 'Пароли':
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
         button = types.KeyboardButton(text = "Для локальной сети")
