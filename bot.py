@@ -333,6 +333,17 @@ def callback_inline(call):
             bot.send_message(call.message.chat.id, message_english, parse_mode = 'Markdown')
         elif call.data == 'mat_analysis':
             bot.send_message(call.message.chat.id, message_math, parse_mode = 'Markdown')
+        
+        elif call.data == 'passwords':
+            keyboard = types.InlineKeyboardMarkup()
+            button = types.InlineKeyboardButton(text = "Для локальной сети", callback_data = 'local')
+            button1 = types.InlineKeyboardButton(text = "Для тестирования", callback_data = 'testing')
+            button3 = types.InlineKeyboardButton(text = "Для почты", callback_data = 'mail')
+            button4 = types.InlineKeyboardButton(text = "Назад в меню", callback_data = 'back_to_the_menu')
+            keyboard.row(button, button1)
+            keyboard.row(button3, button4)
+            bot.send_message(message.chat.id, 'Вы перешли в *меню паролей*', parse_mode = 'Markdown', reply_markup = keyboard)
+        
         elif call.data == 'back_to_the_menu':
             keyboard = types.InlineKeyboardMarkup()
             button = types.InlineKeyboardButton(text = "Полезные материалы", callback_data = 'useful_materials')
@@ -342,6 +353,7 @@ def callback_inline(call):
             keyboard.row(button, button3)
             keyboard.row(button2, button4)
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = 'Вы перешли в *главное меню*.', parse_mode = 'Markdown', reply_markup = keyboard)
+        
         elif call.data == 'rating_by_course':
             keyboard = types.InlineKeyboardMarkup()
             button = types.InlineKeyboardButton(text = "Сортировка по процентам", callback_data = 'percent')
