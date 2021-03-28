@@ -417,10 +417,10 @@ def callback_inline(call):
                     parity = 0
             else:
                 days_print = days_int
-            now_next = now_next.strftime("(%d.%m.%y)")
-            now_next1 = now_next1.strftime("(%d.%m.%y)")
-            now_next2 = now_next2.strftime("(%d.%m.%y)")
-            now_next3 = now_next3.strftime("(%d.%m.%y)")
+            now_next = now_next.strftime("%d.%m.%y")
+            now_next1 = now_next1.strftime("%d.%m.%y")
+            now_next2 = now_next2.strftime("%d.%m.%y")
+            now_next3 = now_next3.strftime("%d.%m.%y")
             keyboard = types.InlineKeyboardMarkup()
             button = types.InlineKeyboardButton(text = f"{now_next}", callback_data = 'now_next')
             button1 = types.InlineKeyboardButton(text = f"{now_next1}", callback_data = 'now_next1')
