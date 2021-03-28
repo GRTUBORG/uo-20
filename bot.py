@@ -576,13 +576,13 @@ def get_message(message):
         button = types.InlineKeyboardButton(text = "Для локальной сети", callback_data = 'local')
         button1 = types.InlineKeyboardButton(text = "Для тестирования", callback_data = 'testing')
         button3 = types.InlineKeyboardButton(text = "Для почты", callback_data = 'mail')
-        button4 = types.InlineKeyboardButton(text = "Назад в меню", callback_data = 'back_to_the_menu')
+        button4 = types.InlineKeyboardButton(text = "⬅️ Назад в меню", callback_data = 'back_to_the_menu')
         keyboard.row(button, button1)
         keyboard.row(button3, button4)
-        bot.send_message(message.chat.id, "Введён неправильный/несуществующий ID, Вы были возвращены в меню паролей.", parse_mode = 'Markdown', reply_markup = keyboard)
+        bot.send_message(message.chat.id, "Введён неправильный/несуществующий ID, Вы были возвращены в *меню паролей.*", parse_mode = 'Markdown', reply_markup = keyboard)
     else:
         keyboard = types.InlineKeyboardMarkup()
-        button = types.InlineKeyboardButton(text = "Назад в меню", callback_data = 'back_to_the_menu')
+        button = types.InlineKeyboardButton(text = "⬅️ Назад в меню", callback_data = 'back_to_the_menu')
         keyboard.add(button)
         bot.send_message(message.chat.id, f"{json_data5['id'][id]['name']}, лови свои логин и пароль! \n\n*Логин:* `{json_data5['id'][id]['login']}` \n*Пароль:* `{json_data5['id'][id]['pass']}` \nСсылка для быстрого перехода на сайт: https://do.unitech-mo.ru", parse_mode = 'Markdown', reply_markup = keyboard)
         
