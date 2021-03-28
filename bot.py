@@ -355,13 +355,13 @@ def callback_inline(call):
         elif call.data == 'cancel':
             bot.clear_step_handler_by_chat_id(chat_id = call.message.chat.id)
             keyboard = types.InlineKeyboardMarkup()
-            button = types.InlineKeyboardButton(text = "Для локальной сети", callback_data = 'local')
-            button1 = types.InlineKeyboardButton(text = "Для тестирования", callback_data = 'testing')
-            button3 = types.InlineKeyboardButton(text = "Для почты", callback_data = 'mail')
-            button4 = types.InlineKeyboardButton(text = "Назад в меню", callback_data = 'back_to_the_menu')
-            keyboard.row(button, button1)
-            keyboard.row(button3, button4)
-            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = 'Вы перешли в *меню паролей.*', parse_mode = 'Markdown', reply_markup = keyboard)
+            button = types.InlineKeyboardButton(text = "Полезные материалы", callback_data = 'useful_materials')
+            button2 = types.InlineKeyboardButton(text = "Рейтинг по курсу", callback_data = 'rating_by_course')
+            button3 = types.InlineKeyboardButton(text = "Оставить пожелание", callback_data = 'leave_a_wish')
+            button4 = types.InlineKeyboardButton(text = "Пароли", callback_data = 'passwords')
+            keyboard.row(button, button3)
+            keyboard.row(button2, button4)
+            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = 'Вы перешли в *главное меню*.', parse_mode = 'Markdown', reply_markup = keyboard)
             
         elif call.data == 'back_to_the_menu':
             keyboard = types.InlineKeyboardMarkup()
@@ -372,6 +372,13 @@ def callback_inline(call):
             keyboard.row(button, button3)
             keyboard.row(button2, button4)
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = 'Вы перешли в *главное меню*.', parse_mode = 'Markdown', reply_markup = keyboard)
+        
+        elif call.data == 'leave_a_wish':
+            keyboard = types.InlineKeyboardMarkup()
+            button = types.InlineKeyboardButton(text = "Отмена", callback_data = 'cancel')
+            keyboard.add(button)
+            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = "Напиши своё сообщение, а я отправлю его разработчику, \nлибо отправь «Отмена» для отмены!", reply_markup = keyboard)
+            bot.register_next_step_handler(message, get_message)
         
         elif call.data == 'rating_by_course':
             keyboard = types.InlineKeyboardMarkup()
@@ -557,22 +564,6 @@ def text(message):
         keyboard.row(button, button3)
         keyboard.row(button2, button4)
         bot.send_message(message.chat.id, 'Вы перешли в *главное меню*.', parse_mode = 'Markdown', reply_markup = keyboard)
-    elif message.text == 'Для локальной сети':
-        keyboard = types.InlineKeyboardMarkup()
-        delete = types.InlineKeyboardButton(text = "Удалить ❌", callback_data = 'delete_pwd')
-        keyboard.add(delete)
-        bot.send_message(message.chat.id, message_password, parse_mode = 'Markdown', reply_markup = keyboard)
-    elif message.text == 'Для почты':
-        keyboard = types.InlineKeyboardMarkup()
-        delete = types.InlineKeyboardButton(text = "Удалить ❌", callback_data = 'delete_pwd')
-        keyboard.add(delete)
-        bot.send_message(message.chat.id, message_password_email, parse_mode = 'Markdown', reply_markup = keyboard)
-    elif message.text == 'Оставить пожелание':
-        keyboard = types.ReplyKeyboardMarkup(row_width = 1, resize_keyboard = True)
-        button = types.KeyboardButton(text = "Отмена")
-        keyboard.add(button)
-        bot.send_message(message.chat.id, "Напиши своё сообщение, а я отправлю его разработчику, \nлибо отправь «Отмена» для отмены!", reply_markup = keyboard)
-        bot.register_next_step_handler(message, get_message)
     elif message.text == 'Для тестирования':
         keyboard = types.ReplyKeyboardMarkup(row_width = 1, resize_keyboard = True)
         button = types.KeyboardButton(text = "Отмена")
