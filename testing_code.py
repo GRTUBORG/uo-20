@@ -398,12 +398,30 @@ def callback_inline(call):
             delta2 = timedelta(days = 2)
             delta3 = timedelta(days = 3)
             delta4 = timedelta(days = 4)
-            now = datetime.now() + delta
             now_next = datetime.now() + delta + delta1
             now_next1 = datetime.now() + delta + delta2
             now_next2 = datetime.now() + delta + delta3
             now_next3 = datetime.now() + delta + delta4
+            now_next = now_next.strftime("%d.%m.%y")
+            now_next1 = now_next1.strftime("%d.%m.%y")
+            now_next2 = now_next2.strftime("%d.%m.%y")
+            now_next3 = now_next3.strftime("%d.%m.%y")
+            keyboard = types.InlineKeyboardMarkup()
+            button = types.InlineKeyboardButton(text = f"{now_next}", callback_data = 'now_next')
+            button1 = types.InlineKeyboardButton(text = f"{now_next1}", callback_data = 'now_next1')
+            button2 = types.InlineKeyboardButton(text = f"{now_next2}", callback_data = 'now_next2')
+            button3 = types.InlineKeyboardButton(text = f"{now_next3}", callback_data = 'now_next3')
+            keyboard.row(button, button1)
+            keyboard.row(button2, button3)
+            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = f'*Меню расписания по дням.*', parse_mode = 'Markdown', reply_markup = keyboard)
+        
+        elif call.data == 'now_next':
+            delta = timedelta(hours = 3)
+            delta1 = timedelta(days = 1)
+            now = datetime.now() + delta
+            now_next = datetime.now() + delta + delta1
             days_int = now.isoweekday()
+
             sep = datetime(now.year if now.month >= 9 else now.year - 1, 9, 1)
             d1 = sep - timedelta(days = sep.weekday())
             d2 = now - timedelta(days = now.weekday())
@@ -417,18 +435,26 @@ def callback_inline(call):
                     parity = 0
             else:
                 days_print = days_int
-            now_next = now_next.strftime("%d.%m.%y")
-            now_next1 = now_next1.strftime("%d.%m.%y")
-            now_next2 = now_next2.strftime("%d.%m.%y")
-            now_next3 = now_next3.strftime("%d.%m.%y")
-            keyboard = types.InlineKeyboardMarkup()
-            button = types.InlineKeyboardButton(text = f"{now_next}", callback_data = 'now_next')
-            button1 = types.InlineKeyboardButton(text = f"{now_next1}", callback_data = 'now_next1')
-            button2 = types.InlineKeyboardButton(text = f"{now_next2}", callback_data = 'now_next2')
-            button3 = types.InlineKeyboardButton(text = f"{now_next3}", callback_data = 'now_next3')
-            keyboard.row(button, button1)
-            keyboard.row(button2, button3)
-            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = f'*Меню расписания по дням.*', parse_mode = 'Markdown', reply_markup = keyboard)
+
+
+            if parity == 0:
+                schedule_days_int = json_data3["Для нечётной недели"]
+                schedule = ''
+                for x in schedule_days_int:
+                    keys = schedule_days_int.get(str(days_print))
+                nowtime = now_next.strftime("(%d.%m.%y)")
+                schedule += str(keys)
+                schedule = schedule.replace("['", '').replace("']", '').replace(r'\n', '\n').replace("', '", '').replace('()', nowtime)
+                bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = schedule, parse_mode = 'Markdown')
+            else:
+                schedule_days_int = json_data3["Для чётной недели"]
+                schedule = ''
+                for x in schedule_days_int:
+                    keys = schedule_days_int.get(str(days_print))
+                nowtime = now_next.strftime("(%d.%m.%y)")
+                schedule += str(keys)
+                schedule = schedule.replace("['", '').replace("']", '').replace(r'\n', '\n').replace("', '", '').replace('()', nowtime)
+                bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = schedule, parse_mode = 'Markdown')
         
         elif call.data == 'rating_by_course':
             keyboard = types.InlineKeyboardMarkup()
