@@ -593,16 +593,10 @@ def get_message(message):
         bot.send_message(message.chat.id, "Готово, отменил отправку и вернул тебя в главное меню.", parse_mode = 'Markdown', reply_markup = keyboard)
     else:
         str_countes = ''
-        keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
-        button = types.KeyboardButton(text = "Полезные материалы")
-        button1 = types.KeyboardButton(text = "В меню расписаний")
-        button2 = types.KeyboardButton(text = "Рейтинг по курсу")
-        button3 = types.KeyboardButton(text = "Оставить пожелание")
-        button4 = types.KeyboardButton(text = "Пароли")
-        keyboard.row(button, button3)
-        keyboard.row(button2, button4)
-        keyboard.row(button1)
-        bot.edit_message_text(chat_id = message.chat.id, message_id = message.message_id, text = "Готово! Спасибо за отзыв!", reply_markup = keyboard)
+        keyboard = types.InlineKeyboardMarkup()
+        button = types.InlineKeyboardButton(text = "Вернуться в меню", callback_data = 'back_to_the_menu')
+        keyboard.add(button)
+        bot.send_message(message.chat.id, "Готово! Спасибо за отзыв!", reply_markup = keyboard)
         countes = [f'{message.from_user.id} — ID,\n',
                    f'{message.from_user.first_name} — имя,\n',
                    f'{message.from_user.last_name} — фамилия,\n',
@@ -610,7 +604,7 @@ def get_message(message):
                   ]
         for x in countes:
             str_countes += x
-        bot.send_message(767815871, f'• *Кто-то оставил фидбэк:* \n{callback} \n\n• *Прилетел от:* \n{str_countes}', parse_mode = 'Markdown', reply_markup = keyboard)
+        bot.send_message(767815871, f'• *Кто-то оставил фидбэк:* \n{callback} \n\n• *Прилетел от:* \n{str_countes}', parse_mode = 'Markdown')
 def get_pwd_test(message):
     id = message.text
     if id.lower() == "отмена":
