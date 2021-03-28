@@ -217,9 +217,9 @@ def buildings(message):
     buildings_2 = types.InlineKeyboardButton(text = "2️⃣ Второй корпус", callback_data = 'adress_2')
     buildings_3 = types.InlineKeyboardButton(text = "3️⃣ Третий корпус", callback_data = 'adress_3')
     buildings_4 = types.InlineKeyboardButton(text = "4️⃣ Четвёртый корпус", callback_data = 'adress_4')
-    buildings_5  = types.InlineKeyboardButton(text = "ККМТ", callback_data = 'adress_5')
-    buildings_6  = types.InlineKeyboardButton(text = "Спортзал", callback_data = 'adress_6')
-    url_button = types.InlineKeyboardButton(text = "Открыть интерактивную карту ↗️", url = 'https://bit.ly/31uHVQE')
+    buildings_5  = types.InlineKeyboardButton(text = "5️⃣ ККМТ", callback_data = 'adress_5')
+    buildings_6  = types.InlineKeyboardButton(text = "5️⃣ Спортзал", callback_data = 'adress_6')
+    url_button = types.InlineKeyboardButton(text = "Открыть интерактивную карту ↗️", url = 'https://bit.ly/3fl8EY6')
     keyboard.row(buildings_1, buildings_2, buildings_3)
     keyboard.row(buildings_4, buildings_5, buildings_6)
     keyboard.row(url_button)
@@ -289,7 +289,7 @@ def callback_inline(call):
             button1 = types.InlineKeyboardButton(text = "⬅️ Назад в меню", callback_data = 'back_to_the_menu')
             keyboard.row(button)
             keyboard.row(button1)
-            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = layout_percents, parse_mode = 'Markdown', reply_markup = keyboard)
+            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = f'*Рейтинг по курсу, сортировка по* _процентам_ \n\n{layout_percents}', parse_mode = 'Markdown', reply_markup = keyboard)
         
         elif call.data == 'family':
             keyboard = types.InlineKeyboardMarkup()
@@ -297,7 +297,7 @@ def callback_inline(call):
             button1 = types.InlineKeyboardButton(text = "⬅️ Назад в меню", callback_data = 'back_to_the_menu')
             keyboard.row(button)
             keyboard.row(button1)
-            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = layout, parse_mode = 'Markdown', reply_markup = keyboard)
+            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = f'*Рейтинг по курсу, сортировка по* _фамилиям_ \n\n{layout}', parse_mode = 'Markdown', reply_markup = keyboard)
         
         elif call.data == 'delete':
             bot.delete_message(call.message.chat.id, call.message.message_id)
@@ -366,8 +366,7 @@ def callback_inline(call):
         elif call.data == 'find_out_the_ID':
             keyboard = types.InlineKeyboardMarkup()
             button = types.InlineKeyboardButton(text = "⬅️ Назад в меню паролей", callback_data = 'cancel')
-            button1 = types.InlineKeyboardButton(text = "❔ Узнать ID", callback_data = 'find_out_the_ID')
-            keyboard.row(button1, button)
+            keyboard.add(button)
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = f'{layout_id}\n*Отлично!* \nА теперь смело вводи ID.', parse_mode = 'Markdown', reply_markup = keyboard)
         
         elif call.data == 'cancel':
@@ -397,7 +396,7 @@ def callback_inline(call):
             button1 = types.InlineKeyboardButton(text = "⬅️ Назад в меню", callback_data = 'back_to_the_menu')
             keyboard.row(button)
             keyboard.row(button1)
-            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = layout, parse_mode = 'Markdown', reply_markup = keyboard)
+            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = f'*Рейтинг по курсу, сортировка по* _фамилиям_ \n\n{layout}', parse_mode = 'Markdown', reply_markup = keyboard)
         
         
 @bot.message_handler(commands = ['schedule_next'])
@@ -561,9 +560,9 @@ def text(message):
         buildings_2 = types.InlineKeyboardButton(text = "2️⃣ Второй корпус", callback_data = 'adress_2')
         buildings_3 = types.InlineKeyboardButton(text = "3️⃣ Третий корпус", callback_data = 'adress_3')
         buildings_4 = types.InlineKeyboardButton(text = "4️⃣ Четвёртый корпус", callback_data = 'adress_4')
-        buildings_5  = types.InlineKeyboardButton(text = "ККМТ", callback_data = 'adress_5')
-        buildings_6  = types.InlineKeyboardButton(text = "Спортзал", callback_data = 'adress_6')
-        url_button = types.InlineKeyboardButton(text = "Открыть интерактивную карту ↗️", url = 'https://bit.ly/31uHVQE')
+        buildings_5  = types.InlineKeyboardButton(text = "5️⃣ ККМТ", callback_data = 'adress_5')
+        buildings_6  = types.InlineKeyboardButton(text = "6️⃣ Спортзал", callback_data = 'adress_6')
+        url_button = types.InlineKeyboardButton(text = "Открыть интерактивную карту ↗️", url = 'https://bit.ly/3fl8EY6')
         keyboard.row(buildings_1, buildings_2, buildings_3)
         keyboard.row(buildings_4, buildings_5, buildings_6)
         keyboard.row(url_button)
