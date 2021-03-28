@@ -364,28 +364,19 @@ def callback_inline(call):
             keyboard = types.InlineKeyboardMarkup()
             button = types.InlineKeyboardButton(text = "Полезные материалы", callback_data = 'useful_materials')
             button2 = types.InlineKeyboardButton(text = "Рейтинг по курсу", callback_data = 'rating_by_course')
-            button3 = types.InlineKeyboardButton(text = "Оставить пожелание", callback_data = 'leave_a_wish')
             button4 = types.InlineKeyboardButton(text = "Пароли", callback_data = 'passwords')
-            keyboard.row(button, button3)
-            keyboard.row(button2, button4)
+            keyboard.row(button, button2)
+            keyboard.row(button4)
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = 'Вы перешли в *главное меню*.', parse_mode = 'Markdown', reply_markup = keyboard)
             
         elif call.data == 'back_to_the_menu':
             keyboard = types.InlineKeyboardMarkup()
             button = types.InlineKeyboardButton(text = "Полезные материалы", callback_data = 'useful_materials')
             button2 = types.InlineKeyboardButton(text = "Рейтинг по курсу", callback_data = 'rating_by_course')
-            button3 = types.InlineKeyboardButton(text = "Оставить пожелание", callback_data = 'leave_a_wish')
             button4 = types.InlineKeyboardButton(text = "Пароли", callback_data = 'passwords')
-            keyboard.row(button, button3)
-            keyboard.row(button2, button4)
+            keyboard.row(button, button2)
+            keyboard.row(button4)
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = 'Вы перешли в *главное меню*.', parse_mode = 'Markdown', reply_markup = keyboard)
-        
-        elif call.data == 'leave_a_wish':
-            keyboard = types.InlineKeyboardMarkup()
-            button = types.InlineKeyboardButton(text = "Отмена", callback_data = 'cancel')
-            keyboard.add(button)
-            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = "Напиши своё сообщение, а я отправлю его разработчику, \nлибо отправь «Отмена» для отмены!", reply_markup = keyboard)
-            bot.register_next_step_handler(call.message, get_message)
         
         elif call.data == 'rating_by_course':
             keyboard = types.InlineKeyboardMarkup()
@@ -564,12 +555,11 @@ def text(message):
         bot.send_photo(message.chat.id, photo, reply_markup = keyboard)
     elif message.text == 'Меню':
         keyboard = types.InlineKeyboardMarkup()
-        button = types.InlineKeyboardButton(text = "Полезные материалы", callback_data = 'useful_materials') #types.InlineKeyboardButton(text = "Полезные материалы", callback_data = 'useful_materials')
+        button = types.InlineKeyboardButton(text = "Полезные материалы", callback_data = 'useful_materials')
         button2 = types.InlineKeyboardButton(text = "Рейтинг по курсу", callback_data = 'rating_by_course')
-        button3 = types.InlineKeyboardButton(text = "Оставить пожелание", callback_data = 'leave_a_wish')
         button4 = types.InlineKeyboardButton(text = "Пароли", callback_data = 'passwords')
-        keyboard.row(button, button3)
-        keyboard.row(button2, button4)
+        keyboard.row(button, button2)
+        keyboard.row(button4)
         bot.send_message(message.chat.id, 'Вы перешли в *главное меню*.', parse_mode = 'Markdown', reply_markup = keyboard)
     #подобие ИИ
     elif re.search(r'\bпривет', message.text.lower()):
@@ -578,23 +568,6 @@ def text(message):
         bot.send_message(message.chat.id, random.choice(lines))
     
 def get_message(message):
-    callback = message.text
-    str_countes = ''
-    keyboard = types.InlineKeyboardMarkup()
-    button = types.InlineKeyboardButton(text = "Вернуться в меню", callback_data = 'back_to_the_menu')
-    keyboard.add(button)
-    bot.send_message(message.chat.id, "Готово! Спасибо за отзыв!", reply_markup = keyboard)
-    countes = [f'{message.from_user.id} — ID,\n',
-               f'{message.from_user.first_name} — имя,\n',
-               f'{message.from_user.last_name} — фамилия,\n',
-               f'{message.from_user.username} — username.'
-              ]
-    for x in countes:
-        str_countes += x
-    bot.send_message(767815871, f'• *Кто-то оставил фидбэк:* \n{callback} \n\n• *Прилетел от:* \n{str_countes}', parse_mode = 'Markdown')
-    bot.clear_step_handler_by_chat_id(chat_id = message.chat.id)
-
-def get_pwd_test(message):
     id = message.text
     if id.isdigit() == False or int(id) > 30:
         bot.clear_step_handler_by_chat_id(chat_id = message.chat.id)
