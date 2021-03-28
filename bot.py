@@ -289,7 +289,7 @@ def callback_inline(call):
             button1 = types.InlineKeyboardButton(text = "⬅️ Назад в меню", callback_data = 'back_to_the_menu')
             keyboard.row(button)
             keyboard.row(button1)
-            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = layout_percents, parse_mode = 'Markdown', reply_markup = keyboard)
+            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = f'*Рейтинг по курсу, сортировка по _процентам_* \n{layout_percents}', parse_mode = 'Markdown', reply_markup = keyboard)
         
         elif call.data == 'family':
             keyboard = types.InlineKeyboardMarkup()
@@ -297,7 +297,7 @@ def callback_inline(call):
             button1 = types.InlineKeyboardButton(text = "⬅️ Назад в меню", callback_data = 'back_to_the_menu')
             keyboard.row(button)
             keyboard.row(button1)
-            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = layout, parse_mode = 'Markdown', reply_markup = keyboard)
+            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = f'*Рейтинг по курсу, сортировка по _фамилиям_* \n{layout}', parse_mode = 'Markdown', reply_markup = keyboard)
         
         elif call.data == 'delete':
             bot.delete_message(call.message.chat.id, call.message.message_id)
@@ -396,7 +396,7 @@ def callback_inline(call):
             button1 = types.InlineKeyboardButton(text = "⬅️ Назад в меню", callback_data = 'back_to_the_menu')
             keyboard.row(button)
             keyboard.row(button1)
-            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = layout, parse_mode = 'Markdown', reply_markup = keyboard)
+            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = f'*Рейтинг по курсу, сортировка по _фамилиям_* \n{layout}', parse_mode = 'Markdown', reply_markup = keyboard)
         
         
 @bot.message_handler(commands = ['schedule_next'])
