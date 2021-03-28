@@ -338,12 +338,15 @@ def callback_inline(call):
             keyboard.row(button, button3)
             keyboard.row(button2, button4)
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = 'Вы перешли в *главное меню*.', parse_mode = 'Markdown', reply_markup = keyboard)
-            
-        elif call.data == 'late': 
-            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = message_password, parse_mode = 'Markdown')
-            time.sleep(15)
-            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = '_Сообщение с паролем было удалено в целях сохранения конфиденциальности._', parse_mode = 'Markdown')
-            
+        elif call.data == 'rating_by_course':
+            keyboard = types.InlineKeyboardMarkup()
+            button = types.InlineKeyboardButton(text = "Сортировка по процентам", callback_data = 'percent')
+            button1 = types.InlineKeyboardButton(text = "Назад в меню", callback_data = 'back_to_the_menu')
+            keyboard.row(button)
+            keyboard.row(button1)
+            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = layout, parse_mode = 'Markdown', reply_markup = keyboard)
+        
+        
 @bot.message_handler(commands = ['schedule_next'])
 def schedule_next(message):
     delta = timedelta(hours = 3)
@@ -521,11 +524,6 @@ def text(message):
         keyboard.row(button2, button4)
         keyboard.row(button1)
         bot.send_message(message.chat.id, 'Вы перешли в *главное меню*.', parse_mode = 'Markdown', reply_markup = keyboard)
-    elif message.text == 'Рейтинг по курсу':
-        keyboard = types.InlineKeyboardMarkup()
-        button = types.InlineKeyboardButton(text = "Сортировка по процентам", callback_data = 'percent')
-        keyboard.add(button)
-        bot.send_message(message.chat.id, layout, parse_mode = 'Markdown', reply_markup = keyboard)
     elif message.text == 'Пароли':
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
         button = types.KeyboardButton(text = "Для локальной сети")
