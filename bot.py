@@ -368,7 +368,7 @@ def callback_inline(call):
             button = types.InlineKeyboardButton(text = "⬅️ Назад в меню паролей", callback_data = 'cancel')
             button1 = types.InlineKeyboardButton(text = "❔ Узнать ID", callback_data = 'find_out_the_ID')
             keyboard.row(button1, button)
-            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = f'{layout_id}\n*Отлично!* \nА теперь введи ID, или же нажми на «Отмена» для отмены.', parse_mode = 'Markdown', reply_markup = keyboard)
+            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = f'{layout_id}\n*Отлично!* \nА теперь смело вводи ID.', parse_mode = 'Markdown', reply_markup = keyboard)
         
         elif call.data == 'cancel':
             bot.clear_step_handler_by_chat_id(chat_id = call.message.chat.id)
