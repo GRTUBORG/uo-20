@@ -316,11 +316,17 @@ def callback_inline(call):
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = '🧠 *Полезные материалы.*', parse_mode = 'Markdown', reply_markup = keyboard)
         
         elif call.data == 'physics':
-            bot.send_message(call.message.chat.id, message_physics, parse_mode = 'Markdown')
+            keyboard = types.InlineKeyboardMarkup()
+            button = types.InlineKeyboardButton(text = "⬅️ Назад в полезные материалы", callback_data = 'useful_materials')
+            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = message_physics, parse_mode = 'Markdown')
         elif call.data == 'english':
-            bot.send_message(call.message.chat.id, message_english, parse_mode = 'Markdown')
+            keyboard = types.InlineKeyboardMarkup()
+            button = types.InlineKeyboardButton(text = "⬅️ Назад в полезные материалы", callback_data = 'useful_materials')
+            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = message_english, parse_mode = 'Markdown')
         elif call.data == 'mat_analysis':
-            bot.send_message(call.message.chat.id, message_math, parse_mode = 'Markdown')
+            keyboard = types.InlineKeyboardMarkup()
+            button = types.InlineKeyboardButton(text = "⬅️ Назад в полезные материалы", callback_data = 'useful_materials')
+            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = message_math, parse_mode = 'Markdown')
         
         elif call.data == 'passwords':
             keyboard = types.InlineKeyboardMarkup()
