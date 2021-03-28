@@ -204,11 +204,11 @@ def schedule(message):
                 button3 = types.KeyboardButton(text = "Меню")
                 keyboard.row(button, button1)
                 keyboard.row(button2, button3)
-                if schedule == "None":
+                if schedule == '':
                     schedule = "Упс, но ты ввёл что-то не так."
                 bot.send_message(message.chat.id, schedule, parse_mode = 'Markdown', reply_markup = keyboard)   
         except:
-            bot.send_message(message.chat.id, 'Так. Тут что-то не так. Введи числа (от 1 до 7), либо обратись к @whomet!')
+            bot.send_message(message.chat.id, 'Так. Тут что-то не так. \nВведи числа (от 1 до 7), либо обратись к @whomet.')
 
 @bot.message_handler(commands = ['buildings'])
 def buildings(message):
@@ -289,7 +289,7 @@ def callback_inline(call):
             button1 = types.InlineKeyboardButton(text = "⬅️ Назад в меню", callback_data = 'back_to_the_menu')
             keyboard.row(button)
             keyboard.row(button1)
-            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = f'*Рейтинг по курсу, сортировка по* _процентам_ \n\n{layout_percents}', parse_mode = 'Markdown', reply_markup = keyboard)
+            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = f'*Рейтинг по курсу, сортировка по* _процентам_. \n\n{layout_percents}', parse_mode = 'Markdown', reply_markup = keyboard)
         
         elif call.data == 'family':
             keyboard = types.InlineKeyboardMarkup()
@@ -297,7 +297,7 @@ def callback_inline(call):
             button1 = types.InlineKeyboardButton(text = "⬅️ Назад в меню", callback_data = 'back_to_the_menu')
             keyboard.row(button)
             keyboard.row(button1)
-            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = f'*Рейтинг по курсу, сортировка по* _фамилиям_ \n\n{layout}', parse_mode = 'Markdown', reply_markup = keyboard)
+            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = f'*Рейтинг по курсу, сортировка по* _фамилиям_. \n\n{layout}', parse_mode = 'Markdown', reply_markup = keyboard)
         
         elif call.data == 'delete':
             bot.delete_message(call.message.chat.id, call.message.message_id)
@@ -396,7 +396,7 @@ def callback_inline(call):
             button1 = types.InlineKeyboardButton(text = "⬅️ Назад в меню", callback_data = 'back_to_the_menu')
             keyboard.row(button)
             keyboard.row(button1)
-            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = f'*Рейтинг по курсу, сортировка по* _фамилиям_ \n\n{layout}', parse_mode = 'Markdown', reply_markup = keyboard)
+            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = f'*Рейтинг по курсу, сортировка по* _фамилиям_. \n\n{layout}', parse_mode = 'Markdown', reply_markup = keyboard)
         
         
 @bot.message_handler(commands = ['schedule_next'])
