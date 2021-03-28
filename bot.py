@@ -350,7 +350,7 @@ def callback_inline(call):
             button1 = types.InlineKeyboardButton(text = "Узнать ID", callback_data = 'find_out_the_ID')
             keyboard.row(button1, button)
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = '*Напиши свой ID*. \n\nЕсли же ты его _не знаешь_, или _забыл_, обратись к пункту меню «Узнать ID», нажав на соответствующую кнопку,\nлибо отправь «Отмена» для отмены!', parse_mode = 'Markdown', reply_markup = keyboard)
-            bot.register_next_step_handler(call.message, call.data)
+            bot.register_next_step_handler(call.message, get_pwd_test)
         
         elif call.data == 'find_out_the_ID':
             keyboard = types.InlineKeyboardMarkup()
@@ -602,7 +602,7 @@ def get_message(message):
         keyboard.row(button, button3)
         keyboard.row(button2, button4)
         keyboard.row(button1)
-        bot.send_message(message.chat.id, "Готово! Спасибо за отзыв!", reply_markup = keyboard)
+        bot.edit_message_text(chat_id = message.chat.id, message_id = message.message_id, "Готово! Спасибо за отзыв!", reply_markup = keyboard)
         countes = [f'{message.from_user.id} — ID,\n',
                    f'{message.from_user.first_name} — имя,\n',
                    f'{message.from_user.last_name} — фамилия,\n',
