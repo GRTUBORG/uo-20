@@ -296,13 +296,17 @@ def callback_inline(call):
         elif call.data == 'percent':
             keyboard = types.InlineKeyboardMarkup()
             button = types.InlineKeyboardButton(text = "Сортировка по фамилиям", callback_data = 'family')
-            keyboard.add(button) 
+            button1 = types.InlineKeyboardButton(text = "Назад в меню", callback_data = 'back_to_the_menu')
+            keyboard.row(button)
+            keyboard.row(button1)
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = layout_percents, parse_mode = 'Markdown', reply_markup = keyboard)
         
         elif call.data == 'family':
             keyboard = types.InlineKeyboardMarkup()
             button = types.InlineKeyboardButton(text = "Сортировка по процентам", callback_data = 'percent')
-            keyboard.add(button)
+            button1 = types.InlineKeyboardButton(text = "Назад в меню", callback_data = 'back_to_the_menu')
+            keyboard.row(button)
+            keyboard.row(button1)
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = layout, parse_mode = 'Markdown', reply_markup = keyboard)
         
         elif call.data == 'delete':
