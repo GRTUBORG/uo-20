@@ -330,7 +330,7 @@ def callback_inline(call):
             button4 = types.InlineKeyboardButton(text = "⬅️ Назад в меню", callback_data = 'back_to_the_menu')
             keyboard.row(button, button1)
             keyboard.row(button3, button4)
-            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = '*Меню паролей.*', parse_mode = 'Markdown', reply_markup = keyboard)
+            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = '📋 *Меню паролей.*', parse_mode = 'Markdown', reply_markup = keyboard)
         
         elif call.data == 'local':
             keyboard = types.InlineKeyboardMarkup()
@@ -368,7 +368,7 @@ def callback_inline(call):
             button4 = types.InlineKeyboardButton(text = "⬅️ Назад в меню", callback_data = 'back_to_the_menu')
             keyboard.row(button, button1)
             keyboard.row(button3, button4)
-            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = '*Меню паролей.*', parse_mode = 'Markdown', reply_markup = keyboard)
+            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = '📋 *Меню паролей.*', parse_mode = 'Markdown', reply_markup = keyboard)
             
         elif call.data == 'back_to_the_menu':
             keyboard = types.InlineKeyboardMarkup()
