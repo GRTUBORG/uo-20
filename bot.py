@@ -219,8 +219,9 @@ def buildings(message):
     buildings_4 = types.InlineKeyboardButton(text = "4️⃣ Четвёртый корпус", callback_data = 'adress_4')
     buildings_5  = types.InlineKeyboardButton(text = "ККМТ", callback_data = 'adress_5')
     buildings_6  = types.InlineKeyboardButton(text = "Спортзал", callback_data = 'adress_6')
-    keyboard.add(buildings_1, buildings_2, buildings_3, buildings_4, buildings_5, buildings_6)
-    
+    url_button = types.InlineKeyboardButton(text = "Открыть интерактивную карту ↗️", url = 'https://bit.ly/31uHVQE')
+    keyboard.row(buildings_1, buildings_2, buildings_3, buildings_4, buildings_5, buildings_6)
+    keyboard.row(url_button)
     photo = open('./Buildings/buildings.png', 'rb')
     bot.send_photo(message.chat.id, photo, reply_markup = keyboard)
 
@@ -561,7 +562,9 @@ def text(message):
         buildings_4 = types.InlineKeyboardButton(text = "4️⃣ Четвёртый корпус", callback_data = 'adress_4')
         buildings_5  = types.InlineKeyboardButton(text = "ККМТ", callback_data = 'adress_5')
         buildings_6  = types.InlineKeyboardButton(text = "Спортзал", callback_data = 'adress_6')
-        keyboard.add(buildings_1, buildings_2, buildings_3, buildings_4, buildings_5, buildings_6)
+        url_button = types.InlineKeyboardButton(text = "Открыть интерактивную карту ↗️", url = 'https://bit.ly/31uHVQE')
+        keyboard.row(buildings_1, buildings_2, buildings_3, buildings_4, buildings_5, buildings_6)
+        keyboard.row(url_button)
         photo = open('./Buildings/buildings.png', 'rb')
         bot.send_photo(message.chat.id, photo, reply_markup = keyboard)
     elif message.text == 'Меню':
