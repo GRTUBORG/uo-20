@@ -522,8 +522,8 @@ def text(message):
             keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
             button = types.KeyboardButton(text = "Расписание на сегодня")
             button1 = types.KeyboardButton(text = "Расписание на завтра")
-            button2 = types.KeyboardButton(text = "Адреса корпусов")
-            button3 = types.KeyboardButton(text = "Меню")
+            button2 = types.KeyboardButton(text = "❓ Адреса корпусов")
+            button3 = types.KeyboardButton(text = "📜 Меню")
             keyboard.row(button, button1)
             keyboard.row(button2, button3)
             bot.send_message(message.chat.id, schedule, parse_mode = 'Markdown', reply_markup = keyboard)
@@ -538,12 +538,12 @@ def text(message):
             keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
             button = types.KeyboardButton(text = "Расписание на сегодня")
             button1 = types.KeyboardButton(text = "Расписание на завтра")
-            button2 = types.KeyboardButton(text = "Адреса корпусов")
-            button3 = types.KeyboardButton(text = "Меню")
+            button2 = types.KeyboardButton(text = "❓ Адреса корпусов")
+            button3 = types.KeyboardButton(text = "📜 Меню")
             keyboard.row(button, button1)
             keyboard.row(button2, button3)
             bot.send_message(message.chat.id, schedule, parse_mode = 'Markdown', reply_markup = keyboard)
-    elif message.text == 'Адреса корпусов':
+    elif message.text == '❓ Адреса корпусов':
         keyboard = types.InlineKeyboardMarkup()
         buildings_1 = types.InlineKeyboardButton(text = "Первый корпус", callback_data = 'adress_1')
         buildings_2 = types.InlineKeyboardButton(text = "Второй корпус", callback_data = 'adress_2')
@@ -554,14 +554,14 @@ def text(message):
         keyboard.add(buildings_1, buildings_2, buildings_3, buildings_4, buildings_5, buildings_6)
         photo = open('./Buildings/buildings.png', 'rb')
         bot.send_photo(message.chat.id, photo, reply_markup = keyboard)
-    elif message.text == 'Меню':
+    elif message.text == '📜 Меню':
         keyboard = types.InlineKeyboardMarkup()
         button = types.InlineKeyboardButton(text = "Полезные материалы", callback_data = 'useful_materials')
         button2 = types.InlineKeyboardButton(text = "Рейтинг по курсу", callback_data = 'rating_by_course')
         button4 = types.InlineKeyboardButton(text = "Пароли", callback_data = 'passwords')
         keyboard.row(button, button2)
         keyboard.row(button4)
-        bot.send_message(message.chat.id, 'Вы перешли в *главное меню*.', parse_mode = 'Markdown', reply_markup = keyboard)
+        bot.send_message(message.chat.id, '📜 Вы перешли в *главное меню*.', parse_mode = 'Markdown', reply_markup = keyboard)
     #подобие ИИ
     elif re.search(r'\bпривет', message.text.lower()):
         with open ('./AI/hello.txt', 'r') as file:
