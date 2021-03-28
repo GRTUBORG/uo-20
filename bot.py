@@ -378,7 +378,7 @@ def callback_inline(call):
             button = types.InlineKeyboardButton(text = "Отмена", callback_data = 'cancel')
             keyboard.add(button)
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = "Напиши своё сообщение, а я отправлю его разработчику, \nлибо отправь «Отмена» для отмены!", reply_markup = keyboard)
-            bot.register_next_step_handler(message, get_message)
+            bot.register_next_step_handler(call.message, get_message)
         
         elif call.data == 'rating_by_course':
             keyboard = types.InlineKeyboardMarkup()
