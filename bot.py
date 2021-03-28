@@ -360,7 +360,7 @@ def callback_inline(call):
             button = types.InlineKeyboardButton(text = "⬅️ Назад в меню паролей", callback_data = 'cancel')
             button1 = types.InlineKeyboardButton(text = "❔ Узнать ID", callback_data = 'find_out_the_ID')
             keyboard.row(button1, button)
-            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = '💬 *Напиши свой ID*. \n\nЕсли же ты его _не знаешь_, или _забыл_, обратись к пункту меню «Узнать ID», нажав на соответствующую кнопку,\nлибо отправь «Отмена» для отмены!', parse_mode = 'Markdown', reply_markup = keyboard)
+            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = '💬 *Напиши свой ID*. \n\nЕсли же ты его _не знаешь_, или _забыл_, обратись к пункту меню «Узнать ID», нажав на соответствующую кнопку.', parse_mode = 'Markdown', reply_markup = keyboard)
             bot.register_next_step_handler(call.message, get_message)
         
         elif call.data == 'find_out_the_ID':
