@@ -318,14 +318,17 @@ def callback_inline(call):
         elif call.data == 'physics':
             keyboard = types.InlineKeyboardMarkup()
             button = types.InlineKeyboardButton(text = "⬅️ Назад в полезные материалы", callback_data = 'useful_materials')
+            keyboard.row(button)
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = message_physics, parse_mode = 'Markdown')
         elif call.data == 'english':
             keyboard = types.InlineKeyboardMarkup()
             button = types.InlineKeyboardButton(text = "⬅️ Назад в полезные материалы", callback_data = 'useful_materials')
+            keyboard.row(button)
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = message_english, parse_mode = 'Markdown')
         elif call.data == 'mat_analysis':
             keyboard = types.InlineKeyboardMarkup()
             button = types.InlineKeyboardButton(text = "⬅️ Назад в полезные материалы", callback_data = 'useful_materials')
+            keyboard.row(button)
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = message_math, parse_mode = 'Markdown')
         
         elif call.data == 'passwords':
