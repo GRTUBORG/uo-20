@@ -582,7 +582,7 @@ def get_message(message):
         bot.send_message(message.chat.id, "Введён неправильный/несуществующий ID, Вы были возвращены в *меню паролей.*", parse_mode = 'Markdown', reply_markup = keyboard)
     else:
         keyboard = types.InlineKeyboardMarkup()
-        button = types.InlineKeyboardButton(text = "⬅️ Назад в меню", callback_data = 'back_to_the_menu')
+        button = types.InlineKeyboardButton(text = "⬅️ Назад в меню паролей", callback_data = 'passwords')
         url_button = types.InlineKeyboardButton(text = "Перейти на сайт тестирования ↗️", url = 'https://do.unitech-mo.ru')
         keyboard.row(button)
         keyboard.row(url_button)
