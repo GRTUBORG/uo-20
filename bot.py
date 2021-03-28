@@ -73,6 +73,8 @@ message_password = os.environ.get('pwd')
 message_password_email = os.environ.get('pwd_mail')
 
 message_physics = """ 
+*Физика*
+
 • Курсы:
 ├ https://bit.ly/2ZvQKsJ (teach-in);
 └ https://bit.ly/3jYshWt (youtube)
@@ -82,11 +84,15 @@ message_physics = """
 """
 
 message_math = """
+*Математический анализ*
+
 • Курсы:
 └ https://bit.ly/2OLpbtb (youtube)
 """
 
 message_english = """
+*Английский язык*
+
 • Учебники:
 ├ https://bit.ly/3pxRvfs — первая группа;
 └ https://bit.ly/3ayKEhD — вторая группа
@@ -331,7 +337,7 @@ def callback_inline(call):
             button4 = types.InlineKeyboardButton(text = "Пароли", callback_data = 'passwords')
             keyboard.row(button, button3)
             keyboard.row(button2, button4)
-            bot.send_message(call.message.chat.id, 'Вы перешли в *главное меню*.', parse_mode = 'Markdown', reply_markup = keyboard)
+            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = 'Вы перешли в *главное меню*.', parse_mode = 'Markdown', reply_markup = keyboard)
             
         elif call.data == 'late': 
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = message_password, parse_mode = 'Markdown')
