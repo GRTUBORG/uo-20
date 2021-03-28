@@ -384,7 +384,8 @@ def callback_inline(call):
             button = types.InlineKeyboardButton(text = "Полезные материалы", callback_data = 'useful_materials')
             button2 = types.InlineKeyboardButton(text = "Рейтинг по курсу", callback_data = 'rating_by_course')
             button4 = types.InlineKeyboardButton(text = "Пароли", callback_data = 'passwords')
-            keyboard.row(button, button2)
+            keyboard.row(button)
+            keyboard.row(button2)
             keyboard.row(button4)
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = '📜 *Главное меню.*', parse_mode = 'Markdown', reply_markup = keyboard)
         
@@ -568,7 +569,8 @@ def text(message):
         button = types.InlineKeyboardButton(text = "Полезные материалы", callback_data = 'useful_materials')
         button2 = types.InlineKeyboardButton(text = "Рейтинг по курсу", callback_data = 'rating_by_course')
         button4 = types.InlineKeyboardButton(text = "Пароли", callback_data = 'passwords')
-        keyboard.row(button, button2)
+        keyboard.row(button)
+        keyboard.row(button2)
         keyboard.row(button4)
         bot.send_message(message.chat.id, '📜 *Главное меню.*', parse_mode = 'Markdown', reply_markup = keyboard)
     #подобие ИИ
