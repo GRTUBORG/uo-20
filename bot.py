@@ -592,6 +592,7 @@ def get_message(message):
     for x in countes:
         str_countes += x
     bot.send_message(767815871, f'• *Кто-то оставил фидбэк:* \n{callback} \n\n• *Прилетел от:* \n{str_countes}', parse_mode = 'Markdown')
+    bot.clear_step_handler_by_chat_id(chat_id = message.chat.id)
 
 def get_pwd_test(message):
     id = message.text
@@ -609,7 +610,7 @@ def get_pwd_test(message):
         keyboard = types.InlineKeyboardMarkup()
         button = types.InlineKeyboardButton(text = "Назад в меню", callback_data = 'back_to_the_menu')
         keyboard.add(button)
-        bot.send_message(message.chat.id, f"""{json_data5['id'][id]['name']}, лови свои логин и пароль! \n\n*Логин:* `{json_data5['id'][id]['login']}` \n*Пароль:* `{json_data5['id'][id]['pass']}` \nСсылка для быстрого перехода на сайт: https://do.unitech-mo.ru""", parse_mode = 'Markdown', reply_markup = keyboard)
+        bot.send_message(message.chat.id, f"{json_data5['id'][id]['name']}, лови свои логин и пароль! \n\n*Логин:* `{json_data5['id'][id]['login']}` \n*Пароль:* `{json_data5['id'][id]['pass']}` \nСсылка для быстрого перехода на сайт: https://do.unitech-mo.ru"", parse_mode = 'Markdown', reply_markup = keyboard)
         
 if __name__ == '__main__':
     while True:
