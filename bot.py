@@ -352,6 +352,17 @@ def callback_inline(call):
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = '*Напиши свой ID*. \n\nЕсли же ты его _не знаешь_, или _забыл_, обратись к пункту меню «Узнать ID», нажав на соответствующую кнопку,\nлибо отправь «Отмена» для отмены!', parse_mode = 'Markdown', reply_markup = keyboard)
             bot.register_next_step_handler(call.message, get_pwd_test)
         
+        elif call.data == 'cancel':
+            bot.clear_step_handler_by_chat_id(chat_id = call.message.chat.id)
+            keyboard = types.InlineKeyboardMarkup()
+            button = types.InlineKeyboardButton(text = "Для локальной сети", callback_data = 'local')
+            button1 = types.InlineKeyboardButton(text = "Для тестирования", callback_data = 'testing')
+            button3 = types.InlineKeyboardButton(text = "Для почты", callback_data = 'mail')
+            button4 = types.InlineKeyboardButton(text = "Назад в меню", callback_data = 'back_to_the_menu')
+            keyboard.row(button, button1)
+            keyboard.row(button3, button4)
+            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = 'Готово, *отменил* и *вернул* тебя в меню паролей.', parse_mode = 'Markdown', reply_markup = keyboard)
+            
         elif call.data == 'back_to_the_menu':
             keyboard = types.InlineKeyboardMarkup()
             button = types.InlineKeyboardButton(text = "Полезные материалы", callback_data = 'useful_materials')
@@ -632,11 +643,11 @@ def get_pwd_test(message):
         bot.send_message(message.chat.id, f'{layout_id}\n*Отлично!* \nА теперь вновь перейди во вкладку «Для тестирования»', parse_mode = 'Markdown', reply_markup = keyboard)
     elif id.isdigit() == False or int(id) > 30:
         bot.clear_step_handler_by_chat_id(chat_id = message.chat.id)
-        keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
-        button = types.KeyboardButton(text = "Для локальной сети")
-        button1 = types.KeyboardButton(text = "Для тестирования")
-        button3 = types.KeyboardButton(text = "Для почты")
-        button4 = types.KeyboardButton(text = "В меню расписаний")
+        keyboard = types.InlineKeyboardMarkup()
+        button = types.InlineKeyboardButton(text = "Для локальной сети", callback_data = 'local')
+        button1 = types.InlineKeyboardButton(text = "Для тестирования", callback_data = 'testing')
+        button3 = types.InlineKeyboardButton(text = "Для почты", callback_data = 'mail')
+        button4 = types.InlineKeyboardButton(text = "Назад в меню", callback_data = 'back_to_the_menu')
         keyboard.row(button, button1)
         keyboard.row(button3, button4)
         bot.send_message(message.chat.id, "Введён неправильный/несуществующий ID, *вернул* тебя в меню паролей.", parse_mode = 'Markdown', reply_markup = keyboard)
