@@ -330,7 +330,7 @@ def callback_inline(call):
             button4 = types.InlineKeyboardButton(text = "⬅️ Назад в меню", callback_data = 'back_to_the_menu')
             keyboard.row(button, button1)
             keyboard.row(button3, button4)
-            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = 'Вы перешли в *меню паролей.*', parse_mode = 'Markdown', reply_markup = keyboard)
+            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = '*Меню паролей.*', parse_mode = 'Markdown', reply_markup = keyboard)
         
         elif call.data == 'local':
             keyboard = types.InlineKeyboardMarkup()
@@ -368,7 +368,7 @@ def callback_inline(call):
             button4 = types.InlineKeyboardButton(text = "⬅️ Назад в меню", callback_data = 'back_to_the_menu')
             keyboard.row(button, button1)
             keyboard.row(button3, button4)
-            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = 'Вы перешли в *главное меню*.', parse_mode = 'Markdown', reply_markup = keyboard)
+            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = '*Меню паролей.*', parse_mode = 'Markdown', reply_markup = keyboard)
             
         elif call.data == 'back_to_the_menu':
             keyboard = types.InlineKeyboardMarkup()
@@ -377,7 +377,7 @@ def callback_inline(call):
             button4 = types.InlineKeyboardButton(text = "Пароли", callback_data = 'passwords')
             keyboard.row(button, button2)
             keyboard.row(button4)
-            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = 'Вы перешли в *главное меню*.', parse_mode = 'Markdown', reply_markup = keyboard)
+            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = '📜 *Главное меню.*', parse_mode = 'Markdown', reply_markup = keyboard)
         
         elif call.data == 'rating_by_course':
             keyboard = types.InlineKeyboardMarkup()
@@ -545,10 +545,10 @@ def text(message):
             bot.send_message(message.chat.id, schedule, parse_mode = 'Markdown', reply_markup = keyboard)
     elif message.text == 'Адреса корпусов':
         keyboard = types.InlineKeyboardMarkup()
-        buildings_1 = types.InlineKeyboardButton(text = "Первый корпус", callback_data = 'adress_1')
-        buildings_2 = types.InlineKeyboardButton(text = "Второй корпус", callback_data = 'adress_2')
-        buildings_3 = types.InlineKeyboardButton(text = "Третий корпус", callback_data = 'adress_3')
-        buildings_4 = types.InlineKeyboardButton(text = "Четвёртый корпус", callback_data = 'adress_4')
+        buildings_1 = types.InlineKeyboardButton(text = "1️⃣ Первый корпус", callback_data = 'adress_1')
+        buildings_2 = types.InlineKeyboardButton(text = "2️⃣ Второй корпус", callback_data = 'adress_2')
+        buildings_3 = types.InlineKeyboardButton(text = "3️⃣ Третий корпус", callback_data = 'adress_3')
+        buildings_4 = types.InlineKeyboardButton(text = "4️⃣ Четвёртый корпус", callback_data = 'adress_4')
         buildings_5  = types.InlineKeyboardButton(text = "ККМТ", callback_data = 'adress_5')
         buildings_6  = types.InlineKeyboardButton(text = "Спортзал", callback_data = 'adress_6')
         keyboard.add(buildings_1, buildings_2, buildings_3, buildings_4, buildings_5, buildings_6)
@@ -561,7 +561,7 @@ def text(message):
         button4 = types.InlineKeyboardButton(text = "Пароли", callback_data = 'passwords')
         keyboard.row(button, button2)
         keyboard.row(button4)
-        bot.send_message(message.chat.id, '📜 Вы перешли в *главное меню*.', parse_mode = 'Markdown', reply_markup = keyboard)
+        bot.send_message(message.chat.id, '📜 *Главное меню.*', parse_mode = 'Markdown', reply_markup = keyboard)
     #подобие ИИ
     elif re.search(r'\bпривет', message.text.lower()):
         with open ('./AI/hello.txt', 'r') as file:
