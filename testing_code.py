@@ -444,7 +444,10 @@ def callback_inline(call):
                 nowtime = nowtime.strftime("(%d.%m.%y)")
                 schedule += str(keys)
                 schedule = schedule.replace("['", '').replace("']", '').replace(r'\n', '\n').replace("', '", '').replace('()', nowtime)
-                bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = schedule, parse_mode = 'Markdown')
+                keyboard = types.InlineKeyboardMarkup()
+                button1 = types.InlineKeyboardButton(text = "⬅️ Назад в меню расписаний", callback_data = 'schedule_by_date')
+                keyboard.row(button1)
+                bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = schedule, parse_mode = 'Markdown', reply_markup = keyboard)
             else:
                 schedule_days_int = json_data3["Для чётной недели"]
                 schedule = ''
@@ -453,7 +456,10 @@ def callback_inline(call):
                 nowtime = nowtime.strftime("(%d.%m.%y)")
                 schedule += str(keys)
                 schedule = schedule.replace("['", '').replace("']", '').replace(r'\n', '\n').replace("', '", '').replace('()', nowtime)
-                bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = schedule, parse_mode = 'Markdown')
+                keyboard = types.InlineKeyboardMarkup()
+                button1 = types.InlineKeyboardButton(text = "⬅️ Назад в меню расписаний", callback_data = 'schedule_by_date')
+                keyboard.row(button1)
+                bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = schedule, parse_mode = 'Markdown', reply_markup = keyboard)
         
         elif call.data == 'now_next':
             delta = timedelta(hours = 3)
@@ -482,7 +488,10 @@ def callback_inline(call):
                 nowtime = nowtime.strftime("(%d.%m.%y)")
                 schedule += str(keys)
                 schedule = schedule.replace("['", '').replace("']", '').replace(r'\n', '\n').replace("', '", '').replace('()', nowtime)
-                bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = schedule, parse_mode = 'Markdown')
+                keyboard = types.InlineKeyboardMarkup()
+                button1 = types.InlineKeyboardButton(text = "⬅️ Назад в меню расписаний", callback_data = 'schedule_by_date')
+                keyboard.row(button1)
+                bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = schedule, parse_mode = 'Markdown', reply_markup = keyboard)
             else:
                 schedule_days_int = json_data3["Для чётной недели"]
                 schedule = ''
@@ -491,7 +500,10 @@ def callback_inline(call):
                 nowtime = nowtime.strftime("(%d.%m.%y)")
                 schedule += str(keys)
                 schedule = schedule.replace("['", '').replace("']", '').replace(r'\n', '\n').replace("', '", '').replace('()', nowtime)
-                bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = schedule, parse_mode = 'Markdown')
+                keyboard = types.InlineKeyboardMarkup()
+                button1 = types.InlineKeyboardButton(text = "⬅️ Назад в меню расписаний", callback_data = 'schedule_by_date')
+                keyboard.row(button1)
+                bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = schedule, parse_mode = 'Markdown', reply_markup = keyboard)
         
         elif call.data == 'rating_by_course':
             keyboard = types.InlineKeyboardMarkup()
