@@ -392,6 +392,41 @@ def callback_inline(call):
             keyboard.row(button5)
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = '📜 *Главное меню.*', parse_mode = 'Markdown', reply_markup = keyboard)
         
+        elif call.data == 'schedule_by_date':
+            delta = timedelta(hours = 3)
+            delta1 = timedelta(days = 1)
+            delta2 = timedelta(days = 2)
+            delta3 = timedelta(days = 3)
+            delta4 = timedelta(days = 4)
+            now = datetime.now() + delta
+            now_next = datetime.now() + delta + delta1
+            now_next1 = datetime.now() + delta + delta2
+            now_next2 = datetime.now() + delta + delta3
+            now_next3 = datetime.now() + delta + delta4
+            days_int4 = now.isoweekday()
+            sep = datetime(now.year if now.month >= 9 else now.year - 1, 9, 1)
+            d1 = sep - timedelta(days = sep.weekday())
+            d2 = now - timedelta(days = now.weekday())
+            parity = ((d2 - d1).days // 7) % 2 #возвращает 0, если неделя нечётная и 1, если чётная
+
+            if days_int == 7:
+                days_print = 0
+                if parity == 0:
+                    parity = 1
+                else:
+                    parity = 0
+            else:
+                days_print = days_int
+            now_next = now_next.strftime("(%d.%m.%y)")
+            now_next1 = now_next1.strftime("(%d.%m.%y)")
+            now_next2 = now_next2.strftime("(%d.%m.%y)")
+            now_next3 = now_next3.strftime("(%d.%m.%y)")
+            keyboard = types.InlineKeyboardMarkup()
+            button = types.InlineKeyboardButton(text = f"{now_next}", callback_data = 'now_next')
+            button2 = types.InlineKeyboardButton(text = f"{now_next1}", callback_data = 'now_next1')
+            button4 = types.InlineKeyboardButton(text = f"{now_next2}", callback_data = 'now_next2')
+            button5 = types.InlineKeyboardButton(text = f"{now_next3}", callback_data = 'now_next3')
+        
         elif call.data == 'rating_by_course':
             keyboard = types.InlineKeyboardMarkup()
             button = types.InlineKeyboardButton(text = "💯 Сортировка по процентам", callback_data = 'percent')
