@@ -385,7 +385,7 @@ def callback_inline(call):
             button = types.InlineKeyboardButton(text = "Полезные материалы", callback_data = 'useful_materials')
             button2 = types.InlineKeyboardButton(text = "Рейтинг по курсу", callback_data = 'rating_by_course')
             button4 = types.InlineKeyboardButton(text = "Пароли", callback_data = 'passwords')
-            button5 = types.InlineKeyboardButton(text = "Расписание по датам \n(бета)", callback_data = 'schedule_by_date')
+            button5 = types.InlineKeyboardButton(text = "Расписание по датам", callback_data = 'schedule_by_date')
             keyboard.row(button)
             keyboard.row(button2)
             keyboard.row(button4)
@@ -417,7 +417,7 @@ def callback_inline(call):
             keyboard.row(button2, button3)
             keyboard.row(url_button)
             keyboard.row(button4)
-            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = f'🗓 *Расписание по датам.*', parse_mode = 'Markdown', reply_markup = keyboard)
+            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = f'🗓 *Расписание по датам (бета, может работать не сосем правильно).*', parse_mode = 'Markdown', reply_markup = keyboard)
         
         elif call.data == 'now_next3':
             delta = timedelta(hours = 3)
