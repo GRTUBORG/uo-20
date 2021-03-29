@@ -417,7 +417,7 @@ def callback_inline(call):
             keyboard.row(button2, button3)
             keyboard.row(url_button)
             keyboard.row(button4)
-            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = f'🗓 *Расписание по датам (бета, может работать не сосем правильно).*', parse_mode = 'Markdown', reply_markup = keyboard)
+            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = f'🗓 *Расписание по датам (бета, может работать не совсем правильно).*', parse_mode = 'Markdown', reply_markup = keyboard)
         
         elif call.data == 'now_next3':
             delta = timedelta(hours = 3)
