@@ -333,8 +333,15 @@ def callback_inline(call):
         elif call.data == 'english':
             keyboard = types.InlineKeyboardMarkup()
             button = types.InlineKeyboardButton(text = "⬅️ Назад в полезные материалы", callback_data = 'useful_materials')
+            button1 = types.InlineKeyboardButton(text = "Найти нужную страницу", callback_data = 'required_page')
+            keyboard.row(button1)
             keyboard.row(button)
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = message_english, parse_mode = 'Markdown', reply_markup = keyboard)
+        elif call.data == 'required_page':
+            keyboard = types.InlineKeyboardMarkup()
+            button = types.InlineKeyboardButton(text = "⬅️ Назад в материалы по английскому языку", callback_data = 'english')
+            keyboard.row(button)
+            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = 'Пока что тут ничего нет, но возможно, что скоро тут будет очередная плюшка :)', parse_mode = 'Markdown', reply_markup = keyboard)
         elif call.data == 'mat_analysis':
             keyboard = types.InlineKeyboardMarkup()
             button = types.InlineKeyboardButton(text = "⬅️ Назад в полезные материалы", callback_data = 'useful_materials')
