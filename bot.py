@@ -355,9 +355,17 @@ def callback_inline(call):
             button = types.InlineKeyboardButton(text = "⬅️ Назад в материалы по английскому языку", callback_data = 'english')
             keyboard.row(button_page1, button_page2, button1)
             keyboard.row(button)
-            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = 'Пока что тут ничего нет, но возможно, что скоро тут будет очередная плюшка :)', parse_mode = 'Markdown', reply_markup = keyboard)
+            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = url_lists_eng, parse_mode = 'Markdown', reply_markup = keyboard)
         elif call.data == 'further':
             page_list += 1
+            keyboard = types.InlineKeyboardMarkup()
+            button_page1 = types.InlineKeyboardButton(text = f"Страница {page_list}", callback_data = 'page')
+            button_page2 = types.InlineKeyboardButton(text = f"Страница {page_list + 1}", callback_data = 'next_page')
+            button1 = types.InlineKeyboardButton(text = "Далее", callback_data = 'further')
+            button = types.InlineKeyboardButton(text = "⬅️ Назад в материалы по английскому языку", callback_data = 'english')
+            keyboard.row(button_page1, button_page2, button1)
+            keyboard.row(button)
+            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = url_lists_eng, parse_mode = 'Markdown', reply_markup = keyboard)
         elif call.data == 'mat_analysis':
             keyboard = types.InlineKeyboardMarkup()
             button = types.InlineKeyboardButton(text = "⬅️ Назад в полезные материалы", callback_data = 'useful_materials')
