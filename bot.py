@@ -347,6 +347,7 @@ def callback_inline(call):
             keyboard.row(button)
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = message_english, parse_mode = 'Markdown', reply_markup = keyboard)
         elif call.data == 'required_page':
+            global page_list
             keyboard = types.InlineKeyboardMarkup()
             button_page1 = types.InlineKeyboardButton(text = f"Страница {page_list}", callback_data = None)
             button_page2 = types.InlineKeyboardButton(text = f"Страница {page_list + 1}", callback_data = None)
