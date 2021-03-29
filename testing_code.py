@@ -98,6 +98,12 @@ message_english = """
 └ https://bit.ly/3ayKEhD — вторая группа
 """
 
+page_list = 1
+url_lists_eng = f"""
+*Английский язык*
+
+• Поиск по страницам"""
+
 @bot.message_handler(commands = ['start'])
 def start_command(message):
     str_countes = ''
@@ -327,6 +333,37 @@ def callback_inline(call):
             button = types.InlineKeyboardButton(text = "⬅️ Назад в полезные материалы", callback_data = 'useful_materials')
             keyboard.row(button)
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = message_english, parse_mode = 'Markdown', reply_markup = keyboard)
+        elif call.data == 'required_page':
+            global page_list
+            page_list = 1
+            keyboard = types.InlineKeyboardMarkup()
+            button_page1 = types.InlineKeyboardButton(text = f"Страница {page_list + 1}", callback_data = 'page')
+            button_page2 = types.InlineKeyboardButton(text = f"Страница {page_list + 2}", callback_data = 'next_page')
+            button1 = types.InlineKeyboardButton(text = "Вперёд", callback_data = 'further')
+            button = types.InlineKeyboardButton(text = "⬅️ Назад в материалы по английскому языку", callback_data = 'english')
+            keyboard.row(button_page1, button_page2, button1)
+            keyboard.row(button)
+            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = url_lists_eng, parse_mode = 'Markdown', reply_markup = keyboard)
+        elif call.data == 'further':
+            page_list += 1
+            keyboard = types.InlineKeyboardMarkup()
+            button_page1 = types.InlineKeyboardButton(text = f"Страница {page_list + 1}", callback_data = 'page')
+            button_page2 = types.InlineKeyboardButton(text = f"Страница {page_list + 2}", callback_data = 'next_page')
+            button1 = types.InlineKeyboardButton(text = "Вперёд", callback_data = 'further')
+            button = types.InlineKeyboardButton(text = "⬅️ Назад в материалы по английскому языку", callback_data = 'english')
+            keyboard.row(button_page1, button_page2, button1)
+            keyboard.row(button)
+            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = url_lists_eng, parse_mode = 'Markdown', reply_markup = keyboard)
+        elif call.data == 'page' or call.data == 'next_page':
+            msg = f"""
+            https://studfile.net/preview/5753521/page:{page_list}/ — первая группа;
+            https://studfile.net/preview/5753537/page:{page_list}/ — вторая группа
+            """
+            keyboard = types.InlineKeyboardMarkup()
+            button = types.InlineKeyboardButton(text = "⬅️ Назад в материалы по английскому языку", callback_data = 'english')
+            keyboard.row(button)
+            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = msg, parse_mode = 'Markdown', reply_markup = keyboard)
+        
         elif call.data == 'mat_analysis':
             keyboard = types.InlineKeyboardMarkup()
             button = types.InlineKeyboardButton(text = "⬅️ Назад в полезные материалы", callback_data = 'useful_materials')
