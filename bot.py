@@ -97,6 +97,15 @@ message_english = """
 ├ https://bit.ly/3pxRvfs — первая группа;
 └ https://bit.ly/3ayKEhD — вторая группа
 """
+page_list = 1
+url_lists_eng = f"""
+*Английский язык*
+
+• Поиск по страницам:
+https://studfile.net/preview/5753521/page:{page_list}/ — первая группа;
+https://studfile.net/preview/5753537/page:{page_list}/ — вторая группа
+"""
+
 
 @bot.message_handler(commands = ['start'])
 def start_command(message):
@@ -338,8 +347,6 @@ def callback_inline(call):
             keyboard.row(button)
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = message_english, parse_mode = 'Markdown', reply_markup = keyboard)
         elif call.data == 'required_page':
-            global page_list
-            page_list = 1
             keyboard = types.InlineKeyboardMarkup()
             button_page1 = types.InlineKeyboardButton(text = f"Страница {page_list}", callback_data = None)
             button_page2 = types.InlineKeyboardButton(text = f"Страница {page_list + 1}", callback_data = None)
