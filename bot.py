@@ -349,8 +349,8 @@ def callback_inline(call):
         elif call.data == 'required_page':
             global page_list
             keyboard = types.InlineKeyboardMarkup()
-            button_page1 = types.InlineKeyboardButton(text = f"Страница {page_list}", callback_data = None)
-            button_page2 = types.InlineKeyboardButton(text = f"Страница {page_list + 1}", callback_data = None)
+            button_page1 = types.InlineKeyboardButton(text = f"Страница {page_list}", callback_data = 'page')
+            button_page2 = types.InlineKeyboardButton(text = f"Страница {page_list + 1}", callback_data = 'next_page')
             button1 = types.InlineKeyboardButton(text = "Далее", callback_data = 'further')
             button = types.InlineKeyboardButton(text = "⬅️ Назад в материалы по английскому языку", callback_data = 'english')
             keyboard.row(button_page1, button_page2, button1)
