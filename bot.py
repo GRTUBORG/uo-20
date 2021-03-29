@@ -108,8 +108,16 @@ def start_command(message):
               ]
     for x in countes:
         str_countes += x
+    keyboard = types.ReplyKeyboardMarkup(resize_keyboard = True)
+    button = types.KeyboardButton(text = "Расписание на сегодня")
+    button1 = types.KeyboardButton(text = "Расписание на завтра")
+    button2 = types.KeyboardButton(text = "Адреса корпусов")
+    button3 = types.KeyboardButton(text = "Меню")
+    keyboard.row(button, button1)
+    keyboard.row(button2, button3)
     bot.send_message(767815871, f'У тебя +1 новый пользователь! \n{str_countes}')
-    bot.reply_to(message, "Рад тебя видеть! Пропиши /schedule! Если вдруг ты заблудился или забыл команды (со всеми бывает, не переживай) — /help в помощь.")
+    bot.reply_to(message, "*Рад тебя видеть!* \n\nПропиши /schedule, или воспользуйся клавиатурой ниже! Если вдруг ты заблудился или забыл команды (со всеми бывает, не переживай) — /help в помощь.", parse_mode = 'Markdown', reply_markup = keyboard)
+    
 
 
 @bot.message_handler(commands = ['help'])
