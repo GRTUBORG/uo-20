@@ -94,8 +94,8 @@ message_english = """
 *Английский язык*
 
 • Учебники:
-├ https://bit.ly/3pxRvfs — первая группа;
-└ https://bit.ly/3ayKEhD — вторая группа
+1️⃣ https://bit.ly/3pxRvfs — первая группа;
+2️⃣ https://bit.ly/3ayKEhD — вторая группа
 """
 
 @bot.message_handler(commands = ['start'])
