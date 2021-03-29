@@ -94,8 +94,8 @@ message_english = """
 *Английский язык*
 
 • Учебники:
-1️⃣ https://bit.ly/3pxRvfs — первая группа;
-2️⃣ https://bit.ly/3ayKEhD — вторая группа
+├ https://bit.ly/3pxRvfs — первая группа;
+└ https://bit.ly/3ayKEhD — вторая группа
 """
 
 @bot.message_handler(commands = ['start'])
@@ -338,10 +338,17 @@ def callback_inline(call):
             keyboard.row(button)
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = message_english, parse_mode = 'Markdown', reply_markup = keyboard)
         elif call.data == 'required_page':
+            global page_list
+            page_list = 1
             keyboard = types.InlineKeyboardMarkup()
+            button_page1 = types.InlineKeyboardButton(text = f"Страница {page_list}", callback_data = None)
+            button_page2 = types.InlineKeyboardButton(text = f"Страница {page_list + 1}", callback_data = None)
+            button1 = types.InlineKeyboardButton(text = "Далее", callback_data = 'further')
             button = types.InlineKeyboardButton(text = "⬅️ Назад в материалы по английскому языку", callback_data = 'english')
             keyboard.row(button)
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = 'Пока что тут ничего нет, но возможно, что скоро тут будет очередная плюшка :)', parse_mode = 'Markdown', reply_markup = keyboard)
+        elif call.data == 'further':
+            page_list += 1
         elif call.data == 'mat_analysis':
             keyboard = types.InlineKeyboardMarkup()
             button = types.InlineKeyboardButton(text = "⬅️ Назад в полезные материалы", callback_data = 'useful_materials')
