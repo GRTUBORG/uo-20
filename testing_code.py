@@ -4,7 +4,6 @@ import json
 import os
 import re
 import random
-import calendar
 
 from telebot import types
 from datetime import datetime, date, timedelta
@@ -412,9 +411,11 @@ def callback_inline(call):
             button1 = types.InlineKeyboardButton(text = f"{now_next1}", callback_data = 'now_next1')
             button2 = types.InlineKeyboardButton(text = f"{now_next2}", callback_data = 'now_next2')
             button3 = types.InlineKeyboardButton(text = f"{now_next3}", callback_data = 'now_next3')
+            url_button = types.InlineKeyboardButton(text = f"Открыть полное расписание↗️", url = 'https://bit.ly/3cxSxEV')
             button4 = types.InlineKeyboardButton(text = f"⬅️ Назад в меню", callback_data = 'back_to_the_menu')
             keyboard.row(button, button1)
             keyboard.row(button2, button3)
+            keyboard.row(url_button)
             keyboard.row(button4)
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = f'🗓 *Расписание по дням.*', parse_mode = 'Markdown', reply_markup = keyboard)
         
