@@ -385,7 +385,7 @@ def callback_inline(call):
             button = types.InlineKeyboardButton(text = "Полезные материалы", callback_data = 'useful_materials')
             button2 = types.InlineKeyboardButton(text = "Рейтинг по курсу", callback_data = 'rating_by_course')
             button4 = types.InlineKeyboardButton(text = "Пароли", callback_data = 'passwords')
-            button5 = types.InlineKeyboardButton(text = "Расписание по датам \n(находится в бета-версии)", callback_data = 'schedule_by_date')
+            button5 = types.InlineKeyboardButton(text = "Расписание по датам \n(бета)", callback_data = 'schedule_by_date')
             keyboard.row(button)
             keyboard.row(button2)
             keyboard.row(button4)
