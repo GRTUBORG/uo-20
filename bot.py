@@ -369,6 +369,9 @@ def callback_inline(call):
             https://studfile.net/preview/5753521/page:{page_list}/ — первая группа;
             https://studfile.net/preview/5753537/page:{page_list}/ — вторая группа
             """
+            keyboard = types.InlineKeyboardMarkup()
+            button = types.InlineKeyboardButton(text = "⬅️ Назад в материалы по английскому языку", callback_data = 'english')
+            keyboard.row(button)
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = msg, parse_mode = 'Markdown', reply_markup = keyboard)
         elif call.data == 'mat_analysis':
             keyboard = types.InlineKeyboardMarkup()
