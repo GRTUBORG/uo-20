@@ -97,7 +97,7 @@ message_english = """
 ├ https://bit.ly/3pxRvfs — первая группа;
 └ https://bit.ly/3ayKEhD — вторая группа
 """
-page_list = int(page_list)
+page_list = 1
 url_lists_eng = f"""
 *Английский язык*
 
