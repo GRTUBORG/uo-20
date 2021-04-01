@@ -387,6 +387,9 @@ def callback_inline(call):
             elif r2.status_code == 404:
                 msg1 = f'*Английский язык*\n\n• Поиск по страницам \n├ https://studfile.net/preview/5753521/page:{page_list}/ — первая группа;'
                 msg2 = '\n└ _Для этого учебника данной страницы не существует!_'
+            elif r.status_code == 404 and r2.status_code == 404:
+                msg1 = f'*Английский язык*\n\n• Поиск по страницам \n├ _Для этого учебника данной страницы не существует!_'
+                msg2 = '\n└ _И для этого учебника данной страницы также не существует!_'
             else:
                 msg1 = f'*Английский язык*\n\n• Поиск по страницам \n├ https://studfile.net/preview/5753521/page:{page_list}/ — первая группа;'
                 msg2 = f'\n└ https://studfile.net/preview/5753537/page:{page_list}/ — вторая группа'
