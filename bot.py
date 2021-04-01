@@ -355,9 +355,9 @@ def callback_inline(call):
             keyboard.row(button)
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = url_lists_eng, parse_mode = 'Markdown', reply_markup = keyboard)
         elif call.data == 'back':
+            page_list -= 1
             if page_list == 0:
                 page_list = 1
-            page_list -= 1
             keyboard = types.InlineKeyboardMarkup()
             button2 = types.InlineKeyboardButton(text = "◀️ Назад", callback_data = 'back')
             button_page1 = types.InlineKeyboardButton(text = f"Страница {page_list}", callback_data = f'page{page_list - 1}')
