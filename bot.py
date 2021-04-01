@@ -376,7 +376,7 @@ def callback_inline(call):
             keyboard.row(button2, button_page1, button1)
             keyboard.row(button)
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = url_lists_eng, parse_mode = 'Markdown', reply_markup = keyboard)
-        elif call.data == f'page{page_list + 1}':
+        elif call.data == f'page{page_list + 1}' or call.data == f'page{page_list - 1}':
             msg = f'https://studfile.net/preview/5753521/page:{page_list}/ — первая группа; \nhttps://studfile.net/preview/5753537/page:{page_list}/ — вторая группа'
             keyboard = types.InlineKeyboardMarkup()
             button = types.InlineKeyboardButton(text = "⬅️ Назад к страницам", callback_data = 'required_page')
