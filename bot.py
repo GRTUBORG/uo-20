@@ -103,7 +103,8 @@ page_list = 1
 url_lists_eng = f"""
 *Английский язык*
 
-• Поиск по страницам"""
+• Поиск по страницам
+└ Для перелистывания страниц воспользуйтесь кноками ниже ⬇️"""
 
 @bot.message_handler(commands = ['start'])
 def start_command(message):
