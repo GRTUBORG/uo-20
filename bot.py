@@ -378,6 +378,8 @@ def callback_inline(call):
             keyboard.row(button)
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = url_lists_eng, parse_mode = 'Markdown', reply_markup = keyboard)
         elif call.data == f'page{page_list + 1}' or call.data == f'page{page_list - 1}':
+            msg1 = ''
+            msg2 = ''
             r = requests.get(f'https://studfile.net/preview/5753521/page:{page_list}/')
             r2 = requests.get(f'https://studfile.net/preview/5753537/page:{page_list}/')
             if r.status_code == 404:
@@ -387,7 +389,7 @@ def callback_inline(call):
             else:
                 msg1 = f'https://studfile.net/preview/5753521/page:{page_list}/ — первая группа;'
                 msg2 = f'\nhttps://studfile.net/preview/5753537/page:{page_list}/ — вторая группа'
-            full_message = msg1 + msg2
+                full_message = msg1 + msg2
             keyboard = types.InlineKeyboardMarkup()
             button = types.InlineKeyboardButton(text = "⬅️ Назад к страницам", callback_data = 'required_page')
             keyboard.row(button)
