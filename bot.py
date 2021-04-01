@@ -53,11 +53,6 @@ layout_id = ''
 layout_percents = ''
 key = 0
 
-page_list = 1
-url_lists_eng = f"""
-*Английский язык*
-• Поиск по страницам"""
-
 for x, y in zip(rating, percents):
     surname = rating.get(str(key))
     percent_cources = percents.get(str(key))
@@ -103,6 +98,10 @@ message_english = """
 └ https://bit.ly/3ayKEhD — вторая группа
 """
 
+page_list = 1
+url_lists_eng = f"""
+*Английский язык*
+• Поиск по страницам"""
 
 @bot.message_handler(commands = ['start'])
 def start_command(message):
@@ -338,7 +337,7 @@ def callback_inline(call):
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = message_physics, parse_mode = 'Markdown', reply_markup = keyboard)
         elif call.data == 'english':
             keyboard = types.InlineKeyboardMarkup()
-            button_page = types.InlineKeyboardButton(text = "Посмотреть страницы", callback_data = 'required_page')
+            button_page = types.InlineKeyboardButton(text = "Посмотреть страницы 🔢", callback_data = 'required_page')
             button = types.InlineKeyboardButton(text = "⬅️ Назад в полезные материалы", callback_data = 'useful_materials')
             keyboard.row(button_page)
             keyboard.row(button)
@@ -363,12 +362,9 @@ def callback_inline(call):
             keyboard.row(button)
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = url_lists_eng, parse_mode = 'Markdown', reply_markup = keyboard)
         elif call.data == f'page{page_list + 1}':
-            msg = f"""
-            https://studfile.net/preview/5753521/page:{page_list}/ — первая группа;
-            https://studfile.net/preview/5753537/page:{page_list}/ — вторая группа
-            """
+            msg = f'https://studfile.net/preview/5753521/page:{page_list}/ — первая группа; \nhttps://studfile.net/preview/5753537/page:{page_list}/ — вторая группа'
             keyboard = types.InlineKeyboardMarkup()
-            button = types.InlineKeyboardButton(text = "⬅️ Назад к страницам", callback_data = 'required_page')
+            button = types.InlineKeyboardButton(text = "⬅️ Назад к страницам", callback_data = f'page{page_list + 1}')
             keyboard.row(button)
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = msg, parse_mode = 'Markdown', reply_markup = keyboard)
         
