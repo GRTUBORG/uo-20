@@ -332,11 +332,11 @@ def callback_inline(call):
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = message_english, parse_mode = 'Markdown', reply_markup = keyboard)
         elif call.data == 'required_page':
             global page_list
-            page_list = 0
+            page_list = 1
             keyboard = types.InlineKeyboardMarkup()
             button_page1 = types.InlineKeyboardButton(text = f"Страница {page_list + 1}", callback_data = f'page{page_list + 1}')
             button1 = types.InlineKeyboardButton(text = "Вперёд", callback_data = 'further')
-            button = types.InlineKeyboardButton(text = "⬅️ Назад в материалы по английскому языку", callback_data = 'required_page')
+            button = types.InlineKeyboardButton(text = "⬅️ Назад в материалы по английскому языку", callback_data = 'english')
             keyboard.row(button_page1, button1)
             keyboard.row(button)
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = url_lists_eng, parse_mode = 'Markdown', reply_markup = keyboard)
@@ -355,7 +355,7 @@ def callback_inline(call):
             https://studfile.net/preview/5753537/page:{page_list}/ — вторая группа
             """
             keyboard = types.InlineKeyboardMarkup()
-            button = types.InlineKeyboardButton(text = "⬅️ Назад к страницам", callback_data = 'english')
+            button = types.InlineKeyboardButton(text = "⬅️ Назад к страницам", callback_data = 'required_page')
             keyboard.row(button)
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = msg, parse_mode = 'Markdown', reply_markup = keyboard)
         
