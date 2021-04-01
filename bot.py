@@ -381,13 +381,13 @@ def callback_inline(call):
             r = requests.get(f'https://studfile.net/preview/5753521/page:{page_list}/')
             r2 = requests.get(f'https://studfile.net/preview/5753537/page:{page_list}/')
             if r.status_code == 404:
-                msg1 = '├ _Для этого учебника данной страницы не существует!_'
+                msg1 = '*Английский язык*\n\n• Поиск по страницам \n├ _Для этого учебника данной страницы не существует!_'
                 msg2 = f'\n└ https://studfile.net/preview/5753537/page:{page_list}/ — вторая группа'
             elif r2.status_code == 404:
-                msg1 = f'├ https://studfile.net/preview/5753521/page:{page_list}/ — первая группа;'
+                msg1 = f'*Английский язык*\n\n• Поиск по страницам \n├ https://studfile.net/preview/5753521/page:{page_list}/ — первая группа;'
                 msg2 = '\n└ _Для этого учебника данной страницы не существует!_'
             else:
-                msg1 = f'├ https://studfile.net/preview/5753521/page:{page_list}/ — первая группа;'
+                msg1 = f'*Английский язык*\n\n• Поиск по страницам \n├ https://studfile.net/preview/5753521/page:{page_list}/ — первая группа;'
                 msg2 = f'\n└ https://studfile.net/preview/5753537/page:{page_list}/ — вторая группа'
             full_message = msg1 + msg2
             keyboard = types.InlineKeyboardMarkup()
