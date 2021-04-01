@@ -8,6 +8,7 @@ import random
 from telebot import types
 from datetime import datetime, date, timedelta
 from telegram_bot_pagination import InlineKeyboardPaginator
+from data import character_pages
 
 paginator = InlineKeyboardPaginator(
         10,
@@ -240,6 +241,7 @@ def buildings(message):
 
 @bot.callback_query_handler(func = lambda call: True)
 def callback_inline(call):
+    send_character_page(call)
     if call.message:
         if call.data == 'adress_1':
             keyboard = types.InlineKeyboardMarkup()
