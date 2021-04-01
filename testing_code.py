@@ -7,7 +7,13 @@ import random
 
 from telebot import types
 from datetime import datetime, date, timedelta
+from telegram_bot_pagination import InlineKeyboardPaginator
 
+paginator = InlineKeyboardPaginator(
+        10,
+        current_page=1,
+        data_pattern='elements#{page}'
+    )
 
 token = os.environ.get('bot_token')
 bot = telebot.TeleBot(str(token))
