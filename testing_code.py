@@ -94,7 +94,7 @@ message_english = """
 └ https://bit.ly/3ayKEhD — вторая группа
 """
 
-page_list = 1
+page_list = 0
 url_lists_eng = f"""
 *Английский язык*
 • Поиск по страницам"""
