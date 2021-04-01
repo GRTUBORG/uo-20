@@ -94,7 +94,7 @@ message_english = """
 └ https://bit.ly/3ayKEhD — вторая группа
 """
 
-page_list = 0
+page_list = 1
 url_lists_eng = f"""
 *Английский язык*
 • Поиск по страницам"""
@@ -355,7 +355,7 @@ def callback_inline(call):
             https://studfile.net/preview/5753537/page:{page_list}/ — вторая группа
             """
             keyboard = types.InlineKeyboardMarkup()
-            button = types.InlineKeyboardButton(text = "⬅️ Назад в материалы по английскому языку", callback_data = 'english')
+            button = types.InlineKeyboardButton(text = "⬅️ Назад к страницам", callback_data = 'english')
             keyboard.row(button)
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = msg, parse_mode = 'Markdown', reply_markup = keyboard)
         
