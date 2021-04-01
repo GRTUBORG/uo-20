@@ -4,6 +4,7 @@ import json
 import os
 import re
 import random
+import requests
 
 from telebot import types
 from datetime import datetime, date, timedelta
@@ -377,11 +378,20 @@ def callback_inline(call):
             keyboard.row(button)
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = url_lists_eng, parse_mode = 'Markdown', reply_markup = keyboard)
         elif call.data == f'page{page_list + 1}' or call.data == f'page{page_list - 1}':
-            msg = f'https://studfile.net/preview/5753521/page:{page_list}/ — первая группа; \nhttps://studfile.net/preview/5753537/page:{page_list}/ — вторая группа'
+            r = requests.get(f'https://studfile.net/preview/5753521/page:{page_list}/')
+            r2 = requests.get(f'https://studfile.net/preview/5753537/page:{page_list}/')
+            if r.status_code == 404:
+                msg1 = 'Для этого учебника данной страницы не существует!'
+            elif r2.status_code == 404:
+                msg2 = 'Для этого учебника данной страницы не существует!'
+            else:
+                msg1 = f'https://studfile.net/preview/5753521/page:{page_list}/ — первая группа;'
+                msg2 = f'\nhttps://studfile.net/preview/5753537/page:{page_list}/ — вторая группа'
+            full_message = msg1 + msg2
             keyboard = types.InlineKeyboardMarkup()
             button = types.InlineKeyboardButton(text = "⬅️ Назад к страницам", callback_data = 'required_page')
             keyboard.row(button)
-            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = msg, parse_mode = 'Markdown', reply_markup = keyboard)
+            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = full_message, parse_mode = 'Markdown', reply_markup = keyboard)
         
         elif call.data == 'mat_analysis':
             keyboard = types.InlineKeyboardMarkup()
