@@ -383,8 +383,11 @@ def callback_inline(call):
             keyboard.row(button)
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = url_lists_eng, parse_mode = 'Markdown', reply_markup = keyboard)
         elif call.data == f'page{page_list + 1}' or call.data == f'page{page_list - 1}':
+            data = { "long_url": f"https://studfile.net/preview/5753521/page:{page_list}/", "domain": "bit.ly", "group_guid": "Ba1bc23dE4F" }
             r = requests.get(f'https://studfile.net/preview/5753521/page:{page_list}/')
             r2 = requests.get(f'https://studfile.net/preview/5753537/page:{page_list}/')
+            response = requests.post('https://api-ssl.bitly.com/v4/shorten', headers = headers, data = data)
+            print(response)
             if r.status_code == 404:
                 if r2.status_code == 404:
                     msg1 = f'*Английский язык*\n\n• Поиск по страницам \n├ _Для этого учебника данной страницы не существует!_'
