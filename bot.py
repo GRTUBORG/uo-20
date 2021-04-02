@@ -412,9 +412,9 @@ def callback_inline(call):
         
         elif call.data == 'passwords':
             keyboard = types.InlineKeyboardMarkup()
-            button = types.InlineKeyboardButton(text = "Для локальной сети", callback_data = 'local')
+            button = types.InlineKeyboardButton(text = "От локальной сети", callback_data = 'local')
             button1 = types.InlineKeyboardButton(text = "Для тестирования", callback_data = 'testing')
-            button3 = types.InlineKeyboardButton(text = "Для почты", callback_data = 'mail')
+            button3 = types.InlineKeyboardButton(text = "От почты", callback_data = 'mail')
             button4 = types.InlineKeyboardButton(text = "⬅️ Назад в меню", callback_data = 'back_to_the_menu')
             keyboard.row(button, button1)
             keyboard.row(button3, button4)
@@ -449,9 +449,9 @@ def callback_inline(call):
         elif call.data == 'cancel':
             bot.clear_step_handler_by_chat_id(chat_id = call.message.chat.id)
             keyboard = types.InlineKeyboardMarkup()
-            button = types.InlineKeyboardButton(text = "Для локальной сети", callback_data = 'local')
+            button = types.InlineKeyboardButton(text = "От локальной сети", callback_data = 'local')
             button1 = types.InlineKeyboardButton(text = "Для тестирования", callback_data = 'testing')
-            button3 = types.InlineKeyboardButton(text = "Для почты", callback_data = 'mail')
+            button3 = types.InlineKeyboardButton(text = "От почты", callback_data = 'mail')
             button4 = types.InlineKeyboardButton(text = "⬅️ Назад в меню", callback_data = 'back_to_the_menu')
             keyboard.row(button, button1)
             keyboard.row(button3, button4)
@@ -665,9 +665,9 @@ def get_message(message):
     if id.isdigit() == False or int(id) > 30:
         bot.clear_step_handler_by_chat_id(chat_id = message.chat.id)
         keyboard = types.InlineKeyboardMarkup()
-        button = types.InlineKeyboardButton(text = "Для локальной сети", callback_data = 'local')
+        button = types.InlineKeyboardButton(text = "От локальной сети", callback_data = 'local')
         button1 = types.InlineKeyboardButton(text = "Для тестирования", callback_data = 'testing')
-        button3 = types.InlineKeyboardButton(text = "Для почты", callback_data = 'mail')
+        button3 = types.InlineKeyboardButton(text = "От почты", callback_data = 'mail')
         button4 = types.InlineKeyboardButton(text = "⬅️ Назад в меню", callback_data = 'back_to_the_menu')
         keyboard.row(button, button1)
         keyboard.row(button3, button4)
