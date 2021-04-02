@@ -10,7 +10,7 @@ from telebot import types
 from datetime import datetime, date, timedelta
 
 headers = {
-    'Authorization': f'Bearer {os.environ.get('bitly_token')}',
+    'Authorization': f'Bearer {os.environ.get("bitly_token")}',
     'Content-Type': 'application/json',
 }
 
