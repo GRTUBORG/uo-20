@@ -469,9 +469,11 @@ def callback_inline(call):
         
         elif call.data == 'about_the_team':
             keyboard = types.InlineKeyboardMarkup()
-            button = types.InlineKeyboardButton(text = "⬅️ Назад в меню", callback_data = 'back_to_the_menu')
+            button = types.InlineKeyboardButton(text = "В чат с разработчиком ↗️", url = 'https://t.me/whomet')
+            button1 = types.InlineKeyboardButton(text = "⬅️ Назад в меню", callback_data = 'back_to_the_menu')
             keyboard.row(button)
-            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = '👨‍💻 *Разработчик:* @whomet \n🛠 *Тестировщик:* @pvk174', parse_mode = 'Markdown', reply_markup = keyboard)
+            keyboard.row(button1)
+            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = '🧑‍💻 *Разработчик:* @whomet \n🛠 *Тестировщик:* @pvk174 \n💭 *Главный мозг идей:* @ks4rbye69', parse_mode = 'Markdown', reply_markup = keyboard)
         
         elif call.data == 'rating_by_course':
             keyboard = types.InlineKeyboardMarkup()
