@@ -473,7 +473,7 @@ def callback_inline(call):
             button1 = types.InlineKeyboardButton(text = "⬅️ Назад в меню", callback_data = 'back_to_the_menu')
             keyboard.row(button)
             keyboard.row(button1)
-            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = '🧑‍💻 *Разработчик:* @whomet \n🛠 *Тестировщик:* @pvk174 \n💭 *Главный мозг идей:* @ks4rbye69', parse_mode = 'Markdown', reply_markup = keyboard)
+            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = '*Наша команда:* \n\n🧑‍💻 *Разработчик:* @whomet \n🛠 *Тестировщик:* @pvk174 \n💭 *Главный мозг идей:* @ks4rbye69', parse_mode = 'Markdown', reply_markup = keyboard)
         
         elif call.data == 'rating_by_course':
             keyboard = types.InlineKeyboardMarkup()
