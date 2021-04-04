@@ -469,7 +469,7 @@ def callback_inline(call):
         
         elif call.data == 'about_the_team':
             keyboard = types.InlineKeyboardMarkup()
-            button = types.InlineKeyboardButton(text = "В чат с разработчиком ↗️", url = 'https://t.me/whomet')
+            button = types.InlineKeyboardButton(text = "В чат к разработчику ↗️", url = 'https://t.me/whomet')
             button1 = types.InlineKeyboardButton(text = "⬅️ Назад в меню", callback_data = 'back_to_the_menu')
             keyboard.row(button)
             keyboard.row(button1)
