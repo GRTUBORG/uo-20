@@ -433,7 +433,7 @@ def callback_inline(call):
         
         elif call.data == 'testing':
             keyboard = types.InlineKeyboardMarkup()
-            url_button = types.InlineKeyboardButton(text = "Перейти на сайт тестирования ↗️", url = 'https://do.unitech-mo.ru')
+            url_button = types.InlineKeyboardButton(text = "На сайт тестирования ↗️", url = 'https://do.unitech-mo.ru')
             button = types.InlineKeyboardButton(text = "⬅️ Назад в меню паролей", callback_data = 'cancel')
             button1 = types.InlineKeyboardButton(text = "❔ Узнать ID", callback_data = 'find_out_the_ID')
             keyboard.row(button1, url_button)
