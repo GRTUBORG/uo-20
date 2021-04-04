@@ -318,9 +318,6 @@ def callback_inline(call):
             bot.delete_message(call.message.chat.id, call.message.message_id)
             bot.delete_message(call.message.chat.id, call.message.message_id - 1)
             bot.delete_message(call.message.chat.id, call.message.message_id - 2)
-        elif call.data == 'delete_pwd':
-            bot.delete_message(call.message.chat.id, call.message.message_id)
-            bot.delete_message(call.message.chat.id, call.message.message_id - 1)
         
         elif call.data == 'useful_materials':
             keyboard = types.InlineKeyboardMarkup()
