@@ -458,12 +458,20 @@ def callback_inline(call):
         elif call.data == 'back_to_the_menu':
             keyboard = types.InlineKeyboardMarkup()
             button = types.InlineKeyboardButton(text = "Полезные материалы", callback_data = 'useful_materials')
-            button2 = types.InlineKeyboardButton(text = "Рейтинг по курсу", callback_data = 'rating_by_course')
-            button4 = types.InlineKeyboardButton(text = "Пароли", callback_data = 'passwords')
+            button1 = types.InlineKeyboardButton(text = "Рейтинг по курсу", callback_data = 'rating_by_course')
+            button2 = types.InlineKeyboardButton(text = "Пароли", callback_data = 'passwords')
+            button3 = types.InlineKeyboardButton(text = "О команде", callback_data = 'about_the_team')
             keyboard.row(button)
+            keyboard.row(button1)
             keyboard.row(button2)
-            keyboard.row(button4)
+            keyboard.row(button3)
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = '📜 *Главное меню.*', parse_mode = 'Markdown', reply_markup = keyboard)
+        
+        elif call.data == 'about_the_team':
+            keyboard = types.InlineKeyboardMarkup()
+            button = types.InlineKeyboardButton(text = "⬅️ Назад в меню", callback_data = 'back_to_the_menu')
+            keyboard.row(button)
+            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = '👨‍💻 *Разработчик:* @whomet \n🛠 *Тестировщик:* @pvk174', parse_mode = 'Markdown', reply_markup = keyboard)
         
         elif call.data == 'rating_by_course':
             keyboard = types.InlineKeyboardMarkup()
@@ -646,11 +654,13 @@ def text(message):
     elif message.text == 'Меню':
         keyboard = types.InlineKeyboardMarkup()
         button = types.InlineKeyboardButton(text = "Полезные материалы", callback_data = 'useful_materials')
-        button2 = types.InlineKeyboardButton(text = "Рейтинг по курсу", callback_data = 'rating_by_course')
-        button4 = types.InlineKeyboardButton(text = "Пароли", callback_data = 'passwords')
+        button1 = types.InlineKeyboardButton(text = "Рейтинг по курсу", callback_data = 'rating_by_course')
+        button2 = types.InlineKeyboardButton(text = "Пароли", callback_data = 'passwords')
+        button3 = types.InlineKeyboardButton(text = "О команде", callback_data = 'about_the_team')
         keyboard.row(button)
+        keyboard.row(button1)
         keyboard.row(button2)
-        keyboard.row(button4)
+        keyboard.row(button3)
         bot.send_message(message.chat.id, '📜 *Главное меню.*', parse_mode = 'Markdown', reply_markup = keyboard)
     #подобие ИИ
     elif re.search(r'\bпривет', message.text.lower()):
