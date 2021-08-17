@@ -294,8 +294,8 @@ def callback_inline(call):
             delete = types.InlineKeyboardButton(text = "Удалить ❌", callback_data = 'delete')
             keyboard.add(delete)
             photo = open('./Buildings/gym.png', 'rb')
-            bot.send_message(call.message.chat.id, 'Спортзал. \n*улица Богомолова, 9*', parse_mode = 'Markdown')
-            bot.send_location(call.message.chat.id, 55.911603, 37.812318)
+            bot.send_message(call.message.chat.id, 'Спортзал. \n*Октябрьский бульвар, 10*', parse_mode = 'Markdown')
+            bot.send_location(call.message.chat.id, 55.917147, 37.825622)
             bot.send_photo(call.message.chat.id, photo, reply_markup = keyboard)
         
         elif call.data == 'percent':
