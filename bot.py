@@ -331,7 +331,7 @@ def callback_inline(call):
             button = types.InlineKeyboardButton(text = "Физика", callback_data = 'physics')
             button1 = types.InlineKeyboardButton(text = "Английский язык", callback_data = 'english')
             button3 = types.InlineKeyboardButton(text = "Мат. анализ", callback_data = 'mat_analysis')
-            button4 = types.InlineKeyboardButton(text = "Дифференциальная математика", callback_data = 'dif_math')
+            button4 = types.InlineKeyboardButton(text = "Дифф. математика", callback_data = 'dif_math')
             button2 = types.InlineKeyboardButton(text = "⬅️ Назад в меню", callback_data = 'back_to_the_menu')
             keyboard.row(button, button1)
             keyboard.row(button3, button4) 
