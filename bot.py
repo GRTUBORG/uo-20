@@ -90,6 +90,13 @@ message_math = """
 └ https://bit.ly/2OLpbtb (youtube)
 """
 
+message_diff_math = """
+*Дифференциальная математика*
+
+• Курсы:
+└ https://bit.ly/2WKNnA7 (youtube)
+"""
+
 message_english = """
 *Английский язык*
 
@@ -324,9 +331,11 @@ def callback_inline(call):
             button = types.InlineKeyboardButton(text = "Физика", callback_data = 'physics')
             button1 = types.InlineKeyboardButton(text = "Английский язык", callback_data = 'english')
             button3 = types.InlineKeyboardButton(text = "Мат. анализ", callback_data = 'mat_analysis')
+            button4 = types.InlineKeyboardButton(text = "Дифференциальная математика", callback_data = 'dif_math')
             button2 = types.InlineKeyboardButton(text = "⬅️ Назад в меню", callback_data = 'back_to_the_menu')
             keyboard.row(button, button1)
-            keyboard.row(button3, button2) 
+            keyboard.row(button3, button4) 
+            keyboard.row(button2) 
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = '🧠 *Полезные материалы.*', parse_mode = 'Markdown', reply_markup = keyboard)
         
         elif call.data == 'physics':
@@ -341,6 +350,11 @@ def callback_inline(call):
             keyboard.row(button_page)
             keyboard.row(button)
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = message_english, parse_mode = 'Markdown', reply_markup = keyboard)
+        elif call.data == 'dif_math':
+            keyboard = types.InlineKeyboardMarkup()
+            button = types.InlineKeyboardButton(text = "⬅️ Назад в полезные материалы", callback_data = 'useful_materials')
+            keyboard.row(button)
+            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = message_diff_math, parse_mode = 'Markdown', reply_markup = keyboard)
         elif call.data == 'required_page':
             global page_list
             page_list = 1
