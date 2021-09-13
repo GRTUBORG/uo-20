@@ -248,6 +248,15 @@ def buildings(message):
     photo = open('./Buildings/buildings.png', 'rb')
     bot.send_photo(message.chat.id, photo, reply_markup = keyboard)
 
+@bot.message_handler(commands = ['money'])
+def money(message): 
+    money = random.randint(0, 1)
+    if money == 1:
+        message = 'Выпал *орёл*!'
+    else:
+        message = 'Выпала *решка*!'
+    bot.send_photo(message.chat.id, message, parse_mode = 'Markdown')
+    
 @bot.callback_query_handler(func = lambda call: True)
 def callback_inline(call):
     if call.message:
