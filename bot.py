@@ -252,10 +252,10 @@ def buildings(message):
 def money(message): 
     money = random.randint(0, 1)
     if money == 1:
-        message = 'Выпал *орёл*!'
+        msg = 'Выпал *орёл*!'
     else:
-        message = 'Выпала *решка*!'
-    bot.reply_to(message, message, parse_mode = 'Markdown')
+        msg = 'Выпала *решка*!'
+    bot.reply_to(message, msg, parse_mode = 'Markdown')
     
 @bot.callback_query_handler(func = lambda call: True)
 def callback_inline(call):
