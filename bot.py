@@ -255,7 +255,7 @@ def money(message):
         message = 'Выпал *орёл*!'
     else:
         message = 'Выпала *решка*!'
-    bot.send_photo(message.chat.id, message, parse_mode = 'Markdown')
+    bot.reply_to(message, message, parse_mode = 'Markdown')
     
 @bot.callback_query_handler(func = lambda call: True)
 def callback_inline(call):
