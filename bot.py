@@ -696,8 +696,8 @@ def text(message):
         keyboard.row(button)
         keyboard.row(button1)
         keyboard.row(button2)
-        keyboard.row(button3)
         keyboard.row(button4)
+        keyboard.row(button3)
         bot.send_message(message.chat.id, '📜 *Главное меню.*', parse_mode = 'Markdown', reply_markup = keyboard)
     #подобие ИИ
     elif re.search(r'\bпривет', message.text.lower()):
