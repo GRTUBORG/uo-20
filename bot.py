@@ -252,9 +252,9 @@ def buildings(message):
 def money(message): 
     money = random.randint(0, 1)
     if money == 1:
-        msg = 'Выпал *орёл*!'
+        msg = 'Поздравляю, можно *не идти* на пару, адыхай)'
     else:
-        msg = 'Выпала *решка*!'
+        msg = '*Пиздуй* давай, никаких тебе прогулов и KFC!'
     bot.reply_to(message, msg, parse_mode = 'Markdown')
     
 @bot.callback_query_handler(func = lambda call: True)
@@ -514,9 +514,9 @@ def callback_inline(call):
             keyboard.row(button)
             money = random.randint(0, 1)
             if money == 1:
-                msg = 'Выпал *орёл*!'
+                msg = 'Поздравляю, можно *не идти* на пару, адыхай)'
             else:
-                msg = 'Выпала *решка*!'
+                msg = '*Пиздуй* давай, никаких тебе прогулов и KFC!'
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = msg, parse_mode = 'Markdown', reply_markup = keyboard)
         
 @bot.message_handler(commands = ['schedule_next'])
