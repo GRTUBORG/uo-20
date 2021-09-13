@@ -538,7 +538,7 @@ def callback_inline(call):
             keyboard.row(button4)
             keyboard.row(button3)
             bot.delete_message(call.message.chat.id, call.message.message_id)
-            bot.delete_message(call.message.chat.id, call.message.message_i - 1)
+            bot.delete_message(call.message.chat.id, call.message.message_id - 1)
             bot.send_message(call.message.chat.id, text = '📜 *Главное меню.*', parse_mode = 'Markdown', reply_markup = keyboard)
             
         
