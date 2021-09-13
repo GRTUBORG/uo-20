@@ -253,9 +253,12 @@ def money(message):
     money = random.randint(0, 1)
     if money == 1:
         msg = 'Поздравляю, можно *не идти* на пару, адыхай)'
+        photo = open('./Buildings/не идём на пару.png', 'rb')
     else:
         msg = '*Пиздуй* давай, никаких тебе прогулов и KFC!'
+        photo = open('./Buildings/идём на пару.png', 'rb')
     bot.reply_to(message, msg, parse_mode = 'Markdown')
+    bot.send_photo(message.chat.id, photo, reply_markup = keyboard)
     
 @bot.callback_query_handler(func = lambda call: True)
 def callback_inline(call):
@@ -515,9 +518,12 @@ def callback_inline(call):
             money = random.randint(0, 1)
             if money == 1:
                 msg = 'Поздравляю, можно *не идти* на пару, адыхай)'
+                photo = open('./Buildings/не идём на пару.png', 'rb')
             else:
                 msg = '*Пиздуй* давай, никаких тебе прогулов и KFC!'
-            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = msg, parse_mode = 'Markdown', reply_markup = keyboard)
+                photo = open('./Buildings/идём на пару.png', 'rb')
+            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = msg, parse_mode = 'Markdown')
+            bot.send_photo(call.message.chat.id, photo, reply_markup = keyboard)
         
 @bot.message_handler(commands = ['schedule_next'])
 def schedule_next(message):
