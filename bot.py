@@ -484,9 +484,11 @@ def callback_inline(call):
             button1 = types.InlineKeyboardButton(text = "Рейтинг по курсу", callback_data = 'rating_by_course')
             button2 = types.InlineKeyboardButton(text = "Пароли", callback_data = 'passwords')
             button3 = types.InlineKeyboardButton(text = "О команде", callback_data = 'about_the_team')
+            button4 = types.InlineKeyboardButton(text = "Подбросить монетку", callback_data = 'money')
             keyboard.row(button)
             keyboard.row(button1)
             keyboard.row(button2)
+            keyboard.row(button4)
             keyboard.row(button3)
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = '📜 *Главное меню.*', parse_mode = 'Markdown', reply_markup = keyboard)
         
