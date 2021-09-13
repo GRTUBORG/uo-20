@@ -506,6 +506,16 @@ def callback_inline(call):
             keyboard.row(button1)
             bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = f'*Рейтинг по курсу, сортировка по* _фамилиям_. \n\n{layout}', parse_mode = 'Markdown', reply_markup = keyboard)
         
+        elif call.data == 'money':
+            keyboard = types.InlineKeyboardMarkup()
+            button = types.InlineKeyboardButton(text = "⬅️ Назад в меню", callback_data = 'back_to_the_menu')
+            keyboard.row(button)
+            money = random.randint(0, 1)
+            if money == 1:
+                msg = 'Выпал *орёл*!'
+            else:
+                msg = 'Выпала *решка*!'
+            bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = msg, parse_mode = 'Markdown', reply_markup = keyboard)
         
 @bot.message_handler(commands = ['schedule_next'])
 def schedule_next(message):
@@ -682,10 +692,12 @@ def text(message):
         button1 = types.InlineKeyboardButton(text = "Рейтинг по курсу", callback_data = 'rating_by_course')
         button2 = types.InlineKeyboardButton(text = "Пароли", callback_data = 'passwords')
         button3 = types.InlineKeyboardButton(text = "О команде", callback_data = 'about_the_team')
+        button4 = types.InlineKeyboardButton(text = "Подбросить монетку", callback_data = 'money')
         keyboard.row(button)
         keyboard.row(button1)
         keyboard.row(button2)
         keyboard.row(button3)
+        keyboard.row(button4)
         bot.send_message(message.chat.id, '📜 *Главное меню.*', parse_mode = 'Markdown', reply_markup = keyboard)
     #подобие ИИ
     elif re.search(r'\bпривет', message.text.lower()):
